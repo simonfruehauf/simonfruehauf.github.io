@@ -1,3 +1,76 @@
+/* Variables */
+:root {
+  --font-normal: 14px;
+  --font-small: 12px;
+  --font-smaller: 11px;
+  --font-smallest: 10px;
+
+  --h1: 1.3em;
+  --h2: 1.15em;
+  --h3: 1.15em;
+  --h4: 1.0em;
+  --h5: 1.0em;
+  --h6: 1.0em;
+
+  --h1-weight: 800;
+  --h2-weight: 750;
+  --h3-weight: 700;
+  --h4-weight: 650;
+  --h5-weight: 650;
+  --h6-weight: 600;
+
+  --h1-color: var(--text-normal);
+  --h2-color: var(--text-normal);
+  --h3-color: var(--text-normal);
+  --h4-color: var(--text-normal);
+  --h5-color: var(--text-normal);
+  --h6-color: var(--text-muted);
+
+  --normal-weight: 300; 
+  --bold-weight: 800; 
+  --line-width: 40rem; 
+  --line-height: 1.5;
+  --max-width: 88%; 
+  --nested-padding: 3.5%;
+  --icon-muted: 0.5;
+  --border-width: 1px;
+  --border-width-alt: 1px;
+
+  --radius-s: 1px;
+  --radius-m: 5px;
+  --radius-l: 10px;
+
+  --input-height: 32px;
+  --header-height: 40px;
+
+  --yellow: #e5b567;
+  --green: #b4d273;
+  --orange: #e87d3e;
+  --purple: #9e86c8;
+  --pink: #b05279;
+  --blue: #6c99bb;
+}
+
+/* Desktop font sizes */
+body {
+  --font-adaptive-normal: var(--font-normal);
+  --font-adaptive-small: var(--font-small);
+  --font-adaptive-smaller: var(--font-smaller);
+  --font-adaptive-smallest: var(--font-smallest);
+  --line-width-adaptive: var(--line-width);
+}
+
+/* Phone font sizes */
+@media (max-width: 400pt) {
+  .is-mobile {
+    --font-adaptive-small: calc(var(--font-small) + 2px);
+    --font-adaptive-smaller: calc(var(--font-smaller) + 2px);
+    --font-adaptive-smallest: calc(var(--font-smallest) + 2px);
+    --max-width: 88%;
+  }
+}
+
+
 @font-face {
   font-family: ProximaNova;
   src: url(https://d25purrcgqtc5w.cloudfront.net/dist/fonts/proximanova/302D42_1_0.eot);
@@ -24,13 +97,40 @@ html {
   font-family: "ProximaNova", "Proxima Nova", serif;
 }
 
-
-body {
-  background-color: powderblue;
-}
+/* Headers */
 h1 {
-  color: blue;
+  font-size: var(--h1);
+  color: var(--h1-color);
+  font-weight: var(--h1-weight);
+  letter-spacing: -0.02em;
 }
-p {
-  color: red;
+h2 {
+  font-size: var(--h2);
+  color: var(--h2-color);
+  font-weight: var(--h2-weight);
+  letter-spacing: -0.02em;
+}
+h3 {
+  font-size: var(--h3);
+  color: var(--h3-color);
+  font-weight: var(--h3-weight);
+  letter-spacing: -0.02em;
+}
+h4 {
+  font-size: var(--h4);
+  color: var(--h4-color);
+  font-weight: var(--h4-weight);
+  letter-spacing: -0.02em;
+}
+h5 {
+  font-size: var(--h5);
+  color: var(--h5-color);
+  font-weight: var(--h5-weight);
+  letter-spacing: -0.02em;
+}
+h6 {
+  font-size: var(--h6);
+  color: var(--h6-color);
+  font-weight: var(--h6-weight);
+  letter-spacing: -0.02em;
 }
