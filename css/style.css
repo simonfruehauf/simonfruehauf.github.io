@@ -58,12 +58,14 @@ body {
   --font-adaptive-smaller: var(--font-smaller);
   --font-adaptive-smallest: var(--font-smallest);
   --line-width-adaptive: var(--line-width);
+  padding-top: 2.0em; /* Navbar adjustment*/
+
 }
 
 /* Phone font sizes */
-@media (max-width: 400pt) {
+@media (max-width: 500pt) {
   .is-mobile {
-    --font-adaptive-small: calc(var(--font-small) + 2px);
+    --font-adaptive-small: calc(var(--font-small) + 10px);
     --font-adaptive-smaller: calc(var(--font-smaller) + 2px);
     --font-adaptive-smallest: calc(var(--font-smallest) + 2px);
     --max-width: 88%;
@@ -133,4 +135,21 @@ h6 {
   color: var(--h6-color);
   font-weight: var(--h6-weight);
   letter-spacing: -0.02em;
+}
+
+div.full {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+div.right{
+  position: relative;
+  width: 50%;
+  float: right;
+}
+div.left{
+  position: relative;
+  width: 50%;
+  float: left;
 }
