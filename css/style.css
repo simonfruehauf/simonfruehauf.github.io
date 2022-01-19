@@ -50,7 +50,10 @@
   --pink: #b05279;
   --blue: #6c99bb;
 }
-
+html {
+  scroll-behavior: smooth;
+  font-family: "ProximaNova", "Proxima Nova", serif;
+}
 /* Desktop font sizes */
 body {
   --font-adaptive-normal: var(--font-normal);
@@ -95,9 +98,8 @@ body {
   font-weight: 700;
   font-style: normal
 }
-html {
-  font-family: "ProximaNova", "Proxima Nova", serif;
-}
+
+
 
 /* Headers */
 h1 {
@@ -152,4 +154,41 @@ div.left{
   position: relative;
   width: 50%;
   float: left;
+}
+
+#navbar {
+    z-index: 50;
+    overflow: hidden;
+    background-color: #333;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+  }
+
+  /* Navbar links */
+#navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 0.7em 0.7em 0.7em 0.7em;
+    font-size: 1.2em;
+    text-decoration: none;
+  }
+  
+.skip-nav-link {
+  background-color: #4f4f4f;
+  padding:  0.5rem 1.5rem;
+  border-radius: 0 0 0.25rem 0.25rem;
+  position: absolute;
+  transform: translateY(-220%);
+  transition: transform 325ms ease-in;
+  z-index: 51;
+  color: #ffffff;
+}
+
+.skip-nav-link:focus{
+  transform: translateY(-100%);
 }
