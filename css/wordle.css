@@ -1,0 +1,154 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+html{
+  font-family: 'Varela Round', sans-serif;
+}
+
+body {
+  background-color: rgb(27, 27, 27);
+}
+.grid {
+  position: relative;
+  margin: auto;
+  width: fit-content;
+  border-radius: 0.3em;
+  
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+.grid-item{
+  display: inline-block;
+  border-radius: 0.1em;
+  padding: 0.1em 0.1em 0.1em 0.1em ;
+  background-color: rgb(170, 170, 170);
+  
+  width: 2.5vw;
+  height: 3.33vw;
+  margin: 0.1em 0.05em 0.1em 0.05em ;
+  font-size: 2.3vw;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.5;
+  text-transform: uppercase;
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+.grid-item[data-status="active"]{
+  background-color: rgb(170, 170, 170);
+}
+.grid-item[data-status="inactive"]{
+  background-color: rgb(110, 110, 110);
+}
+
+.grid-item[data-status="spoton"]{
+  /* correct letter and space*/
+  background-color: rgb(130, 241, 97);
+}
+.grid-item[data-status="almost"]{
+  /* correct letter, but not space*/
+  background-color: rgb(236, 220, 97);
+}
+.grid-item[data-status="wrong"]{
+  /* correct letter, but not space*/
+  background-color: rgb(179, 115, 115);
+}
+
+.keyboard{
+
+  position: relative;
+  margin: auto;
+  width: fit-content;
+  
+  transform: translate(0%,10%);
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+.row{
+  overflow:hidden;
+  text-align: center;
+  align-content: center;
+  padding: 0.1em;  
+}
+.keyboard-button {
+  font-family: 'Varela Round', sans-serif;
+  display: inline;
+  float: none;
+  font-size: 1.4vw;
+  cursor:pointer;
+  width: 2.5vw;
+  height: 3.5vw;
+  margin: 0.1em;
+  padding: 0.05em;
+  vertical-align: middle;
+  text-align: center;
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+  background-color: whitesmoke;
+  border-radius:  0.3em;
+  border:hidden;
+  box-shadow: 0.2em 0.1em #888888;
+}
+
+.keyboard-button:active {
+
+  background-color:#d3d3d3;
+
+  transform: translateY(5%);
+  box-shadow: 0.2em 0.0em #888888 !important;
+}
+.keyboard-button[data-status="not"]{
+  /* correct letter and space*/
+  background-color: rgb(133, 133, 133);
+  
+}
+.keyboard-button[data-status="spoton"]{
+  /* correct letter and space*/
+  background-color: rgb(130, 241, 97);
+}
+.keyboard-button[data-status="almost"]{
+  /* correct letter, but not space*/
+  background-color: rgb(236, 220, 97);
+}
+
+.keyboard-button[data-key="enter"]
+{
+  width: 6.5vw;
+  height: 3.5vw;
+  margin-left: 0.2em;
+  padding: 0.1em;
+  background-color: rgb(187, 255, 232);
+}
+.keyboard-button[data-key="backspace"]
+{
+  width: 3.5vw;
+  height:  3.5vw;
+  margin-left: 0.2em;
+  padding: 0.05em;
+  background-color: rgb(187, 255, 232);
+}
+
+.material-icons{
+  font-size: 2.0vw !important;
+}
+.text {
+  
+  position: relative;
+  margin: auto;
+  width: fit-content;
+}
+
+h1{
+  font-size: 2vw;
+  color: #d3d3d3;
+}
