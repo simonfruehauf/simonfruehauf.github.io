@@ -4,7 +4,24 @@
 html{
   font-family: 'Varela Round', sans-serif;
 }
+@media (orientation : landscape) {    
+  :root {
+    --grid-height: 2.5vw;
+    --grid-width: calc(var(--grid-height)/0.75);
+    --fontsize:  2.3vw;
+    
+  }
 
+}
+@media (orientation: portrait) {    
+  :root {
+    --grid-height: 8.5vw;
+    --grid-width: calc(var(--grid-height)/0.75);
+    --fontsize:  7.3vw;
+
+  }
+
+}
 body {
   background-color: rgb(27, 27, 27);
 }
@@ -26,10 +43,10 @@ body {
   padding: 0.1em 0.1em 0.1em 0.1em ;
   background-color: rgb(170, 170, 170);
   
-  width: 2.5vw;
-  height: 3.33vw;
+  width: var(--grid-height);
+  height: var(--grid-width);
   margin: 0.1em 0.05em 0.1em 0.05em ;
-  font-size: 2.3vw;
+  font-size: var(--fontsize);
   text-align: center;
   vertical-align: middle;
   line-height: 1.5;
@@ -45,7 +62,6 @@ body {
 .grid-item[data-status="inactive"]{
   background-color: rgb(110, 110, 110);
 }
-
 .grid-item[data-status="spoton"]{
   /* correct letter and space*/
   background-color: rgb(130, 241, 97);
@@ -60,11 +76,9 @@ body {
 }
 
 .keyboard{
-
   position: relative;
   margin: auto;
   width: fit-content;
-  
   transform: translate(0%,10%);
   -webkit-user-select: none; /* Safari */        
   -moz-user-select: none; /* Firefox */
@@ -82,10 +96,10 @@ body {
   font-family: 'Varela Round', sans-serif;
   display: inline;
   float: none;
-  font-size: 1.4vw;
+  font-size: calc(var(--fontsize)/2);
   cursor:pointer;
-  width: 2.5vw;
-  height: 3.5vw;
+  width: var(--grid-height);
+  height: var(--grid-width);
   margin: 0.1em;
   padding: 0.05em;
   vertical-align: middle;
@@ -94,7 +108,7 @@ body {
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
   user-select: none; /* Standard */
-  background-color: whitesmoke;
+  background-color: rgb(209, 209, 209);
   border-radius:  0.3em;
   border:hidden;
   box-shadow: 0.2em 0.1em #888888;
@@ -102,8 +116,7 @@ body {
 
 .keyboard-button:active {
 
-  background-color:#d3d3d3;
-
+  background-color:#aaaaaa;
   transform: translateY(5%);
   box-shadow: 0.2em 0.0em #888888 !important;
 }
@@ -123,32 +136,31 @@ body {
 
 .keyboard-button[data-key="enter"]
 {
-  width: 6.5vw;
-  height: 3.5vw;
+  width: calc(var(--grid-height)*2.3);
+  height: var(--grid-width);
   margin-left: 0.2em;
   padding: 0.1em;
-  background-color: rgb(187, 255, 232);
+  background-color: rgb(255, 255, 255);
 }
 .keyboard-button[data-key="backspace"]
 {
-  width: 3.5vw;
-  height:  3.5vw;
+  width: calc(var(--grid-width)*0.7);
+  height: var(--grid-width);
   margin-left: 0.2em;
   padding: 0.05em;
-  background-color: rgb(187, 255, 232);
+  background-color: rgb(255, 255, 255);
 }
 
 .material-icons{
-  font-size: 2.0vw !important;
+  font-size: calc(var(--fontsize)*0.6) !important;
 }
 .text {
-  
   position: relative;
   margin: auto;
   width: fit-content;
 }
 
 h1{
-  font-size: 2vw;
+  font-size: var(--fontsize);
   color: #d3d3d3;
 }
