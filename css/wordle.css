@@ -23,14 +23,14 @@ html{
   --button-color: rgb(238, 237, 224);
   --button-font-color: rgb(31, 31, 31);
   
-  --button-font-color-almost: rgb(236, 220, 97);
-  --button-font-color-spoton: rgb(130, 241, 97);
+  --button-font-color-almost: rgb(31,31,31);
+  --button-font-color-spoton: rgb(31,31,31);
 
   --grid-color: rgb(31, 31, 31);
   --grid-color-active: rgb(210,210,210);
   --grid-color-inactive: rgb(110, 110, 110);
   --grid-color-spoton: rgb(130, 241, 97);
-  --grid-color-almost: rgb(168, 154, 44);
+  --grid-color-almost: rgb(236, 220, 97);
   --grid-color-font: rgb(0, 0, 0);
 }
 
