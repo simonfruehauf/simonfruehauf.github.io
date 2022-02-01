@@ -1,5 +1,4 @@
 
-
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 html{
   font-family: 'Varela Round', sans-serif;
@@ -14,7 +13,7 @@ html{
 }
 @media (orientation: portrait) {    
   :root {
-    --grid-height: 8.5vw;
+    --grid-height: 7.5vw;
     --grid-width: calc(var(--grid-height)/0.75);
     --fontsize:  7.3vw;
   }
@@ -23,11 +22,12 @@ html{
 :root{
   --button-color: rgb(238, 237, 224);
   --button-font-color: rgb(31, 31, 31);
-  --button-font-color-almost: rgb(31, 31, 31);
-  --button-font-color-spoton: rgb(31, 31, 31);
+  
+  --button-font-color-almost: rgb(236, 220, 97);
+  --button-font-color-spoton: rgb(130, 241, 97);
 
-  --grid-color: rgb(170, 170, 170);
-  --grid-color-active: rgb(170, 170, 170);
+  --grid-color: rgb(31, 31, 31);
+  --grid-color-active: rgb(210,210,210);
   --grid-color-inactive: rgb(110, 110, 110);
   --grid-color-spoton: rgb(130, 241, 97);
   --grid-color-almost: rgb(168, 154, 44);
@@ -180,6 +180,7 @@ body {
 .material-icons{
   font-size: calc(var(--fontsize)*0.6) !important;
 }
+
 .text {
   position: relative;
   margin: auto;
@@ -196,17 +197,16 @@ h1{
   -moz-appearance: button;
   appearance: button;
   text-decoration: none;
-  color: initial;
   font-family: 'Varela Round', sans-serif;
   position: absolute;
   left: 0%;
-  bottom: 0%;
+  top: 0%;
   float: left;
   font-size: calc(var(--fontsize)/2);
   cursor:pointer;
   width: calc(var(--grid-width)*1.5);
-  height: calc(var(--grid-height)/1.5);
-  margin: 1em;
+  height: calc(var(--grid-height)/1.8);
+  margin: 0.2em;
   padding: 0.1em;
   vertical-align: middle;
   text-align: center;
@@ -214,36 +214,56 @@ h1{
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
   user-select: none; /* Standard */
-  background-color: rgb(173, 173, 173);
-  border-radius:  0.3em;
-  border:hidden;
+  background-color: var(--button-color);
+  color: var(--button-font-color);
+  border-radius:  0.6em;
   box-shadow: 0.2em 0.1em #888888;
 }
+
+.back-button:active {
+  background-color:#aaaaaa;
+  transform: translateY(5%);
+  box-shadow: 0.2em 0.0em #888888 !important;
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
 #darkmode-button {
   -webkit-appearance: button;
   -moz-appearance: button;
   appearance: button;
   text-decoration: none;
-  color: initial;
   font-family: 'Varela Round', sans-serif;
   position: absolute;
   right: 0%;
-  bottom: 0%;
+  top: 0%;
   float: left;
   font-size: calc(var(--fontsize)/2);
   cursor:pointer;
-  width: calc(var(--grid-width)*1.5);
-  height: calc(var(--grid-height)/1.5);
-  margin: 1em;
-  padding: 0.1em;
+  width: fit-content;
+  height:  fit-content;
+  margin: 0.2em;
+  padding: 0.2em;
   vertical-align: middle;
   text-align: center;
   -webkit-user-select: none; /* Safari */        
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
   user-select: none; /* Standard */
-  background-color: rgb(173, 173, 173);
-  border-radius:  0.3em;
-  border:hidden;
+  background-color: var(--button-color);
+  color: var(--button-font-color);
+  border-radius:  100%;
   box-shadow: 0.2em 0.1em #888888;
+}
+
+#darkmode-button:active {
+  background-color:#aaaaaa;
+  transform: translateY(5%);
+  box-shadow: 0.2em 0.0em #888888 !important;
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 }
