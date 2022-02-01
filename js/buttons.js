@@ -112,8 +112,15 @@ function buttonPress(value)
       
       if (currentletter != 0)
       {
-        currentletter--;
+        if (currentletter == 4)
+        {
+
+        }
+        else{
+          currentletter--;
+        }
       }
+
       title.innerHTML = 'Wordle!'
 
     }
@@ -172,13 +179,11 @@ function buttonPress(value)
               }
       }
       else{
-        title.innerHTML = 'Sorry, we don\'t know that word'
-
+        title.innerHTML = 'Sorry, we don\'t know that word...'
       }
-      
     }
     else {
-      title.innerHTML = 'Letters are still missing...'
+      title.innerHTML = 'Letters are still missing!'
       //letters missing
     }
   }
@@ -190,6 +195,7 @@ function buttonPress(value)
     if (currentletter < 4)
     {
       currentletter++
+      console.log("added 1");
     }
     
   }
