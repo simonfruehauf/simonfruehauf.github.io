@@ -1,16 +1,13 @@
 /* Variables */
+
 :root {
-  --font-normal: 14px;
-  --font-small: 12px;
-  --font-smaller: 11px;
-  --font-smallest: 10px;
   
   --h1: 1.3em;
   --h2: 1.15em;
   --h3: 1.15em;
   --h4: 1.0em;
   --h5: 1.0em;
-  --h6: 1.0em;
+  --h6: 0.9em;
   
   --h1-weight: 800;
   --h2-weight: 750;
@@ -18,13 +15,6 @@
   --h4-weight: 650;
   --h5-weight: 650;
   --h6-weight: 600;
-  
-  --h1-color: var(--text-normal);
-  --h2-color: var(--text-normal);
-  --h3-color: var(--text-normal);
-  --h4-color: var(--text-normal);
-  --h5-color: var(--text-normal);
-  --h6-color: var(--text-muted);
   
   --normal-weight: 300; 
   --bold-weight: 800; 
@@ -50,30 +40,90 @@
   --pink: #b05279;
   --blue: #6c99bb;
 }
+
+
+@media (orientation : landscape) {    
+  :root {
+    --fontsize:  1.6vw;
+    --navheight: 2.5vw;
+    }
+}
+
+
+@media (orientation: portrait) {    
+  :root {
+    --grid-height: 7.5vw;
+    --grid-width: calc(var(--grid-height)/0.75);
+    --fontsize:  4.0vw;
+    --navheight: 7.0vw;
+  }
+  .mob-navbar{
+    font-size: var(--fontsize);
+  }
+  .mob-navbar a:not(:last-child){
+    display: none !important;
+  }
+  .mob-navbar a.icon {
+    float: right;
+    display: block;
+  }
+
+  .mob-navbar.responsive {
+    overflow: auto;
+    height: fit-content !important;
+    font-size: var(--fontsize);
+  }
+  .mob-navbar.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    overflow: auto !important;
+  }
+  .mob-navbar.responsive a:not(:last-child) {
+    float: none !important;
+    display: block !important;
+    text-align: left !important;
+    padding: 0.75em;
+  }
+  .fa-twitter::after {
+    content: '@SimonFruehauf';
+    font-family: "ProximaNova", "Proxima Nova", serif;
+    font-size: var(--h6) !important;
+  }
+  .fa-github::after {
+    content: 'github.com/simonfruehauf';
+    font-family: "ProximaNova", "Proxima Nova", serif;
+    font-size: var(--h6) !important;
+    padding-left: 2.0vw !important;
+  }
+
+  .fa-linkedin::after {
+    content: 'linkedin.com/in/simon-fruehauf/';
+    font-family: "ProximaNova", "Proxima Nova", serif;
+    font-size: var(--h6) !important;
+    padding-left: 2.0vw !important;
+  }
+  .steam-embed{
+    height: 15em !important;
+  }
+}
+
+
+
 html {
   scroll-behavior: smooth;
   font-family: "ProximaNova", "Proxima Nova", serif;
 }
-/* Desktop font sizes */
+
 body {
   --font-adaptive-normal: var(--font-normal);
   --font-adaptive-small: var(--font-small);
   --font-adaptive-smaller: var(--font-smaller);
   --font-adaptive-smallest: var(--font-smallest);
   --line-width-adaptive: var(--line-width);
-  padding-top: 2.0em; /* Navbar adjustment*/
-  
+  padding-top: var(--navheight); /* Navbar adjustment*/
 }
 
-/* Phone font sizes */
-@media (max-width: 500pt) {
-  .is-mobile {
-    --font-adaptive-small: calc(var(--font-small) + 10px);
-    --font-adaptive-smaller: calc(var(--font-smaller) + 2px);
-    --font-adaptive-smallest: calc(var(--font-smallest) + 2px);
-    --max-width: 88%;
-  }
-}
 
 
 @font-face {
@@ -158,6 +208,7 @@ div.left{
 
 #navbar {
   z-index: 50;
+  height: var(--navheight);
   overflow: hidden;
   border-radius: 0 0 0.15em 0.15em !important;
   background-color: #333;
@@ -167,144 +218,43 @@ div.left{
   left: 0;
   border-radius: 0 0 0em 0em;
 }
-
-
-/* Navbar links */
-#navbar a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  background-color: #444;
-  padding: 0.7em 0.7em 0.7em 0.7em;
-  font-size: 1.2em;
-  text-decoration: none; 
-  transition: border-radius 125ms ease-in;
-  margin: 0em 0.0em 0.4em .4em;
-  border-radius: 0 0 0.2em 0.2em;
-  box-shadow: 0.2em 0.1em #888888;
-}
-
-#navbar a:hover
-{
-  transform: translateY(-10%);
-  color:#ffffff;  
-  /*font-weight: bold;*/
-  background-color: #444;
-  box-shadow: 0.2em 0.4em #888888;
-
-}
-#navbar a:focus
-{
-  transform: translateY(-10%);
-  color:#f2f2f2;
-  /*font-weight: bold;*/
-  background-color: #444;
-}
-
-.nav-current{
-  padding: 0.7em 0.7em 0.9em 0.7em !important;
-  background-color: rgb(31, 31, 31) !important;
-  margin: 0em 0.0em 0.0em 0.4em !important;;
-  color:white !important;
-
-}
-
-.nav-current:hover{
-  padding: 0.7em 0.7em 0.9em 0.7em !important;
-  background-color: rgb(46, 46, 46)  !important;
-  margin: 0em 0.0em 0.0em 0.4em !important;;
-  color:white !important;
-
-}
-
-.socials {  
-  z-index: 50;
-  overflow: hidden;
-  width: 50%;
-  position: fixed;
-  top: 0;
-  right: 0;
-  border-radius: 0 0 1em 1em;
-  padding-right: 1em;
-  padding-top: 0.3em;
-}
-
-.socials a {
-  float:right;
-  flex: content;
-  color: inherit;
-  text-decoration: none;
-  transform: translateY(-13%);
-
-}
-
-.socials a:hover {
-  transform: translateY(-23%);
-}
-
-.socials i{
-  padding:1em 0.75em;
-  margin:0.1em;
-  transition: border-radius 125ms ease-in;
-}
-
-.socials i:hover{
-  border-radius: 0 0 1em 1em;
-}
-
-.fa-twitter {
-  color: white;
-  background-color: #0085b6;
-}
-.fa-twitter:hover {
-  background-color: #00aced;
-}
-
-.fa-linkedin {
-  color: white;
-  background-color: #0077b5;
-}
-.fa-linkedin:hover {
-  background-color: #008cd8;
-}
-
-.fa-github {
-  color: white;
-  background-color: #7c3399;
-}
-.fa-github:hover {
-  background-color: #ad5cce;
-}
-.fa-envelope {
-  color: white;
-  background-color: #0077b5;
-}
-.fa-envelope:hover {
-  background-color: #008cd8;
-}
-
-#wrapper {
+.wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.75vw;
+  margin-bottom: 0.75vw;
+  width: 80%;
+  padding: 0.5vw;
   border-radius: 1em;
-  background-color:powderblue;
+  background-color:#888888;
+}
+#wrapper-2 {
+  background-color:#292e39 !important;
+  color: whitesmoke;
 }
 
-.skip-nav-link {
-  background-color: #4f4f4f;
-  padding:  0.5rem 1.5rem;
-  border-radius: 0 0 0.25rem 0.25rem;
-  position: absolute;
-  transform: translateY(-220%);
-  transition: transform 325ms ease-in;
-  z-index: 51;
-  color: #ffffff;
+.steam-embed{
+  border-radius: 0.25em;
+  width:35vw;
+  height:15vw;
+  border:none;
 }
 
-.skip-nav-link:focus{
-  transform: translateY(-100%);
+.youtube-embed{
+  border-radius: 0.55rem;
+  width:45vw;
+  height:25vw;
+  border:none;
+}
+.itch-embed{
+  border-radius: 0.25em;
+  width:35vw;
+  height:25vw;
+  border:none;
+  transition: 200ms;
 }
 
-/* Style the button that is used to open and close the collapsible content */
+
 .collapsible {
   background-color: #eee;
   color: #444;
@@ -317,20 +267,13 @@ div.left{
   font-size: 15px;
 }
 
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active, .collapsible:hover {
   background-color: #ccc;
 }
 
-/* Style the collapsible content. Note: hidden by default */
-.content {
-  padding: 0 18px;
-  display: none;
-  overflow: hidden;
-  background-color: #f1f1f1;
-}
 .row {
   padding: 0.1em 0.1em 0.1em 0.5em;
+  width: 80%;
 }
 .column {
   float: left;
@@ -344,7 +287,6 @@ div.left{
   display: table;
   clear: both;
 }
-
 
 .sasbutton {
   border:  none;
@@ -423,6 +365,15 @@ div.left{
   text-transform: unset;
   background: #75b022;
 }
+.cool-embed:hover{
+  transform: translateX(-35%);
+  right: 0;
+  margin:auto;
+  border-radius: 0.65em;
+  width:75vw;
+  height:25vw;
+  border:none;
+}
 
 #pp-image {
   width:80%;
@@ -430,8 +381,75 @@ div.left{
 }
 
 .copyright {
-  left: 0;
   bottom: 0;
   width: 100%;
   text-align: center;
+}
+
+.mob-navbar {
+  background-color: #333;
+  position: absolute;
+  top: 0px;
+  height: fit-content !important;
+  width: 100%;
+}
+
+.mob-navbar a {
+  margin: auto;
+  float: left;
+  color: #f2f2f2;
+  margin: auto;
+  text-align: center;
+  padding: 1.4vw 1.4vw;
+  text-decoration: none;
+  font-size: var(--h1);
+  height: fit-content !important;
+}
+
+/* Change the color of links on hover */
+.mob-navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.mob-navbar .icon {
+  display: none;
+}
+#social {  
+  padding: unset;
+  margin: auto;
+  float: right;
+  color: #f2f2f2;
+  margin: auto;
+  text-align: center;
+  text-decoration: none;
+}
+.fa-github, .fa-twitter, .fa-linkedin{
+  padding-top: 1.6em !important;
+  padding: 1em;
+  margin: 0.1em;
+  color: white;
+  border-radius: 0.1em;
+  transition: 400ms !important;
+}
+.fa-twitter {
+  background-color: #0085b6;
+  transition: 500ms;
+}
+
+.fa-twitter:hover {
+  background-color: #00aced;
+}
+.fa-linkedin {
+  background-color: #0077b5;
+}
+.fa-linkedin:hover {
+  background-color: #008cd8;
+}
+.fa-github {
+  background-color: #7c3399;
+}
+.fa-github:hover {
+  background-color: #ad5cce;
 }
