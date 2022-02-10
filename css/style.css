@@ -30,22 +30,15 @@
   --radius-m: 5px;
   --radius-l: 10px;
   
-  --input-height: 32px;
-  --header-height: 40px;
-  
-  --yellow: #e5b567;
-  --green: #b4d273;
-  --orange: #e87d3e;
-  --purple: #9e86c8;
-  --pink: #b05279;
-  --blue: #6c99bb;
+
 }
 
 
 @media (orientation : landscape) {    
   :root {
-    --fontsize:  1.6vw;
+    --fontsize:  1.3vw;
     --navheight: 2.5vw;
+    --navheight: 4.0vw;
     }
 }
 
@@ -55,7 +48,7 @@
     --grid-height: 7.5vw;
     --grid-width: calc(var(--grid-height)/0.75);
     --fontsize:  4.0vw;
-    --navheight: 7.0vw;
+    --navheight: 5.5vw;
   }
   .mob-navbar{
     font-size: var(--fontsize);
@@ -391,18 +384,16 @@ div.left{
   position: absolute;
   top: 0px;
   height: fit-content !important;
-  width: 100%;
+  width: 110%;
 }
 
 .mob-navbar a {
   margin: auto;
-  float: left;
   color: #f2f2f2;
-  margin: auto;
   text-align: center;
   padding: 1.4vw 1.4vw;
   text-decoration: none;
-  font-size: var(--h1);
+  font-size: var(--fontsize);
   height: fit-content !important;
 }
 
@@ -417,18 +408,12 @@ div.left{
   display: none;
 }
 #social {  
-  padding: unset;
-  margin: auto;
-  float: right;
   color: #f2f2f2;
-  margin: auto;
-  text-align: center;
   text-decoration: none;
 }
 .fa-github, .fa-twitter, .fa-linkedin{
-  padding-top: 1.6em !important;
-  padding: 1em;
-  margin: 0.1em;
+  padding: var(--fontsize);
+  width: fit-content;
   color: white;
   border-radius: 0.1em;
   transition: 400ms !important;
