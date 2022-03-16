@@ -14,6 +14,7 @@ function darkmode() {
         darkmodeicon.innerHTML = "dark_mode";
         
         document.documentElement.style.setProperty('--button-color', "rgb(31, 31, 31)");
+        document.documentElement.style.setProperty('--gridcontainer-color', "rgb(38, 28, 18, 0.35)");
         document.documentElement.style.setProperty('--button-font-color', "rgb(238, 237, 224)");
         document.documentElement.style.setProperty('--button-font-color-almost', "rgb(31, 31, 31)");
         document.documentElement.style.setProperty('--button-font-color-spoton', "rgb(31, 31, 31)");
@@ -32,6 +33,7 @@ function darkmode() {
     else {
 
         darkmodeicon.innerHTML = "light_mode";
+        document.documentElement.style.setProperty('--gridcontainer-color', "rgb(238, 228, 218, 0.35)");
 
         document.documentElement.style.setProperty('--button-color', "rgb(238, 237, 224)");
         document.documentElement.style.setProperty('--button-font-color', "rgb(31, 31, 31)");
