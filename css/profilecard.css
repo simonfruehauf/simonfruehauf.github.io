@@ -1,0 +1,90 @@
+.profile-container
+{
+    margin: auto;
+    margin-left: 2em;
+    display: inline-flex;
+}
+
+
+.border
+{
+  height: 390px;
+  width: 290px;
+  background: transparent;
+  border-radius: 10px;
+  transition: border 1s;
+  position: relative;    
+}
+.border:hover {
+    border: 1px solid white;
+}
+
+.card
+{
+  height: 400px;
+  width: 300px;
+  background: grey;
+  border-radius: 10px;
+  transition: background 0.8s;
+  overflow: hidden;
+  background: black;
+  box-shadow: 2px 3px 10px #0000005d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.card0
+{
+  background: url('../images/pp2.png') center center no-repeat;
+  background-size: 300px;
+  filter: grayscale(0%);
+}
+.card0:hover
+{
+    background: url('../images/pp2.png') left center no-repeat;
+    background-size: 600px;
+    filter: grayscale(100%);
+}
+
+.card0:hover h2{
+    background-color: #ffffff ;
+    transition: background-color 1s;
+
+
+}
+.card0:hover #facard{
+    opacity: 1;
+    text-shadow: 1px 1x #b4b4b4;
+}
+h2
+{ 
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: rgb(0, 0, 0);
+  margin: 20px;
+  width: fit-content;
+  padding: 0.3em;
+  background-color: #ffffffa9 ;
+  border-radius: 0.3em;
+  transition: background-color 1s;
+
+}
+#facard
+{
+  color: rgb(0, 0, 0);
+  opacity: 0;
+  transition: opacity 1s;
+}
+.icons
+{
+  position: absolute;
+  fill: rgb(0, 0, 0);
+  color:rgb(0, 0, 0)f;
+  height: 130px;
+  top: 226px;
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}

@@ -4,7 +4,7 @@
 
 .slides {
     margin: auto;
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
     align-items: stretch;
     overflow: hidden;
@@ -12,6 +12,7 @@
     max-width: 100px;
     width: calc(100% - 100px);
     height: 400px;
+    padding: 100px;
 }
 
 .option {
@@ -30,6 +31,10 @@
     cursor: pointer;
     transition: all 0.25s;
     display: inline-flex;
+    box-shadow: 2px 3px 20px #0000005d;
+
+    
+
 }
 
 .active {
@@ -38,7 +43,7 @@
     margin: 0.3em;
     margin-top: 0;
     margin-bottom: 0;
-    border-radius: 30px;
+    border-radius: 10px;
     transition: all 0.25s;
 }
 

@@ -30,8 +30,6 @@
 @media (orientation: landscape) {
      :root {
         --fontsize: 1.3vw;
-        --navheight: 2.5vw;
-        --navheight: 4.0vw;
     }
 }
 
@@ -40,51 +38,6 @@
         --grid-height: 7.5vw;
         --grid-width: calc(var(--grid-height)/0.75);
         --fontsize: 4.0vw;
-        --navheight: 5.5vw;
-    }
-    .mob-navbar {
-        font-size: var(--fontsize);
-    }
-    .mob-navbar a:not(:last-child) {
-        display: none !important;
-    }
-    .mob-navbar a.icon {
-        float: right;
-        display: block;
-    }
-    .mob-navbar.responsive {
-        overflow: auto;
-        height: fit-content !important;
-        font-size: var(--fontsize);
-    }
-    .mob-navbar.responsive a.icon {
-        position: absolute;
-        right: 0;
-        top: 0;
-        overflow: auto !important;
-    }
-    .mob-navbar.responsive a:not(:last-child) {
-        float: none !important;
-        display: block !important;
-        text-align: left !important;
-        padding: 0.75em;
-    }
-    .fa-twitter::after {
-        content: '@SimonFruehauf';
-        font-family: "ProximaNova", "Proxima Nova", serif;
-        font-size: var(--h6) !important;
-    }
-    .fa-github::after {
-        content: 'github.com/simonfruehauf';
-        font-family: "ProximaNova", "Proxima Nova", serif;
-        font-size: var(--h6) !important;
-        padding-left: 2.0vw !important;
-    }
-    .fa-linkedin::after {
-        content: 'linkedin.com/in/simon-fruehauf/';
-        font-family: "ProximaNova", "Proxima Nova", serif;
-        font-size: var(--h6) !important;
-        padding-left: 2.0vw !important;
     }
     .steam-embed {
         height: 15em !important;
@@ -102,7 +55,6 @@ body {
     --font-adaptive-smaller: var(--font-smaller);
     --font-adaptive-smallest: var(--font-smallest);
     --line-width-adaptive: var(--line-width);
-    padding-top: var(--navheight);
     /* Navbar adjustment*/
 }
 
@@ -191,19 +143,6 @@ div.left {
     position: relative;
     width: 50%;
     float: left;
-}
-
-#navbar {
-    z-index: 50;
-    height: var(--navheight);
-    overflow: hidden;
-    border-radius: 0 0 0.15em 0.15em !important;
-    background-color: #333;
-    width: 99.8%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    border-radius: 0 0 0em 0em;
 }
 
 .wrapper {
@@ -378,75 +317,7 @@ div.left {
     text-align: center;
 }
 
-.mob-navbar {
-    background-color: #333;
-    position: absolute;
-    top: 0px;
-    height: fit-content !important;
-    width: 110%;
-}
-
-.mob-navbar a {
-    margin: auto;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 1.4vw 1.4vw;
-    text-decoration: none;
-    font-size: var(--fontsize);
-    height: fit-content !important;
-}
-
-
-/* Change the color of links on hover */
-
-.mob-navbar a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-
-/* Hide the link that should open and close the topnav on small screens */
-
-.mob-navbar .icon {
-    display: none;
-}
-
-#social {
-    color: #f2f2f2;
-    text-decoration: none;
-}
-
-.fa-github,
-.fa-twitter,
-.fa-linkedin {
-    padding: var(--fontsize);
-    width: fit-content;
-    color: white;
-    border-radius: 0.1em;
-    transition: 400ms !important;
-}
-
-.fa-twitter {
-    background-color: #0085b6;
-    transition: 500ms;
-}
-
-.fa-twitter:hover {
-    background-color: #00aced;
-}
-
-.fa-linkedin {
-    background-color: #0077b5;
-}
-
-.fa-linkedin:hover {
-    background-color: #008cd8;
-}
-
-.fa-github {
-    background-color: #7c3399;
-}
-
-.fa-github:hover {
-    background-color: #ad5cce;
+.aboutwrapper
+{
+    display: inline-flex !important;
 }
