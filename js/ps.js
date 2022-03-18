@@ -1,10 +1,7 @@
-
 var elements = document.getElementsByClassName("option");
 
-function press(e, ev)
-{
-    if (!e.classList.contains("active"))
-    {
+function press(e, ev) {
+    if (!e.classList.contains("active")) {
         //ignore click if not active
         ev.preventDefault();
     }
@@ -13,8 +10,6 @@ function press(e, ev)
     });
 
     e.classList.add("active");
-    
-
 
 }
 
