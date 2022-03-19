@@ -315,8 +315,3 @@
         width: 100%;
         text-align: center;
     }
-    
-    .aboutwrapper {
-        display: flex;
-        flex-wrap: wrap;
-    }
