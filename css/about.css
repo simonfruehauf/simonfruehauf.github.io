@@ -7,25 +7,55 @@
     --cardheight: 25em;
     --cardborderradius: 1.7em;
     --cardfontsize: 1.2em;
+    --contentcardwidth: 50vw;
+}
+
+a {
+    text-decoration: none;
 }
 
 html {
+    height: 100% !important;
     scroll-behavior: smooth;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+body {
+    height: 100%;
+    margin: 0 !important;
+}
+
+#aboutwrapper {
+    margin: 0 !important;
+    width: 100% !important;
+    height: 100%;
+    background: #b94242;
+}
+
+.aboutcontent {
+    float: right;
+    display: flex;
+    min-width: calc(100% - (var(--profilewidth) + 3vw));
+    max-width: calc(100% - var(--sidebarwidth));
+    height: 100%;
+    background-color: #1DA1F2;
+    flex-direction: column;
+}
+
+.textwrapper {
+    padding-top: 1px;
+}
+
 .sidebar {
+    float: left;
     max-width: calc(var(--sidebarwidth));
     min-width: calc(var(--profilewidth) + 3vw);
     background-color: var(--sidebarcolor);
-    position: fixed;
-    top: 0;
-    left: 0;
     height: 100%;
-    display: flex;
+    vertical-align: top;
     flex-direction: column;
     align-items: center;
-    box-shadow: inset 1px 1px 20px #0000002a;
+    box-shadow: inset 2px 1px 20px #00000048;
 }
 
 .card {
@@ -46,7 +76,12 @@ html {
     width: var(--widecardwidth) !important;
 }
 
+.contentcard {
+    width: var(--contentcardwidth) !important;
+}
+
 #sidebarprofile {
+    margin-top: 10vh;
     margin-bottom: 0 !important;
 }
 
@@ -61,6 +96,17 @@ html {
     border-radius: calc(var(--cardborderradius)*0.5) !important;
 }
 
+#projecttextcard {
+    opacity: 0.5;
+    width: 90%;
+    margin-top: auto;
+    margin-bottom: 1em;
+}
+
+.card:hover #projecttextcard {
+    opacity: 1;
+}
+
 .cardborder {
     height: calc(var(--cardheight) - 1.5em);
     width: calc(var(--cardwidth) - 1.5em);
@@ -69,6 +115,7 @@ html {
     margin: auto;
     border: 2px rgba(0, 0, 0, 1);
     transition: all 0.5s ease;
+    display: flex;
 }
 
 .cardborder:hover {
@@ -77,7 +124,12 @@ html {
 }
 
 .widecardborder {
-    width: calc(var(--widecardwidth) - 1.5em) !important;
+    width: var(--widecardwidth) !important;
+}
+
+.contentcardborder {
+    width: calc(var(--contentcardwidth) - 1.5em) !important;
+    flex-direction: column;
 }
 
 .cardbackground {
@@ -101,6 +153,16 @@ html {
 
 .card:hover #background-profile {
     background: url('../images/pp2.png') left center no-repeat;
+}
+
+#bussimbackground {
+    background: url(https://cdn.cloudflare.steamstatic.com/steam/apps/976590/capsule_616x353.jpg) center center;
+    background-repeat: no-repeat;
+    background-size: auto 100% !important;
+}
+
+.card:hover #bussimbackground {
+    filter: grayscale(0%);
 }
 
 .card .title {
@@ -138,6 +200,53 @@ html {
     align-items: left;
 }
 
+.contentcard .iconwrapper {
+    top: 55% !important;
+}
+
+.icon {
+    opacity: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    position: relative;
+    top: -20%;
+    left: -81%;
+    min-width: 2.5em;
+    max-width: 2.5em;
+    height: 2.5em;
+    border-radius: 100%;
+    background-color: white;
+    color: var(--defaultBackground);
+    transition: all 0.25s ease !important;
+    z-index: 3;
+}
+
+#icontitle:hover+.icon {
+    transform: scale(1.4);
+    transition: all 0.25s ease !important;
+}
+
+.icon:hover {
+    transform: scale(1.4);
+    transition: all 0.25s ease !important;
+}
+
+#bussimicon {
+    background-image: url(https://pbs.twimg.com/profile_images/1293162039679090693/f77diL1t_400x400.jpg);
+    background-size: contain;
+}
+
+#icontitle {
+    color: white;
+    margin: auto;
+    padding: 0.3em;
+    background-color: grey;
+    border-radius: 0.5em;
+    padding-left: 3em;
+    z-index: 2;
+}
+
 #facard {
     font-size: 1.5em;
     color: rgb(0, 0, 0);
@@ -147,6 +256,11 @@ html {
     transition: color 0.25s;
     padding-top: 0.3em;
     padding-bottom: 0.3em;
+}
+
+.card:hover .icon {
+    opacity: 1;
+    transition: opacity 0.5s;
 }
 
 .card:hover #facard {
@@ -185,4 +299,15 @@ html {
 .fa-envelope:hover {
     color: #b94242 !important;
     transition: color 0.25s;
+}
+
+.projectinfo {
+    opacity: 0;
+    display: inline-flex;
+    text-align: center;
+    align-content: center;
+}
+
+.card:hover .projectinfo {
+    opacity: 1;
 }
