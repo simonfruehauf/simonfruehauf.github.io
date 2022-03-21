@@ -1,0 +1,188 @@
+:root {
+    --profilewidth: 17em;
+    --sidebarwidth: 25vw;
+    --sidebarcolor: rgb(177, 177, 177);
+    --cardwidth: 17em;
+    --widecardwidth: 25em;
+    --cardheight: 25em;
+    --cardborderradius: 1.7em;
+    --cardfontsize: 1.2em;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.sidebar {
+    max-width: calc(var(--sidebarwidth));
+    min-width: calc(var(--profilewidth) + 3vw);
+    background-color: var(--sidebarcolor);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: inset 1px 1px 20px #0000002a;
+}
+
+.card {
+    border-radius: var(--cardborderradius);
+    margin: auto;
+    height: var(--cardheight);
+    width: var(--cardwidth);
+    background: black;
+    box-shadow: 2px 2px 5px rgb(100, 100, 100);
+    overflow: hidden !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative !important;
+}
+
+.widecard {
+    width: var(--widecardwidth) !important;
+}
+
+#sidebarprofile {
+    margin-bottom: 0 !important;
+}
+
+.textcard {
+    width: fit-content;
+    height: fit-content;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-top: 1em;
+    background-color: #f3f3f3;
+    text-align: center;
+    border-radius: calc(var(--cardborderradius)*0.5) !important;
+}
+
+.cardborder {
+    height: calc(var(--cardheight) - 1.5em);
+    width: calc(var(--cardwidth) - 1.5em);
+    border-radius: var(--cardborderradius);
+    position: relative;
+    margin: auto;
+    border: 2px rgba(0, 0, 0, 1);
+    transition: all 0.5s ease;
+}
+
+.cardborder:hover {
+    border: 1px solid white;
+    transition: all 0.5s ease-out;
+}
+
+.widecardborder {
+    width: calc(var(--widecardwidth) - 1.5em) !important;
+}
+
+.cardbackground {
+    background-size: var(--cardwidth) !important;
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute;
+    filter: grayscale(0%);
+    transition: all 0.8s;
+}
+
+.card:hover .cardbackground {
+    background-size: calc(var(--cardwidth)*2) !important;
+    filter: grayscale(100%);
+    transition: all 0.8s;
+}
+
+#background-profile {
+    background: url('../images/pp2.png') center center no-repeat;
+}
+
+.card:hover #background-profile {
+    background: url('../images/pp2.png') left center no-repeat;
+}
+
+.card .title {
+    font-size: var(--cardfontsize);
+    padding: 0.6em;
+    width: fit-content;
+    height: fit-content;
+    box-shadow: 0px 0px 10px #0000002a, inset 0px 0px 10px #0000002a;
+    border-radius: 1em;
+    line-height: 0.3em;
+    margin-top: 0.6em;
+    margin-left: 0.4em;
+    background-color: rgba(255, 255, 255, 0.363);
+    transition: background-color 0.5s;
+}
+
+.card:hover .title {
+    background-color: rgba(255, 255, 255, 0.800);
+    transition: background-color 0.5s;
+}
+
+
+/*Icons*/
+
+.iconwrapper {
+    position: absolute;
+    fill: rgb(0, 0, 0);
+    color: rgb(0, 0, 0)f;
+    height: fit-content;
+    top: 25%;
+    width: fit-content;
+    margin-left: 1vw;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+#facard {
+    font-size: 1.5em;
+    color: rgb(0, 0, 0);
+    opacity: 0;
+    transition: opacity 1s;
+    transition: transform 0.4s;
+    transition: color 0.25s;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+}
+
+.card:hover #facard {
+    opacity: 1;
+    text-shadow: 1px 1x #b4b4b4;
+    transition: all 0.4s;
+}
+
+#facard:hover {
+    transform: scale(1.6) translateX(15%);
+    transition: all 0.4s;
+}
+
+.fa-twitter {
+    transition: color 0.25s;
+}
+
+.fa-twitter:hover {
+    color: #1DA1F2 !important;
+    transition: color 0.25s;
+}
+
+.fa-linkedin {
+    transition: color 0.25s;
+}
+
+.fa-linkedin:hover {
+    color: #0e76a8 !important;
+    transition: color 0.25s;
+}
+
+.fa-envelope {
+    transition: color 0.25s;
+}
+
+.fa-envelope:hover {
+    color: #b94242 !important;
+    transition: color 0.25s;
+}

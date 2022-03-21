@@ -1,6 +1,5 @@
-
 @media (orientation: landscape) {
-    :root {
+     :root {
         --max-width: 3em;
         --maxwidthslide: 40em;
         --height: 25em;
@@ -9,7 +8,7 @@
 }
 
 @media (orientation: portrait) {
-    :root {
+     :root {
         --max-width: 3em;
         --height: 15em;
         --maxwidthslide: 25em;

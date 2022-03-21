@@ -3,40 +3,66 @@
 
 <head lang="en">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/profilecard.css">
-    <link rel="stylesheet" href="css/project-slides.css">
+    <link rel="stylesheet" href="css/about.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
 
     <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
 
     <title>Simon Fr&uuml;hauf - About</title>
-
-
 </head>
 
 <body>
 
-    <div class="aboutsidebar">
-        <div class="card card0">
-            <div class="card0back"></div>
+    <div class="sidebar">
+        <div class="card" id="sidebarprofile">
+            <div class="cardbackground" id="background-profile"></div>
+            <div class="cardborder">
+                <div class="title">
+                    Simon Frühauf
+                </div>
 
-            <div class="border">
-                <h2>Simon Frühauf</h2>
-                <div class="icons">
-                    <a href="mailto:simon@fruehauf.it"><i id="facard" class="fa fa-envelope" aria-hidden="true"></i></a>
-                    <a href="https://twitter.com/SimonFruehauf"><i id="facard" class="fa fa-twitter"
+                <div class="iconwrapper">
+                    <a href="https://www.linkedin.com/in/simon-fruehauf/" target="_blank"><i id="facard" class="fa fa-linkedin"
+                        aria-hidden="true"></i></a>
+                    <a href="mailto:simon@fruehauf.it" target="_blank"><i id="facard" class="fa fa-envelope"
                             aria-hidden="true"></i></a>
-                    <a href="https://www.linkedin.com/in/simon-fruehauf/"><i id="facard" class="fa fa-linkedin"
+                    <a href="https://twitter.com/SimonFruehauf" target="_blank"><i id="facard" class="fa fa-twitter"
                             aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
-        <div class="card card2">
-            <p class="abouttext">Game Designer based in Austria - doing an internship @ stillalive studios</p>
-        </div>
+        <div class="card textcard">
 
+            <p>
+                Game Developer based in Austria. <br> Working @ stillalive studios.
+            </p>
+        </div>
     </div>
+    <div id="hide">
+
+
+        <div class="aboutsidebar">
+            <div class="card card0">
+                <div class="card0back"></div>
+
+                <div class="border">
+                    <h2>Simon Frühauf</h2>
+                    <div class="icons">
+                        <a target="_blank" href="https://twitter.com/SimonFruehauf"><i id="facard" class="fa fa-twitter"
+                            aria-hidden="true"></i></a>
+                        <a target="_blank" href="mailto:simon@fruehauf.it"><i id="facard" class="fa fa-envelope"
+                                aria-hidden="true"></i></a>
+                        <a target="_blank" href="https://www.linkedin.com/in/simon-fruehauf/"><i id="facard" class="fa fa-linkedin"
+                                aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="card card2">
+                <p class="abouttext">Game Designer based in Austria - doing an internship @ stillalive studios</p>
+            </div>
+
+        </div>
 
         <div class="aboutwrapper">
 
@@ -44,6 +70,24 @@
                 <div class="cardwide card1">
                     <div class="borderwide">
                         <h2>My Skills</h2>
+                        <div class="icons">
+                            <div id="bussimicon" class="icon">
+                            </div>
+                            <a href="mailto:simon@fruehauf.it"><i id="facard" class="fa fa-envelope"
+                                    aria-hidden="true"></i></a>
+                            <a href="https://twitter.com/SimonFruehauf"><i id="facard" class="fa fa-twitter"
+                                    aria-hidden="true"></i></a>
+                            <a href="https://www.linkedin.com/in/simon-fruehauf/"><i id="facard" class="fa fa-linkedin"
+                                    aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-container">
+                <div class="cardwide cardbus">
+                    <div class="borderwide">
+                        <h2>Bus Simulator 21</h2>
+
                         <div class="icons">
                             <a href="mailto:simon@fruehauf.it"><i id="facard" class="fa fa-envelope"
                                     aria-hidden="true"></i></a>
@@ -56,14 +100,13 @@
                 </div>
             </div>
             <div class="slides" id="">
-                <a id="bussimimage" class="option active"
-                    href="https://store.steampowered.com/app/976590/Bus_Simulator_21/">
+                <a id="bussimimage" class="option active" href="https://store.steampowered.com/app/976590/Bus_Simulator_21/">
                     <div class="shadow"></div>
-    
+
                     <div class="optionborder">
                         <div class="label">
                             <div id="bussimicon" class="icon">
-    
+
                             </div>
                             <div class="info">
                                 <div class="main">Bus Simulator 21</div>
@@ -73,9 +116,9 @@
                     </div>
                 </a>
                 <a id="aridimage" class="option" href="https://store.steampowered.com/app/1463730/Arid/">
-    
+
                     <div class="shadow"></div>
-    
+
                     <div class="optionborder">
                         <div class="label">
                             <div id="aridicon" class="icon"></div>
@@ -92,81 +135,20 @@
                     <div class="optionborder">
                         <div class="label">
                             <div id="mastermindicon" class="icon">
-    
+
                             </div>
                             <div class="info">
                                 <div class="main">Streamlined Mastermind</div>
-                                <div class="sub">Technical Designer & Quality Assurance Lead on a small student game.</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a id="ctfimage" class="option" href="https://utcc.unrealpugs.com/content/1045-CTF-Buas">
-                    <div class="shadow"></div>
-                    <div class="optionborder">
-    
-                        <div class="label">
-                            <div id="ctficon" class="icon">
-                            </div>
-                            <div class="info">
-                                <div class="main">Capture The Flag Level</div>
-                                <div class="sub">Level Designer for a Capture The Flag level in Unreal Tournament.</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-    
-            </div>
-            <div class="slides" id="">
-                <a id="bussimimage" class="option active"
-                    href="https://store.steampowered.com/app/976590/Bus_Simulator_21/">
-                    <div class="shadow"></div>
-    
-                    <div class="optionborder">
-                        <div class="label">
-                            <div id="bussimicon" class="icon">
-    
-                            </div>
-                            <div class="info">
-                                <div class="main">Bus Simulator 21</div>
-                                <div class="sub">Working as an intern at stillalive studios.</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a id="aridimage" class="option" href="https://store.steampowered.com/app/1463730/Arid/">
-    
-                    <div class="shadow"></div>
-    
-                    <div class="optionborder">
-                        <div class="label">
-                            <div id="aridicon" class="icon"></div>
-                            <div class="info">
-                                <div class="main">Arid</div>
-                                <div class="sub">Technical design & implementation on an award-winning university project.
+                                <div class="sub">Technical Designer & Quality Assurance Lead on a small student game.
                                 </div>
                             </div>
                         </div>
                     </div>
                 </a>
-                <a id="mastermindimage" class="option" href="https://buas.itch.io/streamlinedmastermind">
-                    <div class="shadow"></div>
-                    <div class="optionborder">
-                        <div class="label">
-                            <div id="mastermindicon" class="icon">
-    
-                            </div>
-                            <div class="info">
-                                <div class="main">Streamlined Mastermind</div>
-                                <div class="sub">Technical Designer & Quality Assurance Lead on a small student game.</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
                 <a id="ctfimage" class="option" href="https://utcc.unrealpugs.com/content/1045-CTF-Buas">
                     <div class="shadow"></div>
                     <div class="optionborder">
-    
+
                         <div class="label">
                             <div id="ctficon" class="icon">
                             </div>
@@ -177,7 +159,7 @@
                         </div>
                     </div>
                 </a>
-    
+
             </div>
             <div class="skills" id="hide">
                 <div>
@@ -190,7 +172,7 @@
                         <br>Google Suite &amp; Microsoft
                     </p>
                 </div>
-    
+
                 <div>
                     <h4>Abilities</h4>
                     <p>
@@ -200,7 +182,7 @@
                         <br>C#, HTML, CSS Basics
                     </p>
                 </div>
-    
+
                 <div>
                     <h4>Certifications</h4>
                     <p>
@@ -212,6 +194,7 @@
                 </div>
             </div>
         </div>
+    </div>
     <footer id="myFooter"></footer>
 </body>
 <script src="js/ps.js"></script>
