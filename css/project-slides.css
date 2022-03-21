@@ -1,6 +1,20 @@
-:root {
-    --max-width: 3em;
-    --height: 25em;
+
+@media (orientation: landscape) {
+    :root {
+        --max-width: 3em;
+        --maxwidthslide: 40em;
+        --height: 25em;
+        --minwidth: 10em;
+    }
+}
+
+@media (orientation: portrait) {
+    :root {
+        --max-width: 3em;
+        --height: 15em;
+        --maxwidthslide: 25em;
+        --minwidth: 5em;
+    }
 }
 
 .slides {
@@ -53,8 +67,8 @@
 
 .active {
     flex-grow: 100;
-    min-width: 10em;
-    max-width: 40em;
+    min-width: var(--minwidth);
+    max-width: var(--maxwidthslide);
     width: 40em !important;
     margin: 0.3em;
     margin-top: 0;

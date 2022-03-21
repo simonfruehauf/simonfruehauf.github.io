@@ -1,9 +1,9 @@
 :root {
 
-    --height: 25em;
+    --profileheight: 25em;
     --sidebarwidth: 25vw;
     --widthwide: 50em;
-    --width: 17em;
+    --profilewidth: 17em;
     --sidebarprofilewidth: 20vw;
     --sidebarprofileheight: 80vh;
 }
@@ -13,7 +13,6 @@
     padding: 1em;
 
 }
-
 
 .sidebarborder {
     height: calc(var(--sidebarprofileheight) - var(--sidebarprofileheight)*0.07);
@@ -25,8 +24,8 @@
 }
 
 .border {
-    height: calc(var(--height) - 1em);
-    width: calc(var(--width) - 1em);
+    height: calc(var(--profileheight) - 1em);
+    width: calc(var(--profilewidth) - 1em);
     background: transparent;
     border-radius: 10px;
     transition: border 1s;
@@ -34,7 +33,7 @@
 }
 
 .borderwide {
-    height: calc(var(--height) - 1em);
+    height: calc(var(--profileheight) - 1em);
     width: calc(var(--widthwide) - 1em);
     background: transparent;
     border-radius: 10px;
@@ -54,8 +53,8 @@
 }
 
 .card {
-    height: var(--height);
-    width: var(--width);
+    height: var(--profileheight);
+    width: var(--profilewidth);
     overflow: hidden;
     background: grey;
     border-radius: 10px;
@@ -71,7 +70,7 @@
 
 
 .cardwide {
-    height: var(--height);
+    height: var(--profileheight);
     width: var(--widthwide);
     background: grey;
     border-radius: 10px;
@@ -91,14 +90,14 @@
     margin: auto;
     position: absolute;
     background: url('../images/pp2.png') center center no-repeat;
-    background-size: var(--width);
+    background-size: var(--profilewidth);
     transition: all 0.8s;
 
 
 }
 .card:hover .card0back{
     background: url('../images/pp2.png') left center no-repeat;
-    background-size: calc(var(--width)*2);
+    background-size: calc(var(--profilewidth)*2);
     filter: grayscale(100%);
     transition: all 0.8s;
 }
@@ -219,7 +218,7 @@ h2 {
     margin: auto ;
     margin-top: 0 !important;
     height: fit-content;
-    width: var(--width);
+    width: var(--profilewidth);
     background-color: rgb(219, 219, 219);
     background-size: 300px;
     filter: grayscale(0%);
@@ -241,16 +240,16 @@ h2 {
     text-shadow: 1px 1x #b4b4b4;
 }   
 .aboutwrapper {
-    margin-left: calc(var(--width) + 3vw);
+    margin-left: calc(var(--profilewidth) + 3vw);
     display: flex;
     flex-wrap: wrap;
-    width: calc(100% - (var(--width) + 3vw));
+    width: calc(100% - (var(--profilewidth) + 3vw));
     overflow: hidden;
 }
 
 .aboutsidebar{
-    max-width: calc(var(--width) + 3vw);
-    min-width: calc(var(--width) + 3vw);
+    max-width: calc(var(--profilewidth) + 3vw);
+    min-width: calc(var(--profilewidth) + 3vw);
     background-color: #f1f1f1;
     position: fixed;
     top: 0;
