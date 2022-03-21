@@ -267,4 +267,5 @@ h2 {
 .abouttext{
     margin: auto !important;
     padding: 1em;
+    text-align: center;
 }
