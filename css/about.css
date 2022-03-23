@@ -10,6 +10,20 @@
     --contentcardwidth: 50vw;
 }
 
+@media (orientation: landscape) {
+    :root {
+       --cardfontsize: 1.2vw;
+       --textcardfontsize: 0.9vw;
+   }
+}
+
+@media (orientation: portrait) {
+    :root {
+       --cardfontsize: 3.2vw;
+       --textcardfontsize: 3.4vw;
+   }
+}
+
 a {
     text-decoration: none;
 }
@@ -55,6 +69,9 @@ body {
     vertical-align: top;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+    align-content: center;
+    vertical-align: auto;
     box-shadow: inset 2px 1px 20px #00000048;
 }
 
@@ -91,11 +108,16 @@ body {
     padding-left: 1em;
     padding-right: 1em;
     margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
     background-color: #f3f3f3;
     text-align: center;
     border-radius: calc(var(--cardborderradius)*0.5) !important;
 }
-
+.textcard p{
+    font-size: var(--textcardfontsize);
+}
 #projecttextcard {
     opacity: 0.5;
     width: 90%;

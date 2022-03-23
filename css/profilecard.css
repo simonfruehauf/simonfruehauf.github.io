@@ -5,6 +5,7 @@
     --profilewidth: 17em;
     --sidebarprofilewidth: 20vw;
     --sidebarprofileheight: 80vh;
+    --fontsize: 1.0em;
 }
 
 .profile-container {
@@ -109,7 +110,7 @@
 
 .card h2 {
     background-color: #00000000 !important;
-    font-size: 1.4em;
+    font-size: var(--fontsize);
 }
 
 .card:hover h2 {
