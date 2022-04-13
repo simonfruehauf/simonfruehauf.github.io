@@ -24,6 +24,7 @@
         --icon-color: black;
         --background-color: rgb(28, 28, 28);
         --nav-selector-color: #2bfa56;
+        --nav-borderradius: 1.5em;
     }
     
     body {
@@ -44,7 +45,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 10px;
+        border-radius: var(--nav-borderradius);
+        z-index: 100;
     }
     
     .navigation ul {

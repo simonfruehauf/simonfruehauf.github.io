@@ -21,6 +21,7 @@
      :root {
         --cardfontsize: 3.2vw;
         --textcardfontsize: 3.4vw;
+        --sidebarwidth: 0vw !important;
     }
 }
 
@@ -37,23 +38,6 @@ html {
 body {
     height: 100%;
     margin: 0 !important;
-}
-
-#aboutwrapper {
-    margin: 0 !important;
-    width: 100% !important;
-    height: 100%;
-    background: #b94242;
-}
-
-.aboutcontent {
-    float: right;
-    display: flex;
-    min-width: calc(100% - (var(--profilewidth) + 3vw));
-    max-width: calc(100% - var(--sidebarwidth));
-    height: 100%;
-    background-color: #1DA1F2;
-    flex-direction: column;
 }
 
 .textwrapper {
@@ -103,14 +87,12 @@ body {
 }
 
 .textcard {
-    width: fit-content;
-    height: fit-content;
-    padding-left: 1em;
-    padding-right: 1em;
     margin-top: 1em;
+    padding: 0;
+    width: max-content;
+    height: min-content;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: auto;
     background-color: #f3f3f3;
     text-align: center;
     border-radius: calc(var(--cardborderradius)*0.5) !important;
@@ -118,6 +100,8 @@ body {
 
 .textcard p {
     font-size: var(--textcardfontsize);
+    margin: auto;
+    padding: 0.5em;
 }
 
 #projecttextcard {
@@ -137,7 +121,7 @@ body {
     border-radius: var(--cardborderradius);
     position: relative;
     margin: auto;
-    border: 2px rgba(0, 0, 0, 1);
+    border: 2px rgba(255, 255, 255, 0);
     transition: all 0.5s ease;
     display: flex;
 }
@@ -272,7 +256,7 @@ body {
 }
 
 #facard {
-    font-size: 1.5em;
+    font-size: var(--cardfontsize);
     color: rgb(0, 0, 0);
     opacity: 0;
     transition: opacity 1s;
@@ -334,4 +318,56 @@ body {
 
 .card:hover .projectinfo {
     opacity: 1;
+}
+
+
+/*Mobile*/
+
+body>#sidebarprofile {
+    padding: 0;
+    margin: auto;
+    margin-top: 1em;
+    width: 90vw;
+    height: 80vh;
+}
+
+body>#sidebarprofile .cardbackground {
+    padding: 0;
+    margin: auto;
+    background-size: 140% !important;
+}
+
+body>#sidebarprofile:hover .cardbackground {
+    padding: 0;
+    margin: auto;
+    background-size: 200% !important;
+}
+
+body>#sidebarprofile .cardborder {
+    height: 90%;
+    width: 90%;
+    border-radius: var(--cardborderradius);
+    position: relative;
+    margin: auto;
+    border: 2px rgba(0, 0, 0, 1);
+    transition: all 0.5s ease;
+    display: flex;
+}
+
+body>#sidebarprofile:hover .cardborder {
+    border: 3px solid white;
+    transition: all 0.5s ease-out;
+}
+
+body>#sidebarprofile #facard {
+    font-size: 5em;
+    padding-left: 1em;
+}
+
+body>#sidebarprofile .title {
+    font-size: 5em;
+}
+
+body>#abouttextcard p {
+    font-size: calc(var(--textcardfontsize)*1.5);
 }

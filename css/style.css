@@ -60,7 +60,6 @@ body {
     --font-adaptive-smaller: var(--font-smaller);
     --font-adaptive-smallest: var(--font-smallest);
     --line-width-adaptive: var(--line-width);
-    /* Navbar adjustment*/
 }
 
 @font-face {
@@ -150,22 +149,6 @@ div.left {
     float: left;
 }
 
-.wrapper {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0.75vw;
-    margin-bottom: 0.75vw;
-    width: 80%;
-    padding: 0.5vw;
-    border-radius: 1em;
-    background-color: #888888;
-}
-
-#wrapper-2 {
-    background-color: #292e39 !important;
-    color: whitesmoke;
-}
-
 .steam-embed {
     border-radius: 0.25em;
     width: 35vw;
@@ -186,23 +169,6 @@ div.left {
     height: 25vw;
     border: none;
     transition: 200ms;
-}
-
-.collapsible {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-}
-
-.active,
-.collapsible:hover {
-    background-color: #ccc;
 }
 
 .row {
@@ -314,10 +280,4 @@ div.left {
 #pp-image {
     width: 80%;
     border-radius: 1em;
-}
-
-.copyright {
-    bottom: 0;
-    width: 100%;
-    text-align: center;
 }

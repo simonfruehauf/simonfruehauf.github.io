@@ -45,24 +45,25 @@
             <div id="navindicator" class="nav-indicator"></div>
 
         </ul>
+        <script>
+            const list = document.querySelectorAll('.nav-list');
+
+            function activeLink() {
+                list.forEach((item) =>
+                    item.classList.remove('active'));
+                this.classList.add('active');
+                this.appendChild(
+                    document.getElementById('navindicator')
+                );
+            }
+            list.forEach((item) =>
+                item.addEventListener('click', activeLink));
+        </script>
     </div>
 
 </body>
 <footer>
-    <script>
-        const list = document.querySelectorAll('.nav-list');
 
-        function activeLink() {
-            list.forEach((item) =>
-                item.classList.remove('active'));
-            this.classList.add('active');
-            this.appendChild(
-                document.getElementById('navindicator')
-            );
-        }
-        list.forEach((item) =>
-            item.addEventListener('click', activeLink));
-    </script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </footer>
