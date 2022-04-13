@@ -1,0 +1,123 @@
+    @import url(https://fonts.googleapis.com/css2?family=Poppins);
+    @media (orientation: landscape) {
+         :root {
+            --nav-width: 30em;
+            --nav-height: 5em;
+            --icon-size: 1.6em;
+            --text-size: 1.7em;
+            --icon-offset: -2em;
+        }
+    }
+    
+    @media (orientation: portrait) {
+         :root {
+            --nav-width: 90%;
+            --nav-height: 10em;
+            --icon-size: 5em;
+            --text-size: 3em;
+            --icon-offset: -1.5em;
+        }
+    }
+    
+     :root {
+        --bar-color: rgb(255, 255, 255);
+        --icon-color: black;
+        --background-color: rgb(28, 28, 28);
+        --nav-selector-color: #2bfa56;
+    }
+    
+    body {
+        background: var(--background-color);
+    }
+    
+    .navigation {
+        font-family: 'Poppins';
+        position: fixed;
+        bottom: 1em;
+        left: 0;
+        right: 0;
+        width: 500px;
+        margin: 0 auto;
+        width: var(--nav-width);
+        height: var(--nav-height);
+        background: var(--bar-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+    }
+    
+    .navigation ul {
+        display: flex;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        margin-left: 0;
+        padding-left: 0;
+    }
+    
+    .navigation ul li {
+        position: relative;
+        list-style: none;
+        width: 70px;
+        height: 70px;
+        z-index: 1;
+        margin: auto;
+    }
+    
+    .navigation ul li a {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        font-weight: 500;
+    }
+    
+    .navigation ul li a .nav-icon {
+        color: var(--icon-color);
+        font-size: var(--icon-size);
+        font-weight: bolder;
+        position: relative;
+        display: block;
+        line-height: 55px;
+        text-align: center;
+        transition: 0.5s;
+        transition-timing-function: cubic-bezier(0, 0, 1, 1);
+    }
+    
+    .navigation ul li.active a .nav-icon {
+        transform: translateY(var(--icon-offset));
+        z-index: 2;
+        transition-timing-function: cubic-bezier(.72, .54, .58, 1.44);
+    }
+    
+    .navigation ul li a .nav-text {
+        position: absolute;
+        color: var( --icon-color);
+        font-size: var(--text-size);
+        transition: 0.5s;
+        opacity: 0;
+    }
+    
+    .navigation ul li.active a .nav-text {
+        opacity: 1;
+    }
+    
+    .navigation ul li ion-icon {
+        background: rgba(43, 250, 86, 0);
+        padding: 0.4em;
+        border-radius: 50%;
+        border: 0.1em var(--background-color);
+        transition: 0.5s background;
+        transition: 0.2s border;
+    }
+    
+    .navigation ul li.active ion-icon {
+        background: var(--nav-selector-color);
+        border: solid 0.2em var(--background-color);
+        transition: 0.5s background;
+        transition: 0.2s border;
+    }

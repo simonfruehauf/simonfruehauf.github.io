@@ -11,17 +11,17 @@
 }
 
 @media (orientation: landscape) {
-    :root {
-       --cardfontsize: 1.2vw;
-       --textcardfontsize: 0.9vw;
-   }
+     :root {
+        --cardfontsize: 1.2vw;
+        --textcardfontsize: 0.9vw;
+    }
 }
 
 @media (orientation: portrait) {
-    :root {
-       --cardfontsize: 3.2vw;
-       --textcardfontsize: 3.4vw;
-   }
+     :root {
+        --cardfontsize: 3.2vw;
+        --textcardfontsize: 3.4vw;
+    }
 }
 
 a {
@@ -115,9 +115,11 @@ body {
     text-align: center;
     border-radius: calc(var(--cardborderradius)*0.5) !important;
 }
-.textcard p{
+
+.textcard p {
     font-size: var(--textcardfontsize);
 }
+
 #projecttextcard {
     opacity: 0.5;
     width: 90%;
@@ -212,7 +214,7 @@ body {
 .iconwrapper {
     position: absolute;
     fill: rgb(0, 0, 0);
-    color: rgb(0, 0, 0)f;
+    color: rgb(0, 0, 0);
     height: fit-content;
     top: 25%;
     width: fit-content;
