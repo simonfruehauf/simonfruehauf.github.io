@@ -11,33 +11,33 @@ button4 = document.getElementById('button4');
 function switchPage(value) {
     switch (value) {
         case 1:
-            page1.hidden = false;
-            page2.hidden = true;
-            page3.hidden = true;
-            page4.hidden = true;
+            page1.style.display = "inherit";
+            page2.style.display = "none";
+            page3.style.display = "none";
+            page4.style.display = "none";
             break;
         case 2:
-            page1.hidden = true;
-            page2.hidden = false;
-            page3.hidden = true;
-            page4.hidden = true;
+            page1.style.display = "none";
+            page2.style.display = "inherit";
+            page3.style.display = "none";
+            page4.style.display = "none";
             break;
         case 3:
-            page1.hidden = true;
-            page2.hidden = true;
-            page3.hidden = false;
-            page4.hidden = true;
+            page1.style.display = "none";
+            page2.style.display = "none";
+            page3.style.display = "inherit";
+            page4.style.display = "none";
             break;
         case 4:
-            page1.hidden = true;
-            page2.hidden = true;
-            page3.hidden = true;
-            page4.hidden = false;
+            page1.style.display = "none";
+            page2.style.display = "none";
+            page3.style.display = "none";
+            page4.style.display = "inherit";
             break;
     }
 }
-
 switchPage(1);
+
 
 button1.addEventListener('click', event => switchPage(1));
 button2.addEventListener('click', event => switchPage(2));

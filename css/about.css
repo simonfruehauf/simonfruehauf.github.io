@@ -25,7 +25,6 @@
     }
 }
 
-
 html {
     height: 100% !important;
     scroll-behavior: smooth;
@@ -33,30 +32,46 @@ html {
 }
 
 body {
-    height: 100% !important	;
+    height: 100vh !important;
+    width: 100vw !important;
     margin: 0 !important;
     padding: 0 !important;
+}
+
+.container {
+    height: 100vh !important;
+    width: 100vw !important;
+    height: fit-content;
+    display: flex;
 }
 
 a {
     text-decoration: none;
 }
+
 .textwrapper {
     padding-top: 1px;
 }
 
-.main-content div{
+.main-content {
     margin: auto;
-    padding: 0;
-    z-index: -1;
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex-grow: 10;
 }
 
-
+.main-content div {
+    margin: auto;
+    padding: 0;
+}
 
 .sidebar {
     float: left;
     display: block;
     min-width: calc(var(--profilewidth) + 3vw);
+    max-width: fit-content;
     background-color: var(--sidebarcolor);
     height: 100%;
     flex-direction: column;
@@ -65,6 +80,7 @@ a {
     align-content: center;
     box-shadow: inset 2px 1px 20px #00000048;
     margin: 0 !important;
+    flex-grow: 1;
 }
 
 .card {
@@ -95,7 +111,8 @@ a {
 }
 
 .textcard {
-    margin-top: 1em;
+    margin-top: 2em !important;
+    margin-bottom: 2em !important;
     padding: 0;
     width: max-content;
     height: min-content;
@@ -109,7 +126,12 @@ a {
 .textcard p {
     font-size: var(--textcardfontsize);
     margin: auto;
-    padding: 0.5em;
+    padding: 1em;
+}
+
+#button {
+    border-radius: 10em !important;
+    background: #1DA1F2 !important;
 }
 
 #projecttextcard {
@@ -332,9 +354,9 @@ a {
 /*Mobile*/
 
 #page1>#sidebarprofile {
-    padding: 0;
+    padding: 1em;
     margin: auto;
-    margin-top: 1em;
+    margin-top: 1.5em;
     width: 90vw;
     height: 80vh;
 }

@@ -5,18 +5,22 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/project-slides.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
     <title>Simon Fr&uuml;hauf</title>
+
 </head>
 
 <body>
+
     <div class="navigation">
         <ul>
             <li class="nav-list active" id="button1">
                 <a href="#">
                     <span class="nav-icon">
-                        <ion-icon name="person-outline"></ion-icon>
+                        <ion-icon name="person"></ion-icon>
                     </span>
                     <span class="nav-text">About</span>
                 </a>
@@ -25,16 +29,16 @@
 
                 <a href="#">
                     <span class="nav-icon">
-                        <ion-icon name="home-outline"></ion-icon>
+                        <ion-icon name="briefcase"></ion-icon>
                     </span>
-                    <span class="nav-text">Home</span>
+                    <span class="nav-text">Projects</span>
                 </a>
             </li>
 
             <li class="nav-list" id="button3">
                 <a href="#">
                     <span class="nav-icon">
-                        <ion-icon name="home-outline"></ion-icon>
+                        <ion-icon name="home"></ion-icon>
                     </span>
                     <span class="nav-text">Home</span>
                 </a>
@@ -42,9 +46,9 @@
             <li class="nav-list" id="button4">
                 <a href="#">
                     <span class="nav-icon">
-                        <ion-icon name="home-outline"></ion-icon>
+                        <ion-icon name="game-controller"></ion-icon>
                     </span>
-                    <span class="nav-text">Home</span>
+                    <span class="nav-text">Games</span>
                 </a>
             </li>
             <div id="navindicator" class="nav-indicator"></div>
@@ -65,47 +69,61 @@
                 item.addEventListener('click', activeLink));
         </script>
     </div>
-    <div class="sidebar" id="sidebarcontainer">
-        <div class="card" id="sidebarprofile">
-            <div class="cardbackground" id="background-profile"></div>
-            <div class="cardborder">
-                <div class="title">
-                    Simon Frühauf
-                </div>
-                <div class="iconwrapper">
-                    <a href="https://www.linkedin.com/in/simon-fruehauf/" target="_blank"><i id="facard"
-                            class="fa fa-linkedin" aria-hidden="true"></i></a>
-                    <a href="mailto:simon@fruehauf.it" target="_blank"><i id="facard" class="fa fa-envelope"
-                            aria-hidden="true"></i></a>
-                    <a href="https://twitter.com/SimonFruehauf" target="_blank"><i id="facard" class="fa fa-twitter"
-                            aria-hidden="true"></i></a>
+    <div class="container">
+        <div class="sidebar" id="sidebarcontainer">
+            <div class="card" id="sidebarprofile">
+                <div class="cardbackground" id="background-profile"></div>
+                <div class="cardborder">
+                    <div class="title">
+                        Simon Frühauf
+                    </div>
+                    <div class="iconwrapper">
+                        <a href="https://www.linkedin.com/in/simon-fruehauf/" target="_blank"><i id="facard"
+                                class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="mailto:simon@fruehauf.it" target="_blank"><i id="facard" class="fa fa-envelope"
+                                aria-hidden="true"></i></a>
+                        <a href="https://twitter.com/SimonFruehauf" target="_blank"><i id="facard" class="fa fa-twitter"
+                                aria-hidden="true"></i></a>
+                    </div>
                 </div>
             </div>
+            <div class="card textcard" id="abouttextcard">
+                <p class="abouttext">
+                    Game Dev in Austria. <br> Working @ stillalive studios.
+                </p>
+            </div>
         </div>
-        <div class="card textcard" id="abouttextcard">
-            <p class="abouttext">
-                Game Dev in Austria. <br> Working @ stillalive studios.
-            </p>
+        <div class="main-content" id="page1">
+            <div class="card textcard">
+                <p class="abouttext">
+                    Game Developer based in Austria. <br> Apart from my passion for technical game design and concepting, <br> I also love creating soundtracks, coding and graphical design.
+                </p>
+            </div>
+
+
+        </div>
+
+        <div class="main-content" id="page2">
+            <div class="card textcard">
+                <p class="abouttext">
+                    Working @ stillalive studios.
+                </p>
+            </div>
+
+
+        </div>
+        <div class="main-content" id="page3">
+
+        </div>
+        <div class="main-content" id="page4">
+            <button class="card textcard" id="button" onclick="window.location.href='/wordle.html'">
+                <p class="abouttext">
+                    Wordle Clone
+                </p>
+            </button>
         </div>
     </div>
-    <div class="main-content" id="page1">
 
-        <div class="card textcard">
-            <p class="abouttext">
-                Game Developer based in Austria. <br> Working @ stillalive studios.
-            </p>
-        </div>
-    </div>
-    
-    <div class="main-content" id="page2">
-        
-    </div>
-    <div class="main-content" id="page3">
-
-    </div>
-    <div class="main-content" id="page4">
-
-    </div>
 </body>
 
 <footer id="myFooter"></footer>

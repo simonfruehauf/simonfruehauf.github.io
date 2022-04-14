@@ -59,12 +59,12 @@
     transition: all 0.3s;
 }
 
-.active .optionborder:hover {
+.project-active .optionborder:hover {
     border: 1px solid white;
     transition: all 0.3s;
 }
 
-.active {
+.project-active {
     flex-grow: 100;
     min-width: var(--minwidth);
     max-width: var(--maxwidthslide);
