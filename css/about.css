@@ -6,20 +6,20 @@
     --widecardwidth: 25em;
     --cardheight: 25em;
     --cardborderradius: 1.7em;
-    --cardfontsize: 1.2em;
+    --cardfontsize: ;
     --contentcardwidth: 50vw;
 }
 
 @media (orientation: landscape) {
      :root {
-        --cardfontsize: 1.2vw;
+        --cardfontsize: 1.2rem;
         --textcardfontsize: 0.9vw;
     }
 }
 
 @media (orientation: portrait) {
      :root {
-        --cardfontsize: 3.2vw;
+        --cardfontsize: 2.2rem;
         --textcardfontsize: 3.4vw;
         --sidebarwidth: 0vw !important;
     }
@@ -348,6 +348,84 @@ a {
 
 .card:hover .projectinfo {
     opacity: 1;
+}
+
+
+/*Multicards*/
+
+.multicard {
+    background: #ffffff;
+    width: 90%;
+    height: 60% !important;
+    margin-top: 10em !important;
+    padding-top: 1em !important;
+}
+
+.pagination {
+    position: absolute;
+    margin-right: 1em !important;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    height: 15%;
+    width: 1em;
+}
+
+.pagination-dot {
+    width: 1em;
+    height: 1em;
+    background: #cccccc;
+    margin: 0.2em !important;
+    border-radius: 100em;
+    transition: 0.5s flex-grow;
+}
+
+.pagdot-active {
+    background: #b94242;
+    flex-grow: 1;
+    transition: 0.5s flex-grow;
+}
+
+.multicardcontent {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    margin-left: 0 !important;
+    opacity: 0;
+    transition: 0.25s opacity;
+}
+
+.multicardcontent.showmultipage {
+    opacity: 1;
+    transition: 0.5s opacity;
+}
+
+.multicardcontent .card-content {
+    padding-left: 1em !important;
+    padding-top: 1em;
+}
+
+.card-content.carddate {
+    position: absolute;
+    top: -1%;
+    left: 1.5%;
+    font-size: calc(var(--cardfontsize)*0.8);
+}
+
+.card-content.cardtitle {
+    margin: 0;
+    margin: auto;
+    padding: 1em;
+    font-size: calc(var(--cardfontsize)*2.2);
+}
+
+.card-content.cardtext {
+    font-size: var(--cardfontsize);
+    margin: auto;
+    padding: 1em;
+    text-align: justify;
 }
 
 

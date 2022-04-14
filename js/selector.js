@@ -38,7 +38,6 @@ function switchPage(value) {
 }
 switchPage(1);
 
-
 button1.addEventListener('click', event => switchPage(1));
 button2.addEventListener('click', event => switchPage(2));
 button3.addEventListener('click', event => switchPage(3));
