@@ -2,155 +2,76 @@
 <html>
 
 <head lang="en">
+    <script src="https://kit.fontawesome.com/0216fc5c2f.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/var.css">
+
+    <link rel="stylesheet" href="css/social.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/about.css">
-    <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="css/project-slides.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
-    <title>Simon Fr&uuml;hauf</title>
-
+    <link rel="stylesheet" href="css/slider.css">
+    <title>Simon Frühauf</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 </head>
+<div class="theme-switch-wrapper">
+    <label class="theme-switch" for="checkbox">
+
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round">                
+            <i class="fa fa-moon"></i>
+            <i class="fa fa-sun"></i>
+        </div>
+    </label>
+</div>
 
 <body>
-
-    <div class="navigation">
-        <ul>
-            <li class="nav-list active" id="button1">
-                <a href="#">
-                    <span class="nav-icon">
-                        <ion-icon name="person"></ion-icon>
-                    </span>
-                    <span class="nav-text">About</span>
-                </a>
-            </li>
-            <li class="nav-list" id="button2">
-
-                <a href="#">
-                    <span class="nav-icon">
-                        <ion-icon name="briefcase"></ion-icon>
-                    </span>
-                    <span class="nav-text">Projects</span>
-                </a>
-            </li>
-
-            <li class="nav-list" id="button3">
-                <a href="#">
-                    <span class="nav-icon">
-                        <ion-icon name="home"></ion-icon>
-                    </span>
-                    <span class="nav-text">Home</span>
-                </a>
-            </li>
-            <li class="nav-list" id="button4">
-                <a href="#">
-                    <span class="nav-icon">
-                        <ion-icon name="game-controller"></ion-icon>
-                    </span>
-                    <span class="nav-text">Games</span>
-                </a>
-            </li>
-            <div id="navindicator" class="nav-indicator"></div>
-
-        </ul>
-        <script>
-            const list = document.querySelectorAll('.nav-list');
-
-            function activeLink() {
-                list.forEach((item) =>
-                    item.classList.remove('active'));
-                this.classList.add('active');
-                this.appendChild(
-                    document.getElementById('navindicator')
-                );
-            }
-            list.forEach((item) =>
-                item.addEventListener('click', activeLink));
-        </script>
-    </div>
     <div class="container">
-        <div class="sidebar" id="sidebarcontainer">
-            <div class="card" id="sidebarprofile">
-                <div class="cardbackground" id="background-profile"></div>
-                <div class="cardborder">
-                    <div class="title">
-                        Simon Frühauf
+        <section class="main">
+            <h1>Hey, I'm Simon.</h1>
+            <p class="subtitle">I help create games worth falling in love with.</p>
+        </section>
+        <section class="picture">
+
+            <div class="scalable-image" id="simonfruehauf">
+                <div class="socials">
+
+                    <div class="iconwrapper">
+                        <div onclick="location.href='https://www.linkedin.com/in/simon-fruehauf/';" class="icon lin">
+                            <span class="tooltip">linkedin</span>
+                            <span><i class="fa-brands fa-linkedin-in"></i></span>
+                        </div>
                     </div>
                     <div class="iconwrapper">
-                        <a href="https://www.linkedin.com/in/simon-fruehauf/" target="_blank"><i id="facard"
-                                class="fa fa-linkedin" aria-hidden="true"></i></a>
-                        <a href="mailto:simon@fruehauf.it" target="_blank"><i id="facard" class="fa fa-envelope"
-                                aria-hidden="true"></i></a>
-                        <a href="https://twitter.com/SimonFruehauf" target="_blank"><i id="facard" class="fa fa-twitter"
-                                aria-hidden="true"></i></a>
+                        <div onclick="location.href='https://twitter.com/SimonFruehauf';" class="icon twtt">
+                            <span class="tooltip">twitter</span>
+                            <span><i class="fa-brands fa-twitter"></i></span>
+                        </div>
+                    </div>
+                    <div class="iconwrapper">
+                        <div onclick="location.href='https://github.com/simonfruehauf';" class="icon git">
+                            <span class="tooltip">github</span>
+                            <span><i class="fa-brands fa-github"></i></span>
+                        </div>
                     </div>
                 </div>
+
             </div>
-            <div class="card textcard" id="abouttextcard">
-                <p class="abouttext">
-                    Game Dev in Austria. <br> Working @ stillalive studios.
-                </p>
-            </div>
-        </div>
-        <div class="main-content" id="page1">
+            <p class="subtitle" id="cardsubtitle">See my projects below, and learn more <a href="/about.html">about me</a></p>
 
-
-
-        </div>
-
-        <div class="main-content" id="page2">
-
-            <div class="card multicard">
-                <div class="pagination">
-                    <div class="pagination-dot pagdot-active" id="pagdot-1">
-
-                    </div>
-                    <div class="pagination-dot" id="pagdot-2">
-
-                    </div>
-                    <div class="pagination-dot" id="pagdot-3">
-
-                    </div>
-                </div>
-                <div class="multicardcontent showmultipage">
-                    <div class="card-content carddate">2021 - current</div>
-                    <div class="card-content cardtitle">Bus Simulator 21</div>
-                    <div class="card-content cardtext">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi? </div>
-                </div>
-                <div class="multicardcontent">
-                    <div class="card-content carddate"> date </div>
-                    <div class="card-content cardtitle">Title</div>
-                    <div class="card-content cardtext">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi? </div>
-                </div>
-                <div class="multicardcontent">
-                    <div class="card-content carddate"> date </div>
-                    <div class="card-content cardtitle">Title</div>
-                    <div class="card-content cardtext">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi? </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="main-content" id="page3">
-
-        </div>
-        <div class="main-content" id="page4">
-            <button class="card textcard" id="button" onclick="window.location.href='/wordle.html'">
-                <p class="abouttext">
-                    Wordle Clone
-                </p>
-            </button>
-        </div>
+        </section>
     </div>
+    <section class="content">
+        <h2 id="projects"><i class="fa-solid fa-gamepad"></i> Projects </h2>
+        <ul>
+            <li></li>
+        </ul>
 
+    </section>
 </body>
 
-<footer id="myFooter"></footer>
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-<script src="js/device.js"></script>
-<script src="js/selector.js"></script>
-
-<script src="js/swiper.js"></script>
+<footer></footer>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="js/darkmode.js"></script>
 
 </html>

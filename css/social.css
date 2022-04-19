@@ -1,0 +1,96 @@
+/*
+<div class="wrapper">
+    <div class="icon facebook">
+        <span class="tooltip">Facebook</span>
+        <span><i class="fab fa-facebook-f"></i></span>
+    </div>
+</div>
+
+*/
+
+.socials {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
+.iconwrapper {
+    display: flex;
+    list-style: none;
+    position: relative;
+    height: 50%;
+    width: fit-content;
+}
+
+.iconwrapper .icon {
+    position: absolute;
+    top: 50%;
+    background: #ffffff;
+    border-radius: 50%;
+    width: var(--socialsize);
+    height: var(--socialsize);
+    font-size: var(--socialsize);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.iconwrapper .tooltip {
+    position: absolute;
+    top: 0;
+    font-size: var(--tooltipfontsize);
+    background: #ffffff;
+    color: #ffffff;
+    padding: 0.3em 0.5em;
+    border-radius: 0.5em;
+    box-shadow: var(--shadow);
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.iconwrapper .tooltip::before {
+    position: absolute;
+    content: "";
+    height: 0.4em;
+    width: 0.4em;
+    background: #ffffff;
+    bottom: -0.2em;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.iconwrapper .icon:hover .tooltip {
+    top: -3em;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.iconwrapper .lin:hover,
+.iconwrapper .lin:hover .tooltip,
+.iconwrapper .lin:hover .tooltip::before {
+    background: #0a66c2;
+    color: #ffffff;
+}
+
+.iconwrapper .twtt:hover,
+.iconwrapper .twtt:hover .tooltip,
+.iconwrapper .twtt:hover .tooltip::before {
+    background: #1d9bf0;
+    color: #ffffff;
+}
+
+.iconwrapper .git:hover,
+.iconwrapper .git:hover .tooltip,
+.iconwrapper .git:hover .tooltip::before {
+    background: #161b22;
+    color: #ffffff;
+}
