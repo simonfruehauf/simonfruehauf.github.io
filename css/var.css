@@ -14,13 +14,20 @@ vmin – Assign 1% of smaller unit of vh or vw to the element.
     --large: 10vmin;
     --medium: 6vmin;
     --small: 4vmin;
+    --tiny: 3.6vmin;
     --navoffset: 5vmin;
     --navwidth: auto;
     --navheight: auto;
     --dark: #202225;
+    --dark-secondary: #292b2e;
     --light: #ffffff;
+    --light-secondary: #e4e4e4;
+    --highlight_dark: #cfda82;
+    --highlight_light: #182368;
     --maincolor: var(--dark);
+    --mainsecondarycolor: var(--light-secondary);
     --accentcolor: var(--light);
+    --highlightcolor: var(--highlight_light);
     --shadow: 0 2px 5px 0 rgb(60 64 67 / 30%), 0 2px 5px 1px rgb(60 64 67 / 15%);
     --shadowhover: 0 2px 5px 0 rgb(60 64 67 / 50%), 0 7px 8px 3px rgb(60 64 67 / 15%);
     --shadowpress: 0 1px 10px 0 rgb(60 64 67 / 30%), 0 2px 8px 3px rgb(60 64 67 / 15%);
@@ -33,7 +40,9 @@ vmin – Assign 1% of smaller unit of vh or vw to the element.
 
 [data-theme="dark"] {
     --maincolor: var(--light);
+    --mainsecondarycolor: var(--dark-secondary);
     --accentcolor: var(--dark);
+    --highlightcolor: var(--highlight_dark);
     transition: var(--maincolor) 0.5s;
 }
 
@@ -45,6 +54,7 @@ vmin – Assign 1% of smaller unit of vh or vw to the element.
         --large: 6vmin;
         --medium: 2.5vmin;
         --small: 2vmin;
+        --tiny: 1.6vmin;
         --navwidth: 150px;
         --navheight: 50px;
     }
