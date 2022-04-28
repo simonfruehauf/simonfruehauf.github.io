@@ -1,13 +1,3 @@
-/*
-<div class="wrapper">
-    <div class="icon facebook">
-        <span class="tooltip">Facebook</span>
-        <span><i class="fab fa-facebook-f"></i></span>
-    </div>
-</div>
-
-*/
-
 :root {
     --linkedin: #0a66c2;
     --twitter: #1d9bf0;
@@ -154,3 +144,14 @@
         flex-direction: column;
     }
 }
+
+
+/*
+<div class="wrapper">
+    <div class="icon facebook">
+        <span class="tooltip">Facebook</span>
+        <span><i class="fab fa-facebook-f"></i></span>
+    </div>
+</div>
+
+*/
