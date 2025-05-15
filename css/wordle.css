@@ -1,269 +1,261 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-html{
-  font-family: 'Varela Round', sans-serif;
-}
-@media (orientation : landscape) {    
-  :root {
-    --grid-height: 2.5vw;
-    --grid-width: calc(var(--grid-height)/0.75);
-    --fontsize:  2.3vw;
-  }
 
-}
-@media (orientation: portrait) {    
-  :root {
-    --grid-height: 7.5vw;
-    --grid-width: calc(var(--grid-height)/0.75);
-    --fontsize:  7.3vw;
-  }
-
-}
-:root{
-  --button-color: rgb(238, 237, 224);
-  --button-font-color: rgb(31, 31, 31);
-  
-  --button-font-color-almost: rgb(31,31,31);
-  --button-font-color-spoton: rgb(31,31,31);
-
-  --grid-color: rgb(31, 31, 31);
-  --grid-color-active: rgb(210,210,210);
-  --grid-color-inactive: rgb(110, 110, 110);
-  --grid-color-spoton: rgb(130, 241, 97);
-  --grid-color-almost: rgb(236, 220, 97);
-  --grid-color-font: rgb(0, 0, 0);
+html {
+    font-family: 'Varela Round', sans-serif;
 }
 
-body {
-  background: rgb(27, 27, 27);
-  color: white;
-  transition: background 500ms, color 250ms;
+@media (orientation : landscape) {
+    :root {
+        --grid-height: 2.5vw;
+        --grid-width: calc(var(--grid-height)/0.75);
+        --fontsize: 2.3vw;
+    }
+
 }
 
-.light-mode {
-  background: rgb(238, 237, 224);
-  color: black;
-  transition: background 500ms, color 250ms;
+@media (orientation: portrait) {
+    :root {
+        --grid-height: 7.5vw;
+        --grid-width: calc(var(--grid-height)/0.75);
+        --fontsize: 7.3vw;
+    }
+
 }
+
+:root {
+    --button-color: rgb(238, 237, 224);
+    --button-font-color: rgb(31, 31, 31);
+
+    --button-font-color-almost: rgb(31, 31, 31);
+    --button-font-color-spoton: rgb(31, 31, 31);
+
+    --grid-color: rgb(31, 31, 31);
+    --grid-color-active: rgb(210, 210, 210);
+    --grid-color-inactive: rgb(110, 110, 110);
+    --grid-color-spoton: rgb(130, 241, 97);
+    --grid-color-almost: rgb(236, 220, 97);
+    --grid-color-font: rgb(0, 0, 0);
+}
+
 
 
 .grid {
-  position: relative;
-  margin: auto;
-  width: fit-content;
-  border-radius: 0.3em;
-  
-  -webkit-user-select: none; /* Safari */        
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+/Edge */
-  user-select: none; /* Standard */
+    position: relative;
+    margin: auto;
+    width: fit-content;
+    border-radius: 0.3em;
+
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    user-select: none;
+    /* Standard */
 }
 
-.grid-item{
-  display: inline-block;
-  border-radius: 0.1em;
-  padding: 0.1em 0.1em 0.1em 0.1em ;
-  background-color: var(--grid-color);  
-  width: var(--grid-height);
-  height: var(--grid-width);
-  margin: 0.1em 0.05em 0.1em 0.05em ;
-  font-size: var(--fontsize);
-  text-align: center;
-  vertical-align: middle;
-  line-height: 1.5;
-  text-transform: uppercase;
-  -webkit-user-select: none; /* Safari */        
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+/Edge */
-  user-select: none; /* Standard */
-  color: var(--grid-color-font);
-}
-.grid-item[data-status="active"]{
-  background-color: var(--grid-color-active);
-}
-.grid-item[data-status="inactive"]{
-  background-color:  var(--grid-color-inactive);
-}
-.grid-item[data-status="spoton"]{
-  /* correct letter and space*/
-  background-color:  var(--grid-color-spoton);
-}
-.grid-item[data-status="almost"]{
-  /* correct letter, but not space*/
-  background-color:  var(--grid-color-almost);
-}
-.grid-item[data-status="wrong"]{
-  /* correct letter, but not space*/
-  background-color: rgb(179, 115, 115);
+.grid-item {
+    display: inline-block;
+    border-radius: 0.1em;
+    padding: 0.1em 0.1em 0.1em 0.1em;
+    background-color: var(--grid-color);
+    width: var(--grid-height);
+    height: var(--grid-width);
+    margin: 0.1em 0.05em 0.1em 0.05em;
+    font-size: var(--fontsize);
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1.2;
+    text-transform: uppercase;
+    -webkit-user-select: none;
+
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    user-select: none;
+    /* Standard */
+    color: var(--grid-color-font);
 }
 
-.keyboard{
-  position: relative;
-  margin: auto;
-  width: fit-content;
-  transform: translate(0%,10%);
-  -webkit-user-select: none; /* Safari */        
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+/Edge */
-  user-select: none; /* Standard */
+.grid-item[data-status="active"] {
+    background-color: var(--grid-color-active);
 }
 
-.row{
-  overflow:hidden;
-  text-align: center;
-  align-content: center;
-  padding: 0.1em;  
+.grid-item[data-status="inactive"] {
+    background-color: var(--grid-color-inactive);
 }
+
+.grid-item[data-status="spoton"] {
+    /* correct letter and space*/
+    background-color: var(--grid-color-spoton);
+}
+
+.grid-item[data-status="almost"] {
+    /* correct letter, but not space*/
+    background-color: var(--grid-color-almost);
+}
+
+.grid-item[data-status="wrong"] {
+    /* correct letter, but not space*/
+    background-color: rgb(179, 115, 115);
+}
+
+.keyboard {
+    position: relative;
+    margin: auto;
+    width: fit-content;
+    transform: translate(0%, 10%);
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    user-select: none;
+    /* Standard */
+}
+
+.row {
+    overflow: hidden;
+    text-align: center;
+    align-content: center;
+    padding: 0.1em;
+}
+
 .keyboard-button {
-  font-family: 'Varela Round', sans-serif;
-  display: inline;
-  float: none;
-  font-size: calc(var(--fontsize)/2);
-  cursor:pointer;
-  width: var(--grid-height);
-  height: var(--grid-width);
-  margin: 0.1em;
-  padding: 0.05em;
-  vertical-align: middle;
-  text-align: center;
-  -webkit-user-select: none; /* Safari */        
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+/Edge */
-  user-select: none; /* Standard */
-  background-color: var(--button-color);  
-  border-radius:  0.3em;
-  border:hidden;
-  box-shadow: 0.2em 0.1em #888888;
-  color: var(--button-font-color);
+    font-family: 'Varela Round', sans-serif;
+    display: inline;
+    float: none;
+    font-size: calc(var(--fontsize)/2);
+    cursor: pointer;
+    width: var(--grid-height);
+    height: var(--grid-width);
+    margin: 0.1em;
+    padding: 0.05em;
+    vertical-align: middle;
+    text-align: center;
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    user-select: none;
+    /* Standard */
+    background-color: var(--button-color);
+    border-radius: 0.3em;
+    border: hidden;
+    box-shadow: 0.2em 0.1em #888888;
+    color: var(--button-font-color);
 }
 
 .keyboard-button:active {
 
-  background-color:#aaaaaa;
-  transform: translateY(5%);
-  box-shadow: 0.2em 0.0em #888888 !important;
+    background-color: #aaaaaa;
+    transform: translateY(5%);
+    box-shadow: 0.2em 0.0em #888888 !important;
 }
-.keyboard-button[data-status="not"]{
-  /* correct letter and space*/
-  background-color: rgb(133, 133, 133);  
-}
-.keyboard-button[data-status="spoton"]{
-  /* correct letter and space*/
-  background-color: rgb(130, 241, 97);
-  color: var(--button-font-color-spoton);
 
+.keyboard-button[data-status="not"] {
+    /* correct letter and space*/
+    background-color: rgb(133, 133, 133);
 }
-.keyboard-button[data-status="almost"]{
-  /* correct letter, but not space*/
-  background-color: rgb(236, 220, 97);
-  color: var(--button-font-color-almost);
+
+.keyboard-button[data-status="spoton"] {
+    /* correct letter and space*/
+    background-color: rgb(130, 241, 97);
+    color: var(--button-font-color-spoton);
 
 }
 
-.keyboard-button[data-key="enter"]
-{
-  width: calc(var(--grid-height)*2.3);
-  height: var(--grid-width);
-  margin-left: 0.2em;
-  padding: 0.1em;
-  background-color: var(--button-color);
-}
-.keyboard-button[data-key="backspace"]
-{
-  width: calc(var(--grid-width)*0.7);
-  height: var(--grid-width);
-  margin-left: 0.2em;
-  padding: 0.05em;
-  background-color: var(--button-color);
+.keyboard-button[data-status="almost"] {
+    /* correct letter, but not space*/
+    background-color: rgb(236, 220, 97);
+    color: var(--button-font-color-almost);
+
 }
 
-.material-icons{
-  font-size: calc(var(--fontsize)*0.6) !important;
+.keyboard-button[data-key="enter"] {
+    width: calc(var(--grid-height)*2.3);
+    height: var(--grid-width);
+    margin-left: 0.2em;
+    padding: 0.1em;
+    background-color: var(--button-color);
+}
+
+.keyboard-button[data-key="backspace"] {
+    width: calc(var(--grid-width)*0.7);
+    height: var(--grid-width);
+    margin-left: 0.2em;
+    padding: 0.05em;
+    background-color: var(--button-color);
+}
+
+.material-icons {
+    font-size: calc(var(--fontsize)*0.6) !important;
 }
 
 .text {
-  position: relative;
-  margin: auto;
-  width: fit-content;
+    position: relative;
+    margin: auto;
+    width: fit-content;
 }
 
-h1{
-  font-size: var(--fontsize);
-  color: inherit/*#d3d3d3;*/
-  
+h1 {
+    font-size: var(--fontsize);
+    color: inherit
+        /*#d3d3d3;*/
+
 }
-.back-button{
-  -webkit-appearance: button;
-  -moz-appearance: button;
-  appearance: button;
-  text-decoration: none;
-  font-family: 'Varela Round', sans-serif;
-  position: absolute;
-  left: 0%;
-  top: 0%;
-  float: left;
-  font-size: calc(var(--fontsize)/2);
-  cursor:pointer;
-  width: calc(var(--grid-width)*1.5);
-  height: calc(var(--grid-height)/1.8);
-  margin: 0.3em;
-  padding: 0.1em;
-  vertical-align: middle;
-  text-align: center;
-  -webkit-user-select: none; /* Safari */        
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+/Edge */
-  user-select: none; /* Standard */
-  background-color: var(--button-color);
-  color: var(--button-font-color);
-  border-radius:  0.6em;
-  box-shadow: 0.2em 0.1em #888888;
+
+
+.back-button {
+    box-sizing:initial;
+    margin: 1em;
+    padding: 1em;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    font-family: 'Varela Round', sans-serif;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    font-size: calc(var(--fontsize)/2);
+    cursor: pointer;
+    width: calc(var(--grid-width)*1.5);
+    height: calc(var(--grid-height)/1.8);
+    margin: 0.3em;
+    padding: 0.1em;
+    vertical-align: middle;
+    text-align: center;
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    user-select: none;
+    /* Standard */
+    background-color: var(--button-color);
+    color: var(--button-font-color);
+    border-radius: 0.6em;
+    box-shadow: 0.2em 0.1em #888888;
 }
 
 .back-button:active {
-  background-color:#aaaaaa;
-  transform: translateY(5%);
-  box-shadow: 0.2em 0.0em #888888 !important;
-  -webkit-user-select: none; /* Safari */        
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+/Edge */
-  user-select: none; /* Standard */
-}
-
-#darkmode-button {
-  -webkit-appearance: button;
-  -moz-appearance: button;
-  appearance: button;
-  text-decoration: none;
-  font-family: 'Varela Round', sans-serif;
-  position: absolute;
-  right: 0%;
-  top: 0%;
-  float: left;
-  font-size: calc(var(--fontsize)/2);
-  cursor:pointer;
-  width: fit-content;
-  height:  fit-content;
-  margin: 0.5em;
-  padding: 0.2em;
-  vertical-align: middle;
-  text-align: center;
-  -webkit-user-select: none; /* Safari */        
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+/Edge */
-  user-select: none; /* Standard */
-  background-color: var(--button-color);
-  color: var(--button-font-color);
-  border-radius:  100%;
-  box-shadow: 0.2em 0.1em #888888;
-}
-
-#darkmode-button:active {
-  background-color:#aaaaaa;
-  transform: translateY(5%);
-  box-shadow: 0.2em 0.0em #888888 !important;
-  -webkit-user-select: none; /* Safari */        
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+/Edge */
-  user-select: none; /* Standard */
+    background-color: #aaaaaa;
+    transform: translateY(5%);
+    box-shadow: 0.2em 0.0em #888888 !important;
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    user-select: none;
+    /* Standard */
 }
