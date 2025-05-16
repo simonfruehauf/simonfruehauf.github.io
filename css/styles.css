@@ -4,7 +4,7 @@
     --text-color: white;
     --text-muted: #8a8f98;
     --accent-color: rgb(136, 154, 255);
-    --section-padding: 80px 0;
+    --section-padding: 10px 0;
     --container-width: 1140px;
     --gradient: linear-gradient(45deg, #ff7e5f, #feb47b, #aa4b6b, #6b6b83, #3b8d99);
     --gradient-2: linear-gradient(45deg, #feb47b, #aa4b6b, #6b6b83, #3b8d99, #ff7e5f);
