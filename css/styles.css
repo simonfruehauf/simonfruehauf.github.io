@@ -2,8 +2,8 @@
 :root {
     --bg-color: #0f1115;
     --text-color: white;
-    --text-muted: #8a8f98;
-    --accent-color: rgb(136, 154, 255);
+    --text-muted: #cfcfcf;
+    --accent-color: rgb(197, 206, 255);
     --section-padding: 10px 0;
     --container-width: 1140px;
     --gradient: linear-gradient(45deg, #ff7e5f, #feb47b, #aa4b6b, #6b6b83, #3b8d99);
@@ -28,12 +28,15 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+
 }
 
 .container {
     max-width: var(--container-width);
     margin: 0 auto;
     padding: 0 20px;
+    gap: 20px;
 }
 
 /* Navigation */
@@ -77,7 +80,7 @@ nav {
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
-    transition: color 0.3s;
+    transition: all 0.3s;
     position: relative;
 }
 
@@ -226,6 +229,7 @@ nav {
 
 .section-title {
     font-size: 38px;
+    padding-top: 30px;
     margin-bottom: 46px;
     position: relative;
     display: inline-block;
@@ -248,10 +252,24 @@ nav {
     flex-direction: column;
     gap: 30px;
 }
+.project-image{
+    margin: auto;
+    margin-top: -100px;
 
+
+}
+@media (max-width: 768px) {
+.project-image{
+    margin: auto;
+    margin-top: 0px;
+
+
+}
+    }
 .about-text p {
     margin-bottom: 20px;
     font-size: 18px;
+    width: auto;
     line-height: 1.7;
 }
 
@@ -288,12 +306,12 @@ nav {
 /* Portfolio Section */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1.5fr));
+    gap:20px;
 }
 
 .portfolio-item {
-    background-color: rgba(20, 22, 28, 0.5);
+    background-color: rgba(20, 22, 28, 0. 5);
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -305,53 +323,43 @@ nav {
 }
 
 .portfolio-image {
-    height: 200px;
+    height: 100%;
     overflow: hidden;
 }
+
+ 
 .image {
     width: 100%;
     height: 100%;
     position: relative;
     overflow: hidden;
 }
-.image-placeholder {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(120deg, #2c303a, #191c24);
-    position: relative;
-    overflow: hidden;
-}
-
-.image-placeholder::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    border-radius: 200px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transform: rotate(45deg);
-    animation: shine 3s infinite;
-}
-
-@keyframes shine {
-    0% {transform: translateX(-80%) rotate(30deg);}
-    100% {transform: translateX(80%) rotate(30deg);}
-}
-
 .portfolio-info {
+    position: absolute;
     padding: 20px;
+    /* Ensure info is positioned correctly over the image */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex; /* Use flexbox to align content */
+    flex-direction: column;
+    justify-content: flex-start; /* Align content to the bottom */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 50%); /* Add a gradient overlay */
+    opacity: 0; /* Hide info by default */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition */
 }
 
 .portfolio-info h3 {
     font-size: 20px;
     margin-bottom: 10px;
+    display: none; /* Hide the title */
 }
 
 .portfolio-info p {
     color: var(--text-muted);
     margin-bottom: 15px;
+    margin: 2px; ;
     font-size: 15px;
 }
 
@@ -363,12 +371,20 @@ nav {
 }
 
 .portfolio-tags span {
-    background-color: rgba(136, 154, 255, 0.15);
+    background-color: rgba(136, 154, 255, 0.25);
     color: var(--accent-color);
     padding: 4px 10px;
     border-radius: 20px;
     font-size: 12px;
 }
+
+
+.portfolio-item:hover .portfolio-info,
+.portfolio-item:focus-within .portfolio-info {
+    opacity: 1;
+    background-color: #000000b7;
+}
+
 .inline-link {
     display: inline-block;
     color: var(--accent-color);
@@ -379,32 +395,33 @@ nav {
 .inline-link:hover {
     color: white;
 }
-.view-steam {
-    display: inline-block;
-    margin-left: 2em;
-    color: var(--accent-color);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    transition: color 0.2s;
+.view-container{
+    padding-top: 20px;
+    margin: 5px auto 10px auto;
 }
-
-.view-steam:hover {
-    color: white;
-}
-
+.view-steam,
 .view-project {
+    margin: auto;
+    padding: 5px 10px;
     display: inline-block;
-    color: var(--accent-color);
+    text-align: center;
     text-decoration: none;
     font-size: 14px;
     font-weight: 500;
-    transition: color 0.2s;
+    transition: all 0.2s;
+    color: black;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 15px;
+    background: var(--accent-color);
+    width: fit-content;
 }
 
-.view-project:hover {
-    color: white;
-}
+.view-project:hover, .view-steam:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+   }
+
 
 /* Contact Section */
 #contact {
@@ -430,7 +447,7 @@ nav {
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.contact-button:hover {
+.contact-button:hover  {
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     
@@ -489,14 +506,24 @@ footer .social-links {
     .nav-links {
         display: none;
     }
+    .profile-info {
+        width: 90%;
+        padding: 20px;
+    }
+    .social-links{
+        width: 90%;
+        margin: 0px;
+        display: flex;
+    }
 }
 
 @media (max-width: 480px) {
     .name, .title {
         font-size: 24px;
     }
-    
     .section-title {
         font-size: 28px;
     }
+
+    
 }

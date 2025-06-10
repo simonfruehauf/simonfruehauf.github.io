@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <footer>
     <div class="container">
         <p>&copy; 2025 Simon Frühauf. All rights reserved.</p>
-        <p>v.1.0.160525.1</p>
+        <p>v.1.0.100625.2</p>
         <div class="social-links">
             <a href="https://www.linkedin.com/in/simon-fruehauf/" class="social-link-linkedin">
                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
