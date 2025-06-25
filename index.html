@@ -22,13 +22,17 @@
 <body>
     <header>
         <nav>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
+            <ul class="nav-links left">
+                <li ><a href="#hero">Home</a></li>
+                <li ><a href="#about">About</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="cv.html">CV</a></li>
-                <li><a href="wordle.html">Wordle?</a></li>
             </ul>
+            <ul class="nav-links right">
+                <li><a href="cv.html">CV</a></li>
+                <li><a href="wordle.html">Wordle</a></li>
+            </ul>
+            
         </nav>
     </header>
     <section id="hero">
@@ -39,7 +43,7 @@
             </div>
             <div class="profile-info">
                 <div>
-                    <h1 class="name"><a href="#about">Hey, I'm Simon.</a></h1>
+                    <h1 class="name"><a>Hey, I'm Simon.</a></h1>
                     <p class="title"> I'm a technical game designer.
                         <br>I help create games worth falling in love with.
                     </p>
@@ -240,11 +244,10 @@
             <h2 class="section-title">Get In Touch</h2>
             <p class="contact-text">Interested in working together or have questions about my projects? Feel free to
                 reach out!</p>
-            <a href="mailto:hello@simonfruehauf.com" class="contact-button">Say Hello</a>
+            <a id="contact-button" href="mailto:hello@simonfruehauf.com" class="contact-button">Say Hello</a>
         </div>
     </section>
     <script src="js/helper.js"></script>
-
 </body>
 
 </html>
