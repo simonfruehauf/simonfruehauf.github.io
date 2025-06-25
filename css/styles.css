@@ -232,7 +232,7 @@ nav {
 .section {
     padding: var(--section-padding);
     min-height: 100vh;
-    display: flex;
+    /*display: flex;*/
     align-items: center;
 }
 
@@ -314,16 +314,28 @@ nav {
 
 /* Portfolio Section */
 .portfolio-grid {
+    /*
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1.5fr));
-    gap:40px;
+    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+    */
+    display: flex;
+    flex-wrap: wrap;
+    place-content: center;
+    gap:20px;
 }
 
 .portfolio-item {
     background-color: rgba(20, 22, 28, 0. 5);
     border-radius: 10px;
     overflow: hidden;
+
+    gap: 50px;
+
     transition: transform 0.3s, box-shadow 0.3s;
+    > * {
+        min-width: 100px;
+        max-width: 340px;
+    }
 }
 
 .portfolio-item:hover {
@@ -346,23 +358,22 @@ nav {
 .portfolio-info {
     position: absolute;
     padding: 20px;
-    /* Ensure info is positioned correctly over the image */
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    display: flex; /* Use flexbox to align content */
+    display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Align content to the bottom */
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 50%); /* Add a gradient overlay */
-    opacity: 0; /* Hide info by default */
-    transition: opacity 0.3s ease-in-out; /* Smooth transition */
+    justify-content: flex-start;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 50%); 
+    opacity: 0; 
+    transition: opacity 0.3s ease-in-out; 
 }
 
 .portfolio-info h3 {
     font-size: 20px;
     margin-bottom: 10px;
-    display: none; /* Hide the title */
+    display: none;
 }
 
 .portfolio-info p {
@@ -405,13 +416,13 @@ nav {
     color: white;
 }
 .view-container{
-    padding-top: 20px;
-    margin: 5px auto 10px auto;
+    padding-top: auto;
+    margin: auto auto 10px auto;
 }
 .view-steam,
 .view-project {
-    margin: auto;
-    padding: 5px 10px;
+    margin: 5px 15px;
+    padding: 10px 10px;
     display: inline-block;
     text-align: center;
     text-decoration: none;
@@ -435,6 +446,8 @@ nav {
 /* Contact Section */
 #contact {
     text-align: center;
+    margin: auto;
+    padding-top: 300px;
 }
 
 .contact-text {
