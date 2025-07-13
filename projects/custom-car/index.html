@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/assets/favicon.png">
+    <link rel="shortcut icon" href="/assets/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <title>Custom 3D Car - Simon Frühauf</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/#portfolio">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="project-detail" class="section">
+        <div class="container">
+            <h2 class="section-title">Custom 3D Car - Godot</h2>
+            <div class="about-content">
+                <div class="about-text">
+<p>For this Godot project, I made a custom wheel system from the ground up, designed to deliver a customizable and engaging driving experience.</p>
+
+<video width="100%" height="240" controls>
+  <source src="/assets/games/custom-3d-car.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p>I made a custom <code>Wheel</code> class that simulates semi-realistic car wheel physics using <code>RayCast3D</code> nodes for ground detection. It handles suspension, acceleration, steering, and various friction forces.</p>
+<h3>Detailed Wheel Simulation</h3>
+<p>Each wheel is individually simulated to provide authentic car behavior:</p>
+<div class="skill-category">
+<ul>
+    <li><strong>Suspension:</strong> A spring and damper system for each wheel effectively handles bumps and uneven terrain, ensuring a smooth ride.</li>
+    <li><strong>Traction and Steering:</strong> Realistic acceleration and steering forces are applied to the wheels, allowing for precise control and dynamic maneuvers.</li>
+    <li><strong>Friction:</strong> Both rolling friction and lateral friction are meticulously simulated to provide a realistic driving feel, preventing unnatural sliding.</li>
+</ul>
+</div>
+<video width="100%" height="240" controls>
+  <source src="/assets/games/custom-3d-car-wheels.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<h3>Dynamic Camera</h3>
+<p>The simulation features an <strong>orbiting camera</strong> that intelligently follows the car. Players can control the camera's perspective with the mouse, and it automatically rotates to align with the car's direction when moving, enhancing immersion.</p>
+
+<h3>Sound Effects</h3>
+<p>To further enhance realism, the simulation includes <strong>dynamic sound effects</strong>. The engine sounds change convincingly with speed and acceleration, providing auditory feedback, and collision sounds add impact to the driving experience.</p>
+
+
+<p>This custom made system was key to achieving a responsive and authentic driving experience, offering precise control over car behavior for use in any vehicle project in the future.</p>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+    </footer>
+    <script src="/js/helper.js"></script>
+</body>
+
+</html>
