@@ -152,6 +152,11 @@ nav {
     aspect-ratio: 1 / 1;
     border: 3px solid white;
     box-shadow: 0 0 0 3px var(--accent-color);
+    transition: opacity 0.5s ease-in-out;
+}
+
+.profile-image.fade-out {
+    opacity: 0;
 }
 
 .profile-image-border {
