@@ -2,110 +2,121 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A simple Wordle clone game. Guess the 5-letter word in 6 tries.">
     <link rel="icon" href="assets/favicon.png">
     <link rel="shortcut icon" href="assets/favicon.png">
-    <link rel="stylesheet" href="https://fonts.google.com/specimen/Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap">
     <link rel="stylesheet" type="text/css" href="css/wordle.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Wordle Clone</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S0J3C4VQW1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S0J3C4VQW1');
+    </script>
 </head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-S0J3C4VQW1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-S0J3C4VQW1');
-</script>
 <body>
     <header>
-        <a class="back-button" href='index.html'> &lt; Back</a>
+        <a class="back-button" href='index.html' aria-label="Go back to home"> &lt; Back</a>
     </header>
 
-    <div class="text">
-        <h1 id="title">Wordle?</h1>
-    </div>
-    <div class="grid">
-        <div id="word-1">
-            <a class="grid-item"> </a>
-            <a class="grid-item"> </a>
-            <a class="grid-item"> </a>
-            <a class="grid-item"> </a>
-            <a class="grid-item"> </a>
+    <main>
+        <div class="text">
+            <h1 id="title">Wordle?</h1>
         </div>
-        <div id="word-2">
-            <a class="grid-item"> </a>
-            <a class="grid-item"> </a>
-            <a class="grid-item"> </a>
-            <a class="grid-item"> </a>
-            <a class="grid-item"> </a>
+        
+        <div class="grid" id="grid" aria-label="Wordle Grid">
+            <div id="word-1" class="row" role="group" aria-label="Row 1">
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+            </div>
+            <div id="word-2" class="row" role="group" aria-label="Row 2">
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+            </div>
+            <div id="word-3" class="row" role="group" aria-label="Row 3">
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+            </div>
+            <div id="word-4" class="row" role="group" aria-label="Row 4">
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+            </div>
+            <div id="word-5" class="row" role="group" aria-label="Row 5">
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+            </div>
+            <div id="word-6" class="row" role="group" aria-label="Row 6"> <!-- Added 6th row for standard Wordle -->
+                 <div class="grid-item"></div>
+                 <div class="grid-item"></div>
+                 <div class="grid-item"></div>
+                 <div class="grid-item"></div>
+                 <div class="grid-item"></div>
+            </div>
         </div>
-        <div id="word-3">
-            <a class="grid-item"> </a>
-            <a class="grid-item"> </a>
-            <a class="grid-item"> </a>
-            <a class="grid-item"> </a>
-            <a class="grid-item"> </a>
-        </div>
-        <div id="word-4">
-            <a class="grid-item"> </a>
-            <a class="grid-item"> </a>
-            <a class="grid-item"> </a>
-            <a class="grid-item"> </a>
-            <a class="grid-item"> </a>
-        </div>
-        <div id="word-5">
-            <a class="grid-item"> </a>
-            <a class="grid-item"> </a>
-            <a class="grid-item"> </a>
-            <a class="grid-item"> </a>
-            <a class="grid-item"> </a>
-        </div>
-    </div>
-
-    <div class="keyboard">
-        <div class="row">
-            <button class="keyboard-button" data-key="q">Q</button>
-            <button class="keyboard-button" data-key="w">W</button>
-            <button class="keyboard-button" data-key="e">E</button>
-            <button class="keyboard-button" data-key="r">R</button>
-            <button class="keyboard-button" data-key="t">T</button>
-            <button class="keyboard-button" data-key="y">Y</button>
-            <button class="keyboard-button" data-key="u">U</button>
-            <button class="keyboard-button" data-key="i">I</button>
-            <button class="keyboard-button" data-key="o">O</button>
-            <button class="keyboard-button" data-key="p">P</button>
-        </div>
-        <div class="row">
-            <button class="keyboard-button" data-key="a">A</button>
-            <button class="keyboard-button" data-key="s">S</button>
-            <button class="keyboard-button" data-key="d">D</button>
-            <button class="keyboard-button" data-key="f">F</button>
-            <button class="keyboard-button" data-key="g">G</button>
-            <button class="keyboard-button" data-key="h">H</button>
-            <button class="keyboard-button" data-key="j">J</button>
-            <button class="keyboard-button" data-key="k">K</button>
-            <button class="keyboard-button" data-key="l">L</button>
-
-        </div>
-        <div class="row">
-            <button class="keyboard-button" data-key="z">Z</button>
-            <button class="keyboard-button" data-key="x">X</button>
-            <button class="keyboard-button" data-key="c">C</button>
-            <button class="keyboard-button" data-key="v">V</button>
-            <button class="keyboard-button" data-key="b">B</button>
-            <button class="keyboard-button" data-key="n">N</button>
-            <button class="keyboard-button" data-key="m">M</button>
-            <button class="keyboard-button" data-key="backspace">
-                    <span class="material-icons" data-key="backspace">backspace</span>
+    
+        <div class="keyboard" id="keyboard">
+            <div class="keyboard-row">
+                <button class="keyboard-button" data-key="q">Q</button>
+                <button class="keyboard-button" data-key="w">W</button>
+                <button class="keyboard-button" data-key="e">E</button>
+                <button class="keyboard-button" data-key="r">R</button>
+                <button class="keyboard-button" data-key="t">T</button>
+                <button class="keyboard-button" data-key="y">Y</button>
+                <button class="keyboard-button" data-key="u">U</button>
+                <button class="keyboard-button" data-key="i">I</button>
+                <button class="keyboard-button" data-key="o">O</button>
+                <button class="keyboard-button" data-key="p">P</button>
+            </div>
+            <div class="keyboard-row">
+                <button class="keyboard-button" data-key="a">A</button>
+                <button class="keyboard-button" data-key="s">S</button>
+                <button class="keyboard-button" data-key="d">D</button>
+                <button class="keyboard-button" data-key="f">F</button>
+                <button class="keyboard-button" data-key="g">G</button>
+                <button class="keyboard-button" data-key="h">H</button>
+                <button class="keyboard-button" data-key="j">J</button>
+                <button class="keyboard-button" data-key="k">K</button>
+                <button class="keyboard-button" data-key="l">L</button>
+            </div>
+            <div class="keyboard-row">
+                <button class="keyboard-button wide" data-key="enter">ENTER</button>
+                <button class="keyboard-button" data-key="z">Z</button>
+                <button class="keyboard-button" data-key="x">X</button>
+                <button class="keyboard-button" data-key="c">C</button>
+                <button class="keyboard-button" data-key="v">V</button>
+                <button class="keyboard-button" data-key="b">B</button>
+                <button class="keyboard-button" data-key="n">N</button>
+                <button class="keyboard-button" data-key="m">M</button>
+                <button class="keyboard-button wide" data-key="backspace" aria-label="Backspace">
+                    <span class="material-icons">backspace</span>
                 </button>
-            <button class="keyboard-button" data-key="enter">ENTER</button>
+            </div>
         </div>
-    </div>
+    </main>
 
-    <script src="js/helper.js"></script>
-    <script src="js/wordle.js"></script>
+    <script src="js/helper.js" defer></script>
+    <script src="js/wordle.js" defer></script>
 </body>
 </html>
