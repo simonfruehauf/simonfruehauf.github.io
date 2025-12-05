@@ -4,7 +4,7 @@
     --text-color: white;
     --text-muted: #cfcfcf;
     --accent-color: rgb(197, 206, 255);
-    --section-padding: 10px 0;
+    --section-padding: 50px 0;
     --container-width: 1140px;
     --gradient: linear-gradient(45deg, #ff7e5f, #feb47b, #aa4b6b, #6b6b83, #3b8d99);
     --gradient-2: linear-gradient(45deg, #feb47b, #aa4b6b, #6b6b83, #3b8d99, #ff7e5f);
@@ -19,6 +19,7 @@
 html {
     scroll-behavior: smooth;
     background-color: var(--bg-color);
+    scroll-padding-top: 80px;
 }
 
 body {
