@@ -44,7 +44,7 @@
         }
 
         .me-header h1 {
-            font-size: 2.6rem;
+            font-size: 2.9rem;
             font-weight: 400;
             letter-spacing: -0.02em;
             line-height: 1;
@@ -64,9 +64,11 @@
         }
 
         .me-subtitle {
-            font-size: 0.85rem;
+            font-size: 1.56rem;
             color: #bbb;
             margin-top: 0.4rem;
+            letter-spacing: -0.02em;
+
         }
 
         .me-photo-section {
@@ -77,15 +79,17 @@
         }
 
         .ascii-col {
-            color: #555;
-            font-size: 0.78rem;
+            color: #797373;
+            font-size: 0.95rem;
             line-height: 1.62;
             user-select: none;
             text-align: center;
             white-space: pre;
+            letter-spacing: 0.02em;
         }
 
         .me-photo {
+            filter: url(#jpeg-artifact);
             width: 185px;
             height: 260px;
             object-fit: cover;
@@ -95,7 +99,7 @@
         }
 
         .me-bio {
-            font-size: 0.88rem;
+            font-size: 1.15rem;
             line-height: 1.65;
             color: #e0e0e0;
         }
@@ -117,17 +121,23 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 1rem;
+            gap: 2rem;
             margin-top: 2rem;
             flex-wrap: wrap;
         }
 
         .me-badges img {
             height: 31px;
+            width: 88px;
+            object-fit: cover;;
             image-rendering: pixelated;
             border: 1px solid #333;
         }
 
+        .me-badges img:hover {
+            transform: scale(1.05);
+            transition: transform 0.1s ease-in-out;
+        }
         @media (max-width: 480px) {
             .me-box {
                 padding: 1.4rem 1.2rem;
@@ -151,43 +161,18 @@
 
 <body>
     <main class="me-box" id="main-me">
-
         <div class="me-header">
             <div>
-                <h1>about</h1>
+                <h1>hello world</h1>
                 <p class="me-subtitle">bee &nbsp;~&nbsp; they / them</p>
             </div>
             <a href="/" class="back-link">&lt; back</a>
         </div>
 
         <div class="me-photo-section">
-            <div class="ascii-col" aria-hidden="true">/~/~/~/~
-                ~/~/~/~/
-                /~/~/~/~
-                ~/~/~/~/
-                /~/~/~/~
-                ~/~/~/~/
-                /~/~/~/~
-                ~/~/~/~/
-                /~/~/~/~
-                ~/~/~/~/
-                /~/~/~/~
-                ~/~/~/~/</div>
-
+            <div class="ascii-col" aria-hidden="true">/~/~/~/~/~/~/~<br>~/~/~/~/~/~/~/<br>/~/~/~/~/~/~/~<br>~/~/~/~/~/~/~/<br>/~/~/~/~/~/~/~<br>~/~/~/~/~/~/~/<br>/~/~/~/~/~/~/~<br>~/~/~/~/~/~/~/<br>/~/~/~/~/~/~/~<br>~/~/~/~/~/~/~/<br></div>
             <img src="assets/me.png" alt="bee selfie" class="me-photo">
-
-            <div class="ascii-col" aria-hidden="true">/~/~/~/~
-                ~/~/~/~/
-                /~/~/~/~
-                ~/~/~/~/
-                /~/~/~/~
-                ~/~/~/~/
-                /~/~/~/~
-                ~/~/~/~/
-                /~/~/~/~
-                ~/~/~/~/
-                /~/~/~/~
-                ~/~/~/~/</div>
+            <div class="ascii-col" aria-hidden="true">/~/~/~/~/~/~/~<br>~/~/~/~/~/~/~/<br>/~/~/~/~/~/~/~<br>~/~/~/~/~/~/~/<br>/~/~/~/~/~/~/~<br>~/~/~/~/~/~/~/<br>/~/~/~/~/~/~/~<br>~/~/~/~/~/~/~/<br>/~/~/~/~/~/~/~<br>~/~/~/~/~/~/~/<br></div>
         </div>
 
         <div class="me-bio">
@@ -220,5 +205,11 @@
 
     </main>
 </body>
-
+<svg width="0" height="0" style="position: absolute; pointer-events: none;">
+  <filter id="jpeg-artifact">
+    <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="5" result="noise" />
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" result="distorted" />
+    <feGaussianBlur in="banded" stdDeviation="0.2" result="blurred" />
+  </filter>
+</svg>
 </html>
