@@ -15,6 +15,8 @@ body {
 
 /* Base box styling */
 .box {
+    display: flex;
+    flex-direction: column;
     margin: 40px auto;
     border: 3px solid white;
     background-color: black;
@@ -162,9 +164,9 @@ h2 {
 }
 
 .bottom {
-    margin-top: 3rem;
+    margin-top: auto;
     padding-top: 1rem;
-    border-top: 1px dotted #555;
+    border-top: 2px dotted #555;
     text-align: left;
     width: 100%;
 }
