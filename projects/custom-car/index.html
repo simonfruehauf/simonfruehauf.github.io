@@ -15,16 +15,17 @@
 
 <body>
     <main class="box box-static" id="main-content">
-        <nav aria-label="Breadcrumb">
+<nav aria-label="Breadcrumb">
             <a href="/games" aria-label="Go back to Games">&lt; back to games</a>
+            <a href="https://github.com/simonfruehauf/custom-3d-car" target="_blank" rel="noopener noreferrer" aria-label="View the project on GitHub">
+                View on GitHub
+            </a>
         </nav>
-
         <section style="margin-top: 2rem;">
             <h1>custom 3d car</h1>
 
             <p>
-                For this Godot project, I made a custom wheel system from the ground up, designed to deliver a
-                customizable and engaging driving experience.
+                For this Godot project, I built a custom vehicle simulation from the ground up, combining high-performance physics with an extensive, interactive driving model designed to deliver a highly customizable and engaging driving experience.
             </p>
 
             <div style="margin: 2rem 0; text-align: center;">
@@ -36,21 +37,16 @@
             </div>
 
             <p>
-                I made a custom <code>Wheel</code> class that simulates semi-realistic car wheel physics using
-                <code>RayCast3D</code> nodes for ground detection. It handles suspension, acceleration, steering, and
-                various friction forces.
+                The simulation leverages the <strong>Jolt Physics engine</strong> for robust <code>RigidBody3D</code> dynamics, combined with a custom-engineered <code>Wheel</code> class. Using <code>RayCast3D</code> nodes for precise ground detection, each wheel calculates independent suspension, acceleration, steering, speed-sensitive lateral grip, and multi-tier rolling friction.
             </p>
 
             <h2>detailed wheel simulation</h2>
-            <p>Each wheel is individually simulated to provide authentic car behavior:</p>
+            <p>Each wheel is individually simulated to provide authentic, responsive car behavior:</p>
             <div class="indent">
                 <ul>
-                    <li><strong>Suspension:</strong> A spring and damper system for each wheel effectively handles bumps
-                        and uneven terrain, ensuring a smooth ride.</li>
-                    <li><strong>Traction & Steering:</strong> Realistic acceleration and steering forces are applied to
-                        the wheels, allowing for precise control and dynamic maneuvers.</li>
-                    <li><strong>Friction:</strong> Both rolling and lateral friction are simulated to provide a
-                        realistic driving feel, preventing unnatural sliding.</li>
+                    <li><strong>Suspension:</strong> A highly configurable spring and damper system dynamically calculates spring compression forces and damper resistance based on rest height and wheel travel, ensuring stable handling over bumps and uneven terrain.</li>
+                    <li><strong>Traction & Steering:</strong> Tailored steering angles and acceleration forces are applied directly at each wheel's contact point, allowing for precise control and dynamic, high-speed maneuvers.</li>
+                    <li><strong>Friction & Drift:</strong> Both rolling and lateral friction are simulated. The lateral physics incorporates a speed-dependent grip falloff that models realistic tire slip at high speeds, while rolling resistance dynamically scales when applying the brakes or pulling the handbrake.</li>
                 </ul>
             </div>
 
@@ -62,21 +58,30 @@
                 </video>
             </div>
 
-            <h2>dynamic camera & audio</h2>
+            <h2>advanced transmission & nitro boost</h2>
+            <p>To enhance the driving dynamics, the vehicle simulates mechanical drivetrain components and a nitrous injection system:</p>
             <div class="indent">
                 <ul>
-                    <li><strong>Orbiting Camera:</strong> Intelligently follows the car. Players can control the
-                        perspective with the mouse, rotating to align with the car's direction.</li>
-                    <li><strong>Sound Effects:</strong> Dynamic sounds change convincingly with speed and acceleration,
-                        while collision sounds add impact to the driving experience.</li>
+                    <li><strong>Engine & Transmission:</strong> Features a fully modeled automatic and manual gearbox supporting 6 forward gears, neutral, and reverse with custom ratios. The engine RPM is calculated dynamically from wheel speed and a final drive ratio, featuring realistic shift thresholds and an active rev-limiter that cuts power when hitting the redline.</li>
+                    <li><strong>Nitro Boost:</strong> A dynamic nitrous oxide system applies strong longitudinal thrust for high-speed acceleration. It features active fuel consumption and a cooling/refilling delay that replenishes the boost when not in use.</li>
+                </ul>
+            </div>
+
+            <h2>dynamic camera, lighting & audio</h2>
+            <p>The visual and auditory atmosphere is fully interactive, reacting in real-time to driving inputs:</p>
+            <div class="indent">
+                <ul>
+                    <li><strong>Orbiting SpringArm Camera:</strong> Intelligently orbits the car using a collision-aware SpringArm3D. Players can orbit the camera with the mouse or let the system auto-rotate and snap to the vehicle's heading direction during movement.</li>
+                    <li><strong>Interactive Lighting:</strong> Normal headlights and highbeams can be toggled manually, utilizing smooth tweened spot ranges. Additionally, rear brake lights automatically glow when decelerating or reversing.</li>
+                    <li><strong>Adaptive Sound Effects:</strong> The audio landscape adapts to the car's state: the engine loop pitch scales dynamically with engine RPM and throttle input, manual handbrake pulls and headlight switches trigger physical clicks, and collision sounds dynamically scale in intensity based on light, medium, or hard impact velocities.</li>
                 </ul>
             </div>
 
             <p style="margin-top: 2rem !important; border-top: 1px dotted #555; padding-top: 1rem;">
-                This system was key to achieving a responsive driving experience, offering precise control over car
-                behavior for use in future vehicle projects.
+                This comprehensive vehicle system was key to achieving a responsive and detailed driving experience, offering precise control over every nuance of the car's behavior.
             </p>
         </section>
+
     </main>
 </body>
 
