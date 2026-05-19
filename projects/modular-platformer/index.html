@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modular 2D Platformer - Simon Frühauf</title>
+
+    <meta name="description" content="Building a Modular 2D Platformer in Godot 4: a detailed technical writeup by Simon Frühauf.">
+
+    <link rel="icon" href="../../assets/favicon.png">
+    <link rel="shortcut icon" href="../../assets/favicon.png">
+    <link rel="stylesheet" type="text/css" href="../../css/styles.css">
+
+    <!-- PrismJS for retro-modern code blocks -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <style>
+        /* Custom enhancements to fit the retro terminal style */
+        pre[class*="language-"] {
+            background: #0d0d0d !important;
+            border: 1px solid #333 !important;
+            border-left: 3px solid white !important;
+            padding: 1.2rem !important;
+            margin: 1.5rem 0 !important;
+            border-radius: 4px;
+        }
+        code[class*="language-"] {
+            font-family: "Hack", 'Fira Mono', monospace !important;
+            font-size: 0.9em !important;
+            text-shadow: none !important;
+        }
+        .mermaid {
+            background: #0d0d0d;
+            border: 1px solid #333;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+        }
+        .video-placeholder {
+            border: 2px dashed #444;
+            padding: 3rem 1rem;
+            text-align: center;
+            color: #666;
+            margin: 2rem 0;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="box box-static" id="main-content">
+        <nav aria-label="Breadcrumb">
+            <a href="/games" aria-label="Go back to Games">&lt; back to games</a>
+        </nav>
+        
+        <section style="margin-top: 2rem;">
+            <h1>modular 2d platformer</h1>
+            
+            <p class="gray" style="margin-top: -1rem !important; margin-bottom: 2rem !important; font-size: 0.9em;">
+                building a modular 2d platformer in godot 4
+            </p>
+
+            <p>
+                The <strong>Simple Shape Platformer</strong> started as a minimal visual experiment and gradually turned into a focused prototype about movement feel, level flow, and reusable systems. The goal was to see how far a clean geometric style could go when paired with responsive controls and editor-friendly tooling.
+            </p>
+
+            <div style="margin: 2rem 0; text-align: center;">
+                <img src="../../assets/images/platformer_full.png" style="width: 100%; height: auto; border-radius: 4px; border: 1px solid #333;" alt="Gameplay showing modular 2D platformer room and movement mechanics">
+            </div>
+
+            <h2>room system</h2>
+            <p>
+                One of the first problems to solve was room setup. In a screen-based platformer, manually adjusting camera limits and collision bounds for every space gets tedious fast, so the project uses a small <code>@tool</code> workflow in <code>room.gd</code> to handle that work in the editor.
+            </p>
+            <p>
+                Designers can set room <code>width</code> and <code>height</code> as screen-sized units in the inspector, and the collision shape updates automatically. That keeps layout iteration quick and makes it easier to build connected rooms without constantly fixing camera boundaries by hand.
+            </p>
+            <p>
+                When the player moves from one room to the next, the camera limits shift and the view slides into place. The pause is brief, but it gives transitions a deliberate, classic feel that fits the project well.
+            </p>
+
+            <pre><code class="language-gdscript">@tool 
+extends Node2D
+var screen_x = 1152
+var screen_y = 640
+
+@onready var area = $RoomArea
+
+@export var width : int = 1:
+	set(value):
+		width = value
+		$RoomArea/RoomCollision.shape = $RoomArea/RoomCollision.shape.duplicate()
+		$RoomArea/RoomCollision.shape.size.x = value * screen_x
+	get:
+		return $RoomArea/RoomCollision.shape.size.x / screen_x</code></pre>
+
+            <h2>movement and physics</h2>
+            <p>
+                Most of the work went into movement. For a platformer like this, the difference between something that feels good and something that feels forgettable usually comes down to small timing details.
+            </p>
+            <p>
+                The player controller includes variable jump height, coyote time, wall interaction, and jump buffering so inputs feel reliable even when timing is slightly early or late. There is also a charged power jump that adds a stronger vertical option and gives the movement system a bit more personality.
+            </p>
+            <p>
+                Wall slides reduce gravity, wall jumps apply a controlled push-off, and external forces such as bouncepads can feed into the movement state without making the controller feel messy. The result is a system that stays readable while still leaving room for expressive movement.
+            </p>
+
+            <pre class="mermaid">
+graph TD
+    A[Player Input] --> B{Action Pressed?}
+    B -->|Jump| C{Ground Check / Coyote?}
+    C -->|Yes| D[Standard Jump]
+    C -->|No| E{Wall Contact?}
+    E -->|Yes| F[Wall Jump & Pushback]
+    E -->|No| G{Double Jump Unlocked?}
+    G -->|Yes & Available| H[Double Jump & Spin Anim]
+    B -->|Grab + Jump| I[Charge Power Jump]
+    I -->|Release| J[Amplified High Jump + Screenshake]
+            </pre>
+
+            <h2>pickup design</h2>
+            <p>
+                To keep the player script from turning into a pile of item-specific logic, pickups use a simple delegation pattern in <code>pickup.gd</code>. Each pickup decides what kind of action it represents, then calls the matching method on the player.
+            </p>
+            <p>
+                That makes ability unlocks like <code>wall_jump</code>, <code>double_jump</code>, and <code>power_jump</code> easy to configure in the inspector without hardwiring every interaction into one giant controller. It also keeps the code easier to extend when new pickup types are added later.
+            </p>
+            <p>
+                The pickups themselves are drawn with lightweight canvas code and animated with tweens instead of relying on heavier texture work. That fits the visual style and keeps the whole project consistent.
+            </p>
+
+            <pre><code class="language-gdscript">func _on_area_2d_body_entered(body):
+	var func_name = "_" + TYPE
+	if body is Player:
+		var func_ref = Callable(body, func_name)
+		if TYPE == "UNLOCK":
+			func_ref.call(unlocking)
+		else:
+			func_ref.call()
+		if one_time:
+			queue_free()</code></pre>
+
+            <h2>supporting systems</h2>
+            <p>
+                A few smaller systems helped round the project out. The options menu uses proper linear-to-decibel conversion for volume sliders, and settings plus basic run statistics are serialized into a save file for persistence.
+            </p>
+            <p>
+                Those features are not flashy, but they matter. They make the prototype feel more complete and show the same attention to structure as the movement and level systems.
+            </p>
+
+            <h2>visual direction</h2>
+            <p>
+                What I like most about the project is that the presentation comes directly from the technical constraints instead of hiding them. Simple shapes, procedural grids, and shader-driven transitions give it a distinct look without needing heavy art production.
+            </p>
+            <p>
+                That approach kept the scope manageable while still giving the game a clear identity. In the end, the project became less about minimalism for its own sake and more about using a restricted visual language to support sharp movement and clean design.
+            </p>
+
+            <p style="margin-top: 2rem !important; border-top: 1px dotted #555; padding-top: 1rem;">
+                This geometric platformer prototype demonstrates how modular design principles and responsiveness can elevate simple shapes into an engaging, platforming core.
+            </p>
+        </section>
+    </main>
+
+    <!-- PrismJS Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+    <!-- Mermaid JS Support -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true
+            },
+            themeVariables: {
+                background: '#0d0d0d',
+                primaryColor: '#1a1a1a',
+                primaryTextColor: '#ffffff',
+                lineColor: '#999999',
+                arrowheadColor: '#999999',
+                edgeLabelBackground: '#0d0d0d'
+            }
+        });
+    </script>
+</body>
+
+</html>

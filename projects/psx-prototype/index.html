@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro 3D PSX Prototype - Simon Frühauf</title>
+
+    <meta name="description"
+        content="Building a Retro 3D PSX Prototype in Godot 4: a detailed technical writeup by Simon Frühauf.">
+
+    <link rel="icon" href="../../assets/favicon.png">
+    <link rel="shortcut icon" href="../../assets/favicon.png">
+    <link rel="stylesheet" type="text/css" href="../../css/styles.css">
+
+    <!-- PrismJS for retro-modern code blocks -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <style>
+        /* Custom enhancements to fit the retro terminal style */
+        pre[class*="language-"] {
+            background: #0d0d0d !important;
+            border: 1px solid #333 !important;
+            border-left: 3px solid white !important;
+            padding: 1.2rem !important;
+            margin: 1.5rem 0 !important;
+            border-radius: 4px;
+        }
+
+        code[class*="language-"] {
+            font-family: "Hack", 'Fira Mono', monospace !important;
+            font-size: 0.9em !important;
+            text-shadow: none !important;
+        }
+
+        .mermaid {
+            background: #0d0d0d;
+            border: 1px solid #333;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .video-placeholder {
+            border: 2px dashed #444;
+            padding: 3rem 1rem;
+            text-align: center;
+            color: #666;
+            margin: 2rem 0;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="box box-static" id="main-content">
+        <nav aria-label="Breadcrumb">
+            <a href="/games" aria-label="Go back to Games">&lt; back to games</a>
+        </nav>
+
+        <section style="margin-top: 2rem;">
+            <h1>retro 3d psx prototype</h1>
+
+            <p class="gray" style="margin-top: -1rem !important; margin-bottom: 2rem !important; font-size: 0.9em;">
+                building a retro 3d psx prototype in godot 4
+            </p>
+
+            <p>
+                This prototype started as a tight experiment in combining 90s-era rendering with modern, physics-driven
+                interactions. Built in Godot 4.6, it mixes retro visual quirks with systems like non‑euclidean portals,
+                physics-based object interaction, and an AI that responds to being photographed.
+            </p>
+
+            <div style="margin: 2rem 0; text-align: center;">
+                <video width="100%" height="auto" controls poster="../../assets/psx.png"
+                    aria-label="Gameplay video showing the Retro 3D PSX Prototype">
+                    <source src="../../assets/videos/psx.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <h2>project overview</h2>
+            <p>
+                Rather than just slapping a low-res filter on a modern scene, the goal was to recreate the
+                <em>behaviors</em> of PS1 hardware—vertex jitter, affine texture warping, and low-resolution viewport
+                scaling—so the visuals feel authentic, not pasted on. Underneath that is a playable template with
+                portals, object dragging powered by JoltPhysics3D, and a creepy enemy that freezes when you look at it.
+            </p>
+
+            <h2>psx shader pipeline</h2>
+            <p>
+                The shader does three main things to sell the retro look:
+            </p>
+            <ul>
+                <li>Vertex snapping in projection space to create the classic jitter.</li>
+                <li>Affine texture mapping to produce texture warping on angled polygons.</li>
+                <li>A low native viewport (455x256) with nearest-neighbor scaling for crisp pixels.</li>
+            </ul>
+            <p>
+                Example snippet:
+            </p>
+
+            <pre><code class="language-glsl">float i = (1.0 - jitter) * min(VIEWPORT_SIZE.x, VIEWPORT_SIZE.y) / 2.0;
+float w = (PROJECTION_MATRIX * vec4(VERTEX, 1.0)).w;
+VERTEX = round(VERTEX / w * i) / i * w;</code></pre>
+
+            <h2>non-euclidean portals</h2>
+            <p>
+                Portals use subviewports so each opening renders the scene from the linked portal’s perspective. The
+                linked camera’s transform is updated every frame relative to the player, keeping the view consistent
+                while walking through.
+            </p>
+            <p>
+                Key idea:
+            </p>
+
+            <pre><code class="language-gdscript">var rel = global_transform.affine_inverse() * player.camera.global_transform
+linked_portal.cam.global_transform = linked_portal.global_transform * rel</code></pre>
+
+            <p>
+                Portals also trigger a short post-process effect—chromatic aberration and vignette—to make the
+                transition feel weighty.
+            </p>
+
+            <h2>photographic ai (enemy behaviour, mannequins)</h2>
+            <p>
+                The mannequins follow a simple rule: they stay still while visible and move when you aren’t looking. The
+                camera/photo mechanic ties into this—if you take and keep a photo of a mannequin, it stays frozen until
+                you remove or review that photo.
+            </p>
+            <p>
+                If destroyed, mannequins break into rigid fragments and the physics engine handles the resulting debris.
+            </p>
+
+            <pre class="mermaid">
+graph TD
+    A[Mannequin State] --> B{Is Player Looking?}
+    B -->|Yes| C[Freeze Movement]
+    B -->|No| D{Has Active Photo?}
+    D -->|Yes| C
+    D -->|No| E[Move Towards Player]
+    E --> F{Destroyed?}
+    F -->|Yes| G[Fracture into Rigid Fragments & Physics Debris]
+            </pre>
+
+            <h2>gameplay systems</h2>
+            <ul>
+                <li>Physical dragging uses Jolt joints instead of kinematic attachments so objects collide and feel
+                    heavy.</li>
+                <li>The hotbar includes a lantern (dynamic shadows), a revolver (projectiles + recoil), and a camera
+                    (snapshots + inventory review).</li>
+                <li>Movement includes stamina-backed sprinting, procedural camera bob, and contextual footstep sounds.
+                </li>
+            </ul>
+
+            <h2>tech stack</h2>
+            <ul>
+                <li>Godot 4.6 (Forward Plus)</li>
+                <li>JoltPhysics3D for rigid body dynamics</li>
+                <li>GDScript for gameplay logic</li>
+                <li>Custom spatial shaders for retro and portal effects</li>
+            </ul>
+
+            <h2>why this approach</h2>
+            <p>
+                Putting retro limitations at the core of the design creates tension and helps the game feel distinct.
+                The shaders make environments feel unstable and uncanny, which works well with portals and
+                physics-driven enemy interactions. It’s a small, focused template that’s easy to extend into a tense,
+                atmospheric game.
+            </p>
+
+            <p style="margin-top: 2rem !important; border-top: 1px dotted #555; padding-top: 1rem;">
+                This retro 3D PSX prototype demonstrates how combining authentic classic hardware limitations with
+                modern physics engine interactions can create a highly atmospheric and tense gameplay loop.
+            </p>
+        </section>
+    </main>
+
+    <!-- PrismJS Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+    <!-- Mermaid JS Support -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true
+            },
+            themeVariables: {
+                background: '#0d0d0d',
+                primaryColor: '#1a1a1a',
+                primaryTextColor: '#ffffff',
+                lineColor: '#999999',
+                arrowheadColor: '#999999',
+                edgeLabelBackground: '#0d0d0d'
+            }
+        });
+    </script>
+</body>
+
+</html>

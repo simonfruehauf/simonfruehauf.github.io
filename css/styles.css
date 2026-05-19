@@ -187,6 +187,19 @@ a:focus {
     outline: none;
 }
 
+.hidden-bee-link {
+    color: inherit;
+    text-decoration: none;
+    cursor: default;
+}
+
+.hidden-bee-link:hover,
+.hidden-bee-link:focus {
+    color: inherit;
+    text-decoration: none;
+    outline: none;
+}
+
 .homelabel {
     font-size: 1.25em;
     text-decoration: underline;
@@ -313,4 +326,4 @@ li {
 
 .headshot-top {
     animation: crossfadeHeadshot 10s infinite;
-}
+}
