@@ -1,6 +1,7 @@
-@font-face {
-    font-family: "Hack";
-    src: url("./font/hack.woff2");
+a[target="_blank"]::after {
+    content: "↗";
+    font-size: 0.8em;
+    color: #999;
 }
 
 
@@ -326,4 +327,4 @@ li {
 
 .headshot-top {
     animation: crossfadeHeadshot 10s infinite;
-}
+}
