@@ -177,7 +177,6 @@ p {
 }
 
 a {
-    text-decoration: underline;
     color: white;
     transition: color 0.2s;
 }
