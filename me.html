@@ -8,12 +8,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/me.css">
 </head>
 
-<body>
+<body class="me-layout">
+    <script src="https://cdn.jsdelivr.net/gh/IdreesInc/Pocket-Bird@main/dist/web/birb.embed.js"></script>
+
     <main class="me-box" id="main-me">
         <div class="me-header">
             <div>
@@ -70,14 +70,14 @@
         </div>
 
     </main>
+    <svg class="svg-filter-hidden" width="0" height="0" aria-hidden="true">
+        <filter id="jpeg-artifact">
+            <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="5" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G"
+                result="distorted" />
+            <feGaussianBlur in="distorted" stdDeviation="0.2" result="blurred" />
+        </filter>
+    </svg>
 </body>
-<svg width="0" height="0" style="position: absolute; pointer-events: none;">
-    <filter id="jpeg-artifact">
-        <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="5" result="noise" />
-        <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G"
-            result="distorted" />
-        <feGaussianBlur in="distorted" stdDeviation="0.2" result="blurred" />
-    </filter>
-</svg>
 
 </html>

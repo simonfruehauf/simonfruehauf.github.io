@@ -17,20 +17,20 @@
     <!-- PrismJS for retro-modern code blocks -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
     <style>
-        /* Custom enhancements to fit the retro terminal style */
+        /* Custom enhancements to fit the retro terminal style — overrides prism-tomorrow by source order */
         pre[class*="language-"] {
-            background: #0d0d0d !important;
-            border: 1px solid #333 !important;
-            border-left: 3px solid white !important;
-            padding: 1.2rem !important;
-            margin: 1.5rem 0 !important;
+            background: #0d0d0d;
+            border: 1px solid #333;
+            border-left: 3px solid white;
+            padding: 1.2rem;
+            margin: 1.5rem 0;
             border-radius: 4px;
         }
 
         code[class*="language-"] {
-            font-family: 'Fira Mono', monospace !important;
-            font-size: 0.9em !important;
-            text-shadow: none !important;
+            font-family: 'Fira Mono', monospace;
+            font-size: 0.9em;
+            text-shadow: none;
         }
 
         .mermaid {
@@ -61,10 +61,10 @@
             <a href="/games" aria-label="Go back to Games">&lt; back to games</a>
         </nav>
 
-        <section style="margin-top: 2rem;">
+        <section class="section-spaced">
             <h1>retro 3d psx prototype</h1>
 
-            <p class="gray" style="margin-top: -1rem !important; margin-bottom: 2rem !important; font-size: 0.9em;">
+            <p class="gray subtitle-muted">
                 building a retro 3d psx prototype in godot 4
             </p>
 
@@ -74,7 +74,7 @@
                 physics-based object interaction, and an AI that responds to being photographed.
             </p>
 
-            <div style="margin: 2rem 0; text-align: center;">
+            <div class="video-wrap">
                 <video width="100%" height="auto" controls poster="../../assets/psx.png"
                     aria-label="Gameplay video showing the Retro 3D PSX Prototype">
                     <source src="../../assets/videos/psx.mp4" type="video/mp4">
@@ -172,7 +172,7 @@ graph TD
                 atmospheric game.
             </p>
 
-            <p style="margin-top: 2rem !important; border-top: 1px dotted #555; padding-top: 1rem;">
+            <p class="dotted-top">
                 This retro 3D PSX prototype demonstrates how combining authentic classic hardware limitations with
                 modern physics engine interactions can create a highly atmospheric and tense gameplay loop.
             </p>

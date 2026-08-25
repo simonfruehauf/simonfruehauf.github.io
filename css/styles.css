@@ -1,5 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap');
+
 :root {
     --dim: #888;
+    --box-w: 600px;
+    --box-h: 80vh;
+    --box-pad: 2rem;
+}
+
+@media (max-width: 650px) {
+    :root {
+        --box-w: 90vw;
+        --box-h: 85vh;
+    }
 }
 
 a[target="_blank"]::after {
@@ -7,7 +19,6 @@ a[target="_blank"]::after {
     font-size: 0.8em;
     color: #999;
 }
-
 
 body {
     background-color: black;
@@ -27,11 +38,7 @@ body {
     background-color: black;
     box-sizing: border-box;
     max-width: 90vw;
-
-    /* Center the box initially like miaowing */
     position: relative;
-
-    /* Prevent scrollbar during animation, re-enable after using a tiny trick or specific class */
     overflow-x: hidden;
     overflow-y: hidden;
 }
@@ -45,7 +52,7 @@ body {
     to {
         overflow-y: visible;
         height: auto;
-        min-height: 80vh;
+        min-height: var(--box-h);
     }
 }
 
@@ -58,44 +65,14 @@ body {
 
     50% {
         height: 0px;
-        width: 600px;
+        width: var(--box-w);
         padding: 0;
     }
 
     100% {
-        height: 80vh;
-        width: 600px;
-        padding: 2rem;
-    }
-}
-
-@media (max-width: 650px) {
-    @keyframes spread {
-        0% {
-            height: 0px;
-            width: 0px;
-            padding: 0;
-        }
-
-        50% {
-            height: 0px;
-            width: 90vw;
-            padding: 0;
-        }
-
-        100% {
-            height: 85vh;
-            width: 90vw;
-            padding: 2rem;
-        }
-    }
-
-    @keyframes enableScroll {
-        to {
-            overflow-y: visible;
-            height: auto;
-            min-height: 85vh;
-        }
+        height: var(--box-h);
+        width: var(--box-w);
+        padding: var(--box-pad);
     }
 }
 
@@ -103,19 +80,11 @@ body {
    So they don't animate but still get the final dimensions */
 .box-static {
     height: auto;
-    min-height: 80vh;
-    width: 600px;
-    padding: 2rem;
+    min-height: var(--box-h);
+    width: var(--box-w);
+    padding: var(--box-pad);
     overflow-y: visible;
     overflow-x: hidden;
-}
-
-@media (max-width: 650px) {
-    .box-static {
-        height: auto;
-        min-height: 85vh;
-        width: 90vw;
-    }
 }
 
 /* Fade-in Animation Classes */
@@ -135,7 +104,6 @@ body {
     }
 }
 
-
 .indent {
     padding-left: 2ch;
 }
@@ -154,7 +122,7 @@ body {
     text-align: center;
     justify-content: space-evenly;
     display: flex;
-    margin: 0 !important;
+    margin: 0;
 }
 
 h1 {
@@ -165,7 +133,7 @@ h1 {
 h2 {
     font-size: 1.5em;
     margin-top: 1.5em;
-    margin-bottom: 0.5em !important;
+    margin-bottom: 0.5em;
 }
 
 .bottom {
@@ -177,7 +145,7 @@ h2 {
 }
 
 p {
-    margin: 0.5em 0 !important;
+    margin: 0.5em 0;
 }
 
 a {
@@ -330,4 +298,139 @@ li {
 
 .headshot-top {
     animation: crossfadeHeadshot 10s infinite;
+}
+
+/* --- Utility classes replacing inline styles --- */
+.text-sm {
+    font-size: 0.9em;
+}
+
+.footer-title {
+    font-size: 1.1em;
+    margin-top: 0;
+}
+
+.section-spaced {
+    margin-top: 2rem;
+}
+
+.section-tight {
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.skills-row {
+    flex-direction: row;
+    display: flex;
+    gap: 2rem;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+@media (max-width: 650px) {
+    .skills-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+.skills-col {
+    margin-bottom: 0.2rem;
+    margin-top: 0.2rem;
+}
+
+.skills-col h2 {
+    margin-top: 0.2rem;
+}
+
+.cert-line {
+    font-size: 13px;
+    color: var(--dim);
+    margin-bottom: 1em;
+    margin-top: 0.5em;
+}
+
+.subtitle-muted {
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+    font-size: 0.9em;
+}
+
+.dotted-top {
+    margin-top: 2rem;
+    border-top: 1px dotted #555;
+    padding-top: 1rem;
+}
+
+.video-wrap {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.video-wrap video,
+.video-wrap img {
+    width: 100%;
+    height: auto;
+}
+
+.responsive-media {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #333;
+}
+
+.rounded {
+    border-radius: 4px;
+}
+
+.mt-3 {
+    margin-top: 3rem;
+}
+
+.cancelled-label {
+    font-size: 0.6em;
+    vertical-align: middle;
+    font-weight: normal;
+}
+
+/* Resume pages */
+.resume-body {
+    margin: 0;
+    overflow: hidden;
+}
+
+.resume-object {
+    min-height: 100vh;
+    width: 100%;
+    border: none;
+    display: block;
+}
+
+/* Hidden SVG filter */
+.svg-filter-hidden {
+    position: absolute;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .box-animated {
+        animation: none;
+        height: auto;
+        min-height: var(--box-h);
+        width: var(--box-w);
+        padding: var(--box-pad);
+        overflow-y: visible;
+    }
+
+    .fade-in {
+        animation: none;
+        opacity: 1;
+    }
+
+    .headshot-top {
+        animation: none;
+    }
 }

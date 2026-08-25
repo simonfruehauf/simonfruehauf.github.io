@@ -1,13 +1,6 @@
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html,
-body {
+/* Scoped to pages that use .me-layout (me.html, insects.html).
+   No global * reset — only reset inside .me-box to avoid bleeding into styles.css */
+.me-layout {
     background: #000;
     min-height: 100vh;
     display: flex;
@@ -16,6 +9,13 @@ body {
     font-family: 'Share Tech Mono', 'Courier New', monospace;
     color: #e8e8e8;
     padding: 2rem 1rem;
+    margin: 0;
+}
+
+.me-layout *,
+.me-layout *::before,
+.me-layout *::after {
+    box-sizing: border-box;
 }
 
 .me-box {
@@ -24,6 +24,17 @@ body {
     width: 100%;
     max-width: 560px;
     background: #000;
+}
+
+.me-box * {
+    margin: 0;
+    padding: 0;
+}
+
+.me-box p,
+.me-box .me-bio p {
+    margin: 0;
+    padding: 0;
 }
 
 .me-header {
@@ -38,6 +49,7 @@ body {
     letter-spacing: -0.02em;
     line-height: 1;
     color: #fff;
+    margin: 0;
 }
 
 .back-link {
@@ -92,7 +104,7 @@ body {
     color: #e0e0e0;
 }
 
-.me-bio p+p {
+.me-bio p + p {
     margin-top: 1.2em;
 }
 
@@ -106,7 +118,6 @@ body {
 }
 
 .me-badges {
-
     display: flex;
     align-items: center;
     justify-content: center;
