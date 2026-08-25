@@ -1,1 +1,3 @@
 /node_modules
+# Godot import artifacts
+*.import

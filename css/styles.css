@@ -1,3 +1,7 @@
+:root {
+    --dim: #888;
+}
+
 a[target="_blank"]::after {
     content: "↗";
     font-size: 0.8em;
