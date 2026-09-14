@@ -4,12 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retro 3D PSX Prototype - Simon Frühauf</title>
+    <title>Retro 3D PSX Prototype: Technical Case Study | Simon Frühauf</title>
 
     <meta name="description"
         content="Building a Retro 3D PSX Prototype in Godot 4: a detailed technical writeup by Simon Frühauf.">
+    <meta name="author" content="Simon Frühauf">
 
     <link rel="canonical" href="https://simonfruehauf.com/projects/psx-prototype/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Simon Frühauf">
+    <meta property="og:title" content="Retro 3D PSX Prototype: Technical Case Study | Simon Frühauf">
+    <meta property="og:description" content="Building a Retro 3D PSX Prototype in Godot 4: a technical writeup by Simon Frühauf.">
+    <meta property="og:url" content="https://simonfruehauf.com/projects/psx-prototype/">
+    <meta property="og:image" content="https://simonfruehauf.com/assets/psx.png">
+    <meta property="og:image:alt" content="Retro 3D PSX Prototype gameplay image">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Retro 3D PSX Prototype: Technical Case Study | Simon Frühauf">
+    <meta name="twitter:description" content="Building a Retro 3D PSX Prototype in Godot 4: a technical writeup by Simon Frühauf.">
+    <meta name="twitter:url" content="https://simonfruehauf.com/projects/psx-prototype/">
+    <meta name="twitter:image" content="https://simonfruehauf.com/assets/psx.png">
+    <meta name="twitter:image:alt" content="Retro 3D PSX Prototype gameplay image">
     <link rel="icon" href="../../assets/favicon.png">
     <link rel="shortcut icon" href="../../assets/favicon.png">
     
@@ -17,8 +31,24 @@
 
     <!-- PrismJS for retro-modern code blocks -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://simonfruehauf.com/#person",
+        "name": "Simon Frühauf",
+        "alternateName": "Bee",
+        "jobTitle": "Technical Game Designer",
+        "description": "Technical Game Designer working across system design, gameplay design, technical design, rapid prototyping, and quality assurance.",
+        "url": "https://simonfruehauf.com/",
+        "image": "https://simonfruehauf.com/assets/headshot.jpg",
+        "address": { "@type": "PostalAddress", "addressLocality": "Innsbruck", "addressCountry": "AT" },
+        "knowsAbout": ["Technical game design", "Gameplay design", "System design", "Level design", "Rapid prototyping", "Unreal Engine", "Unity", "Godot", "C#", "GDScript", "Blender", "Quality assurance"],
+        "sameAs": ["https://www.linkedin.com/in/simon-fruehauf/", "https://github.com/simonfruehauf", "https://www.instagram.com/macro.bee/"]
+    }
+    </script>
     <style>
-        /* Custom enhancements to fit the retro terminal style — overrides prism-tomorrow by source order */
+        /* Custom enhancements to fit the retro terminal style. Overrides prism-tomorrow by source order. */
         pre[class*="language-"] {
             background: #0d0d0d;
             border: 1px solid #333;
@@ -71,9 +101,42 @@
 
             <p>
                 This prototype started as a tight experiment in combining 90s-era rendering with modern, physics-driven
-                interactions. Built in Godot 4.6, it mixes retro visual quirks with systems like non‑euclidean portals,
+                interactions. Built in Godot 4.6, it mixes retro visual quirks with systems like non euclidean portals,
                 physics-based object interaction, and an AI that responds to being photographed.
             </p>
+
+            <h2>role & project details</h2>
+            <div class="indent">
+                <ul>
+                    <li><strong>Role:</strong> Solo technical designer and programmer</li>
+                    <li><strong>Engine:</strong> Godot 4.6</li>
+                    <li><strong>Focus:</strong> Rendering, portals, physics, camera interaction, and enemy behaviour</li>
+                </ul>
+            </div>
+
+            <h2>the problem</h2>
+            <p>
+                i wanted a retro look that came from the way the scene was rendered, not just from a low resolution
+                overlay. The visual limits also needed to support a playable loop with portals, physical objects, and an
+                enemy controlled by what the player can see.
+            </p>
+
+            <h2>what i built</h2>
+            <p>
+                i built a custom shader pipeline for vertex jitter, affine texture warping, and viewport scaling. I
+                also implemented linked portal views, physics based object dragging, a camera and photo mechanic, and
+                mannequin behaviour that reacts to visibility and active photos.
+            </p>
+
+            <h2>tools</h2>
+            <div class="indent">
+                <ul>
+                    <li>Godot 4.6 and GDScript</li>
+                    <li>JoltPhysics3D</li>
+                    <li>Custom spatial shaders</li>
+                    <li>SubViewports and SpringArm3D</li>
+                </ul>
+            </div>
 
             <div class="video-wrap">
                 <video width="100%" height="auto" controls poster="../../assets/psx.png"
@@ -86,8 +149,8 @@
             <h2>project overview</h2>
             <p>
                 Rather than just slapping a low-res filter on a modern scene, the goal was to recreate the
-                <em>behaviors</em> of PS1 hardware—vertex jitter, affine texture warping, and low-resolution viewport
-                scaling—so the visuals feel authentic, not pasted on. Underneath that is a playable template with
+                <em>behaviors</em> of PS1 hardware: vertex jitter, affine texture warping, and low-resolution viewport
+                scaling, so the visuals feel authentic, not pasted on. Underneath that is a playable template with
                 portals, object dragging powered by JoltPhysics3D, and a creepy enemy that freezes when you look at it.
             </p>
 
@@ -122,14 +185,14 @@ VERTEX = round(VERTEX / w * i) / i * w;</code></pre>
 linked_portal.cam.global_transform = linked_portal.global_transform * rel</code></pre>
 
             <p>
-                Portals also trigger a short post-process effect—chromatic aberration and vignette—to make the
-                transition feel weighty.
+                Portals also trigger a short post-process effect with chromatic aberration and vignette. This gives the
+                transition more visual feedback.
             </p>
 
             <h2>photographic ai (enemy behaviour, mannequins)</h2>
             <p>
                 The mannequins follow a simple rule: they stay still while visible and move when you aren’t looking. The
-                camera/photo mechanic ties into this—if you take and keep a photo of a mannequin, it stays frozen until
+                camera/photo mechanic ties into this. If you take and keep a photo of a mannequin, it stays frozen until
                 you remove or review that photo.
             </p>
             <p>
@@ -173,9 +236,10 @@ graph TD
                 atmospheric game.
             </p>
 
+            <h2>result</h2>
             <p class="dotted-top">
-                This retro 3D PSX prototype demonstrates how combining authentic classic hardware limitations with
-                modern physics engine interactions can create a highly atmospheric and tense gameplay loop.
+                The result is a playable technical template that combines a custom retro rendering pipeline with
+                portals, physics interactions, and a visibility based enemy loop.
             </p>
         </section>
     </main>

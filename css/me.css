@@ -1,5 +1,5 @@
 /* Scoped to pages that use .me-layout (me.html, insects.html).
-   No global * reset — only reset inside .me-box to avoid bleeding into styles.css */
+   No global * reset. Reset only inside .me-box to avoid bleeding into styles.css */
 .me-layout {
     background: #000;
     min-height: 100vh;

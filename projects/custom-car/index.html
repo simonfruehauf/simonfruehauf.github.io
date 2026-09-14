@@ -4,15 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom 3D Car - Simon Frühauf</title>
+    <title>Custom 3D Car: Physics System Case Study | Simon Frühauf</title>
 
     <meta name="description" content="A custom 3D car physics and raycast system developed in Godot by Simon Frühauf.">
+    <meta name="author" content="Simon Frühauf">
 
     <link rel="canonical" href="https://simonfruehauf.com/projects/custom-car/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Simon Frühauf">
+    <meta property="og:title" content="Custom 3D Car: Physics System Case Study | Simon Frühauf">
+    <meta property="og:description" content="A custom 3D car physics and raycast system developed in Godot by Simon Frühauf.">
+    <meta property="og:url" content="https://simonfruehauf.com/projects/custom-car/">
+    <meta property="og:image" content="https://simonfruehauf.com/assets/images/custom-3d-car.png">
+    <meta property="og:image:alt" content="Custom 3D car project image">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Custom 3D Car: Physics System Case Study | Simon Frühauf">
+    <meta name="twitter:description" content="A custom 3D car physics and raycast system developed in Godot by Simon Frühauf.">
+    <meta name="twitter:url" content="https://simonfruehauf.com/projects/custom-car/">
+    <meta name="twitter:image" content="https://simonfruehauf.com/assets/images/custom-3d-car.png">
+    <meta name="twitter:image:alt" content="Custom 3D car project image">
     <link rel="icon" href="../../assets/favicon.png">
     <link rel="shortcut icon" href="../../assets/favicon.png">
     
     <link rel="stylesheet" type="text/css" href="../../css/styles.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://simonfruehauf.com/#person",
+        "name": "Simon Frühauf",
+        "alternateName": "Bee",
+        "jobTitle": "Technical Game Designer",
+        "description": "Technical Game Designer working across system design, gameplay design, technical design, rapid prototyping, and quality assurance.",
+        "url": "https://simonfruehauf.com/",
+        "image": "https://simonfruehauf.com/assets/headshot.jpg",
+        "address": { "@type": "PostalAddress", "addressLocality": "Innsbruck", "addressCountry": "AT" },
+        "knowsAbout": ["Technical game design", "Gameplay design", "System design", "Level design", "Rapid prototyping", "Unreal Engine", "Unity", "Godot", "C#", "GDScript", "Blender", "Quality assurance"],
+        "sameAs": ["https://www.linkedin.com/in/simon-fruehauf/", "https://github.com/simonfruehauf", "https://www.instagram.com/macro.bee/"]
+    }
+    </script>
 </head>
 
 <body>
@@ -29,6 +59,40 @@
             <p>
                 For this Godot project, I built a custom vehicle simulation from the ground up, combining high-performance physics with an extensive, interactive driving model designed to deliver a highly customizable and engaging driving experience.
             </p>
+
+            <h2>role & project details</h2>
+            <div class="indent">
+                <ul>
+                    <li><strong>Role:</strong> Solo technical designer and programmer</li>
+                    <li><strong>Engine:</strong> Godot</li>
+                    <li><strong>Physics:</strong> Jolt Physics</li>
+                    <li><strong>Language:</strong> GDScript</li>
+                </ul>
+            </div>
+
+            <h2>the problem</h2>
+            <p>
+                i wanted the car to feel responsive without relying on a prebuilt vehicle controller. That meant
+                exposing the important parts of the simulation, including suspension, tire grip, steering, drivetrain,
+                and braking, so each part could be tuned independently.
+            </p>
+
+            <h2>what i built</h2>
+            <p>
+                i built the vehicle from a rigid body and individually simulated wheels. Raycasts detect the ground,
+                while each wheel applies its own suspension, acceleration, steering, rolling friction, and lateral grip.
+                The project also includes a transmission, nitro boost, camera, lighting, and adaptive audio.
+            </p>
+
+            <h2>tools</h2>
+            <div class="indent">
+                <ul>
+                    <li>Godot</li>
+                    <li>GDScript</li>
+                    <li>Jolt Physics</li>
+                    <li>RayCast3D and RigidBody3D</li>
+                </ul>
+            </div>
 
             <div class="video-wrap">
                 <video width="100%" height="auto" controls
@@ -79,6 +143,7 @@
                 </ul>
             </div>
 
+            <h2>result</h2>
             <p class="dotted-top">
                 This comprehensive vehicle system was key to achieving a responsive and detailed driving experience, offering precise control over every nuance of the car's behavior.
             </p>

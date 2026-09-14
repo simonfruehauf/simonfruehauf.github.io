@@ -4,11 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modular 2D Platformer - Simon Frühauf</title>
+    <title>Modular 2D Platformer: Systems Case Study | Simon Frühauf</title>
 
     <meta name="description" content="Building a Modular 2D Platformer in Godot 4: a detailed technical writeup by Simon Frühauf.">
+    <meta name="author" content="Simon Frühauf">
 
     <link rel="canonical" href="https://simonfruehauf.com/projects/modular-platformer/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Simon Frühauf">
+    <meta property="og:title" content="Modular 2D Platformer: Systems Case Study | Simon Frühauf">
+    <meta property="og:description" content="Building a Modular 2D Platformer in Godot 4: a detailed technical writeup by Simon Frühauf.">
+    <meta property="og:url" content="https://simonfruehauf.com/projects/modular-platformer/">
+    <meta property="og:image" content="https://simonfruehauf.com/assets/images/platformer_full.png">
+    <meta property="og:image:alt" content="Modular 2D Platformer gameplay image">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Modular 2D Platformer: Systems Case Study | Simon Frühauf">
+    <meta name="twitter:description" content="Building a Modular 2D Platformer in Godot 4: a detailed technical writeup by Simon Frühauf.">
+    <meta name="twitter:url" content="https://simonfruehauf.com/projects/modular-platformer/">
+    <meta name="twitter:image" content="https://simonfruehauf.com/assets/images/platformer_full.png">
+    <meta name="twitter:image:alt" content="Modular 2D Platformer gameplay image">
     <link rel="icon" href="../../assets/favicon.png">
     <link rel="shortcut icon" href="../../assets/favicon.png">
     
@@ -16,6 +30,22 @@
 
     <!-- PrismJS for retro-modern code blocks -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://simonfruehauf.com/#person",
+        "name": "Simon Frühauf",
+        "alternateName": "Bee",
+        "jobTitle": "Technical Game Designer",
+        "description": "Technical Game Designer working across system design, gameplay design, technical design, rapid prototyping, and quality assurance.",
+        "url": "https://simonfruehauf.com/",
+        "image": "https://simonfruehauf.com/assets/headshot.jpg",
+        "address": { "@type": "PostalAddress", "addressLocality": "Innsbruck", "addressCountry": "AT" },
+        "knowsAbout": ["Technical game design", "Gameplay design", "System design", "Level design", "Rapid prototyping", "Unreal Engine", "Unity", "Godot", "C#", "GDScript", "Blender", "Quality assurance"],
+        "sameAs": ["https://www.linkedin.com/in/simon-fruehauf/", "https://github.com/simonfruehauf", "https://www.instagram.com/macro.bee/"]
+    }
+    </script>
 
 </head>
 
@@ -35,6 +65,39 @@
             <p>
                 The <strong>Simple Shape Platformer</strong> started as a minimal visual experiment and gradually turned into a focused prototype about movement feel, level flow, and reusable systems. The goal was to see how far a clean geometric style could go when paired with responsive controls and editor-friendly tooling.
             </p>
+
+            <h2>role & project details</h2>
+            <div class="indent">
+                <ul>
+                    <li><strong>Role:</strong> Solo technical designer and programmer</li>
+                    <li><strong>Engine:</strong> Godot 4</li>
+                    <li><strong>Language:</strong> GDScript</li>
+                    <li><strong>Focus:</strong> Movement, room layout, pickups, and editor tooling</li>
+                </ul>
+            </div>
+
+            <h2>the problem</h2>
+            <p>
+                i wanted to test responsive platforming movement while keeping room setup and ability pickups easy to
+                change. The controller needed to handle forgiving input timing without becoming difficult to extend.
+            </p>
+
+            <h2>what i built</h2>
+            <p>
+                i built a room system that updates camera limits and collision bounds in the editor, a player controller
+                with coyote time and jump buffering, and configurable pickups that delegate abilities to the player.
+                Save data, audio settings, and small canvas drawn effects complete the prototype.
+            </p>
+
+            <h2>tools</h2>
+            <div class="indent">
+                <ul>
+                    <li>Godot 4 and GDScript</li>
+                    <li><code>@tool</code> editor scripts</li>
+                    <li>Canvas drawing and tweens</li>
+                    <li>Mermaid diagrams for system documentation</li>
+                </ul>
+            </div>
 
             <div class="video-wrap">
                 <img src="../../assets/images/platformer_full.png" class="responsive-media rounded" alt="Gameplay showing modular 2D platformer room and movement mechanics">
@@ -128,8 +191,10 @@ graph TD
                 That approach kept the scope manageable while still giving the game a clear identity. In the end, the project became less about minimalism for its own sake and more about using a restricted visual language to support sharp movement and clean design.
             </p>
 
+            <h2>result</h2>
             <p class="dotted-top">
-                This geometric platformer prototype demonstrates how modular design principles and responsiveness can elevate simple shapes into an engaging, platforming core.
+                The result is a playable prototype with reusable room setup, responsive movement, configurable pickups,
+                save data, and a clear visual identity.
             </p>
         </section>
     </main>
