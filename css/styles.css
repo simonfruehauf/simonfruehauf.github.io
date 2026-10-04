@@ -446,3 +446,8 @@ li {
         animation: none;
     }
 }
+
+/* Invisible crawler trap link */
+.crawler-trap {
+    display: none !important;
+}
