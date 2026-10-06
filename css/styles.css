@@ -278,6 +278,34 @@ li {
     margin-top: 0;
 }
 
+.friends-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 0.6ch;
+    box-sizing: border-box;
+    width: var(--box-w);
+    max-width: 90vw;
+    margin: -24px auto 40px;
+    padding: 0 var(--box-pad);
+    color: #999;
+    font-size: 0.75rem;
+}
+
+.friends-links a {
+    color: inherit;
+    white-space: nowrap;
+}
+
+.friends-links a:hover,
+.friends-links a:focus-visible {
+    color: white;
+}
+
+.friends-links a:focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 3px;
+}
+
 .section-spaced {
     margin-top: var(--space-6);
 }
