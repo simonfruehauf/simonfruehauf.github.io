@@ -14,6 +14,10 @@
     <link rel="icon" href="assets/favicon.png">
     <link rel="shortcut icon" href="assets/favicon.png">
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&amp;display=swap">
+    <link rel="stylesheet" href="css/tokens.css">
     <link rel="stylesheet" href="css/styles.css">
     <meta property="og:type" content="profile">
     <meta property="og:site_name" content="Simon Frühauf">
@@ -55,9 +59,39 @@
 </head>
 
 <body class="resume-body">
-    <object data="assets/Resume - Simon Frühauf - DE.pdf" type="application/pdf" class="resume-object">
-        <p>Alternative text - here is a link <a href="assets/Resume - Simon Frühauf - DE.pdf">to the PDF!</a></p>
-    </object>
+    <main class="box box-static resume-shell" id="main-content">
+        <nav class="site-nav" aria-label="Hauptnavigation">
+            <a href="/">start</a>
+            <a href="/about">über mich</a>
+            <a href="/games">spiele</a>
+            <a href="/projects">projekte</a>
+            <a href="/resume-de">lebenslauf</a>
+        </nav>
+        <section class="section-spaced">
+            <h1>lebenslauf</h1>
+            <p class="gray">Simon Frühauf · technical game designer</p>
+            <nav class="resume-language" aria-label="Sprache">
+                <a href="/resume-en" lang="en" hreflang="en">English</a>
+                <a href="/resume-de" lang="de" hreflang="de" aria-current="page">Deutsch</a>
+            </nav>
+            <nav class="resume-actions" aria-label="Lebenslauf-Aktionen">
+                <a href="assets/Resume - Simon Frühauf - DE.pdf" download>pdf herunterladen</a>
+                <a href="assets/Resume - Simon Frühauf - DE.pdf" target="_blank" rel="noopener noreferrer">pdf öffnen</a>
+            </nav>
+            <p class="resume-hint">Falls die Vorschau nicht angezeigt wird, öffne die PDF-Datei direkt.</p>
+            <object data="assets/Resume - Simon Frühauf - DE.pdf" type="application/pdf" class="resume-object" aria-label="Lebenslauf von Simon Frühauf auf Deutsch">
+                <p><a href="assets/Resume - Simon Frühauf - DE.pdf">PDF-Datei öffnen</a></p>
+            </object>
+        </section>
+        <footer class="bottom">
+            <h2 class="footer-title">kontakt</h2>
+            <p>
+                <a href="https://www.linkedin.com/in/simon-fruehauf/" aria-label="Simon's LinkedIn Profile">linkedin</a> ~
+                <a href="https://github.com/simonfruehauf" aria-label="Simon's GitHub Profile">github</a> ~
+                <a href="mailto:simon@fruehauf.it" aria-label="Email Simon">simon@fruehauf.it</a>
+            </p>
+        </footer>
+    </main>
     <a class="crawler-trap" href="/trap/" hidden aria-hidden="true" tabindex="-1">.</a>
 </body>
 

@@ -1,10 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap');
-
 :root {
-    --dim: #888;
+    --dim: var(--color-text-dim);
     --box-w: 600px;
     --box-h: 80vh;
-    --box-pad: 2rem;
+    --box-pad: var(--space-6);
 }
 
 @media (max-width: 650px) {
@@ -17,15 +15,15 @@
 a[target="_blank"]::after {
     content: "↗";
     font-size: 0.8em;
-    color: #999;
+    color: var(--color-text-muted);
 }
 
 body {
-    background-color: black;
-    color: white;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
     margin: 0;
     padding: 0;
-    font-family: 'Fira Mono', monospace;
+    font-family: var(--font-body);
     line-height: 1.5;
 }
 
@@ -34,46 +32,27 @@ body {
     display: flex;
     flex-direction: column;
     margin: 40px auto;
-    border: 3px solid white;
-    background-color: black;
+    border: 3px solid var(--color-foreground);
+    background-color: var(--color-background);
     box-sizing: border-box;
     max-width: 90vw;
     position: relative;
+    width: var(--box-w);
+    height: auto;
+    min-height: var(--box-h);
+    padding: var(--box-pad);
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: visible;
 }
 
-/* Allow scrolling ONLY after spread is completely finished (1s) */
+/* Keep layout stable while the terminal frame appears. */
 .box-animated {
-    animation: spread 0.8s ease forwards, enableScroll 0s linear 0.8s forwards;
+    animation: revealBox var(--duration-fast) var(--ease-out) both;
 }
 
-@keyframes enableScroll {
-    to {
-        overflow-y: visible;
-        height: auto;
-        min-height: var(--box-h);
-    }
-}
-
-@keyframes spread {
-    0% {
-        height: 0px;
-        width: 0px;
-        padding: 0;
-    }
-
-    50% {
-        height: 0px;
-        width: var(--box-w);
-        padding: 0;
-    }
-
-    100% {
-        height: var(--box-h);
-        width: var(--box-w);
-        padding: var(--box-pad);
-    }
+@keyframes revealBox {
+    from { opacity: 0.75; transform: translateY(2px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Fallback for pages WITHOUT animation (About, Games, Projects, etc)
@@ -87,21 +66,8 @@ body {
     overflow-x: hidden;
 }
 
-/* Fade-in Animation Classes */
-/* Delayed so they only appear after the box has fully spread (1s) */
 .fade-in {
-    opacity: 0;
-    animation: fadeIn 0.5s ease-in 0.7s forwards;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+    opacity: 1;
 }
 
 .indent {
@@ -113,12 +79,12 @@ body {
 }
 
 .gray {
-    color: #999;
+    color: var(--color-text-muted);
 }
 
 .imagediv {
     gap: 25px;
-    color: #585858;
+    color: var(--color-text-caption);
     text-align: center;
     justify-content: space-evenly;
     display: flex;
@@ -138,8 +104,8 @@ h2 {
 
 .bottom {
     margin-top: auto;
-    padding-top: 1rem;
-    border-top: 2px dotted #555;
+    padding-top: var(--space-4);
+    border-top: 2px dotted var(--color-divider);
     text-align: left;
     width: 100%;
 }
@@ -149,13 +115,13 @@ p {
 }
 
 a {
-    color: white;
+    color: var(--color-foreground);
     transition: color 0.2s;
 }
 
 a:hover,
 a:focus {
-    color: #ccc;
+    color: var(--color-link-hover);
     outline: none;
 }
 
@@ -180,7 +146,7 @@ a:focus {
 }
 
 .unavailable {
-    color: gray;
+    color: var(--color-text-disabled);
     text-decoration: none;
     cursor: not-allowed;
 }
@@ -191,11 +157,11 @@ main {
 }
 
 header nav {
-    margin-bottom: 2rem;
+    margin-bottom: var(--space-6);
 }
 
 section {
-    margin-bottom: 2rem;
+    margin-bottom: var(--space-6);
 }
 
 ul {
@@ -207,27 +173,27 @@ li {
     margin-bottom: 0.5em;
 }
 
-/* Accessible focus states globally (removed dashed outline based on feedback) */
-:focus-visible {
-    color: #ccc;
-    outline: none;
+/* Keyboard focus follows the shared palette. */
+:focus-visible, a:focus-visible, .hidden-bee-link:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 4px;
 }
 
 /* Project Item Styles for Games & Projects */
 .project-item {
-    margin-bottom: 2rem;
-    border-left: 2px solid #444;
-    padding-left: 1rem;
+    margin-bottom: var(--space-6);
+    border-left: 2px solid var(--color-border);
+    padding-left: var(--space-4);
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: var(--space-4);
     align-items: flex-start;
 }
 
 .tags {
     font-size: 0.8em;
-    color: #999;
-    margin-bottom: 0.5rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-2);
 }
 
 .tags span {
@@ -240,16 +206,18 @@ li {
     min-width: 200px;
 }
 
-.project-item h3 {
+.project-item h2 {
     margin-top: 0;
+    margin-bottom: 1em;
+    font-size: 1.17em;
 }
 
 .project-item-thumb {
     width: 80px;
     height: 120px;
     object-fit: cover;
-    border-radius: 4px;
-    border: 1px solid #444;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
 }
 
 /* Fading Headshot */
@@ -258,13 +226,13 @@ li {
     width: 130px;
     height: 130px;
     float: right;
-    margin: 0 0 1rem 2rem;
+    margin: 0 0 var(--space-4) var(--space-6);
 }
 
 @media (max-width: 650px) {
     .headshot-container {
         float: none;
-        margin: 0 auto 2rem auto;
+        margin: 0 auto var(--space-6) auto;
     }
 }
 
@@ -274,9 +242,9 @@ li {
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 4px;
+    border-radius: var(--radius-sm);
     object-fit: cover;
-    border: 2px solid white;
+    border: 2px solid var(--color-foreground);
 }
 
 @keyframes crossfadeHeadshot {
@@ -311,11 +279,11 @@ li {
 }
 
 .section-spaced {
-    margin-top: 2rem;
+    margin-top: var(--space-6);
 }
 
 .section-tight {
-    margin-top: 1rem;
+    margin-top: var(--space-4);
     margin-bottom: 0;
 }
 
@@ -334,7 +302,7 @@ li {
 .skills-row {
     flex-direction: row;
     display: flex;
-    gap: 2rem;
+    gap: var(--space-6);
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -364,18 +332,18 @@ li {
 
 .subtitle-muted {
     margin-top: -1rem;
-    margin-bottom: 2rem;
+    margin-bottom: var(--space-6);
     font-size: 0.9em;
 }
 
 .dotted-top {
-    margin-top: 2rem;
-    border-top: 1px dotted #555;
-    padding-top: 1rem;
+    margin-top: var(--space-6);
+    border-top: 1px dotted var(--color-divider);
+    padding-top: var(--space-4);
 }
 
 .video-wrap {
-    margin: 2rem 0;
+    margin: var(--space-6) 0;
     text-align: center;
 }
 
@@ -385,18 +353,23 @@ li {
     height: auto;
 }
 
+.video-wrap video {
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+}
+
 .responsive-media {
     max-width: 100%;
     height: auto;
-    border: 1px solid #333;
+    border: 1px solid var(--color-border-subtle);
 }
 
 .rounded {
-    border-radius: 4px;
+    border-radius: var(--radius-sm);
 }
 
 .mt-3 {
-    margin-top: 3rem;
+    margin-top: var(--space-7);
 }
 
 .cancelled-label {
@@ -408,13 +381,14 @@ li {
 /* Resume pages */
 .resume-body {
     margin: 0;
-    overflow: hidden;
 }
 
 .resume-object {
-    min-height: 100vh;
+    height: 75vh;
+    height: 75svh;
+    min-height: 32rem;
     width: 100%;
-    border: none;
+    border: 1px solid var(--color-border);
     display: block;
 }
 
@@ -451,3 +425,42 @@ li {
 .crawler-trap {
     display: none !important;
 }
+
+/* Shared navigation and the PDF-independent resume controls. */
+.site-nav, .resume-actions, .resume-language {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2) var(--space-4);
+}
+
+.site-nav {
+    margin-top: var(--space-4);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px dotted var(--color-divider);
+}
+
+.site-nav a, .resume-actions a, .resume-language a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+}
+
+.resume-language [aria-current="page"] { font-weight: 700; }
+.resume-actions { margin: var(--space-4) 0; }
+.resume-shell { width: 1000px; }
+.resume-hint { color: var(--color-text-muted); margin-bottom: var(--space-4); }
+
+pre.mermaid:not([data-processed="true"]) {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 650px) {
+    .resume-shell { padding: var(--space-4); }
+}
+
+::selection { color: var(--color-background); background: var(--color-foreground); }
+html { scrollbar-color: var(--color-text-dim) var(--color-background); }

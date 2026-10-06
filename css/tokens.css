@@ -1,0 +1,32 @@
+:root {
+    color-scheme: dark;
+    --color-background: #000;
+    --color-foreground: #fff;
+    --color-text-soft: #e8e8e8;
+    --color-text-body: #e0e0e0;
+    --color-text-muted: #999;
+    --color-text-dim: #888;
+    --color-text-subtle: #bbb;
+    --color-text-disabled: #808080;
+    --color-text-decoration: #797373;
+    --color-text-caption: #585858;
+    --color-link-hover: #ccc;
+    --color-border: #444;
+    --color-border-subtle: #333;
+    --color-divider: #555;
+    --color-surface: #0d0d0d;
+    --color-surface-raised: #1a1a1a;
+    --color-focus: var(--color-foreground);
+    --font-body: 'Fira Mono', monospace;
+    --font-personal: 'Share Tech Mono', 'Courier New', monospace;
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 2rem;
+    --space-7: 3rem;
+    --radius-sm: 4px;
+    --duration-fast: 180ms;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}

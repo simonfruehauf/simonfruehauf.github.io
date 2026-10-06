@@ -26,6 +26,10 @@
     <link rel="icon" href="../../assets/favicon.png">
     <link rel="shortcut icon" href="../../assets/favicon.png">
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&amp;display=swap">
+    <link rel="stylesheet" href="../../css/tokens.css">
     <link rel="stylesheet" type="text/css" href="../../css/styles.css">
 
     <!-- PrismJS for retro-modern code blocks -->
@@ -53,6 +57,14 @@
     <main class="box box-static" id="main-content">
         <nav aria-label="Breadcrumb">
             <a href="/games" aria-label="Go back to Games">&lt; back to games</a>
+        </nav>
+
+        <nav class="site-nav" aria-label="Main Navigation">
+            <a href="/">home</a>
+            <a href="/about">about</a>
+            <a href="/games">games</a>
+            <a href="/projects">projects</a>
+            <a href="/resume-en">resume</a>
         </nav>
         
         <section class="section-spaced">
@@ -100,7 +112,7 @@
             </div>
 
             <div class="video-wrap">
-                <img src="../../assets/images/platformer_full.png" class="responsive-media rounded" alt="Gameplay showing modular 2D platformer room and movement mechanics">
+                <img src="../../assets/images/platformer_full.png" class="responsive-media rounded" alt="Gameplay showing modular 2D platformer room and movement mechanics" loading="lazy" decoding="async" width="1868" height="1051">
             </div>
 
             <h2>room system</h2>
@@ -197,32 +209,22 @@ graph TD
                 save data, and a clear visual identity.
             </p>
         </section>
+        <footer class="bottom">
+            <h2 class="footer-title">get in touch</h2>
+            <p>
+                <a href="https://www.linkedin.com/in/simon-fruehauf/" aria-label="Simon's LinkedIn Profile">linkedin</a> ~
+                <a href="https://github.com/simonfruehauf" aria-label="Simon's GitHub Profile">github</a> ~
+                <a href="mailto:simon@fruehauf.it" aria-label="Email Simon">simon@fruehauf.it</a>
+            </p>
+        </footer>
     </main>
 
     <!-- PrismJS Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
 
     <!-- Mermaid JS Support -->
-    <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-        mermaid.initialize({
-            startOnLoad: true,
-            theme: 'dark',
-            flowchart: {
-                useMaxWidth: true,
-                htmlLabels: true
-            },
-            themeVariables: {
-                background: '#0d0d0d',
-                primaryColor: '#1a1a1a',
-                primaryTextColor: '#ffffff',
-                lineColor: '#999999',
-                arrowheadColor: '#999999',
-                edgeLabelBackground: '#0d0d0d'
-            }
-        });
-    </script>
+    <script type="module" src="../../js/diagrams.js"></script>
     <a class="crawler-trap" href="/trap/" hidden aria-hidden="true" tabindex="-1">.</a>
 </body>
 
