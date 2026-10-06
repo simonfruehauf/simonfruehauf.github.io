@@ -1,7 +1,3 @@
 User-agent: *
 Allow: /
-Disallow: /me
-Disallow: /me.html
-Disallow: /insects
-Disallow: /insects.html
 Disallow: /trap/
