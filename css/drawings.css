@@ -1,0 +1,80 @@
+.drawings-box { width: 1120px; padding: clamp(1.25rem, 4vw, 3rem); }
+.drawings-page ::selection { color: var(--color-background); background: var(--color-foreground); }
+.drawings-page a { text-underline-offset: 0.2em; }
+.drawings-intro { margin: var(--space-7) 0; }
+.drawings-intro h1 { margin-bottom: var(--space-2); }
+.drawing-sections { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-5); }
+.drawing-section { margin-bottom: clamp(3rem, 7vw, 5rem); scroll-margin-top: var(--space-6); }
+.drawing-section-heading {
+    display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+    gap: var(--space-2) var(--space-4); padding-bottom: var(--space-4); margin-bottom: var(--space-5);
+    border-bottom: 1px dotted var(--color-divider);
+}
+.drawing-section-heading h2, .drawing-section-heading p { margin: 0; }
+.drawing-section-heading p, .drawing-item figcaption, .drawings-footer,
+.drawing-viewer-toolbar, .viewer-original { font-size: 0.875rem; }
+.drawing-grid {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start;
+    gap: var(--space-6) var(--space-5);
+}
+.drawing-item { min-width: 0; margin: 0; break-inside: avoid; }
+.drawing-image-link { display: block; position: relative; background: var(--color-surface); cursor: zoom-in; }
+.drawing-image-link img { display: block; width: 100%; height: auto; }
+.drawing-portrait { aspect-ratio: 3 / 4; }
+.drawing-portrait img { height: 100%; object-fit: contain; }
+.drawing-open {
+    position: absolute; bottom: var(--space-2); right: var(--space-2);
+    padding: var(--space-2) var(--space-3); color: var(--color-foreground);
+    background: var(--color-background); font-size: 0.75rem; opacity: 0;
+    transition: opacity var(--duration-fast) var(--ease-out); pointer-events: none;
+}
+.drawing-image-link:hover .drawing-open, .drawing-image-link:focus-visible .drawing-open { opacity: 1; }
+.drawing-item figcaption { margin-top: var(--space-3); overflow-wrap: anywhere; }
+.drawing-number { font-weight: 700; font-variant-numeric: tabular-nums; }
+.drawing-placeholder {
+    display: grid; place-items: center; box-sizing: border-box; border: 1px dashed var(--color-border);
+    background: var(--color-surface); color: var(--color-text-muted); font-size: 0.875rem;
+}
+.drawing-placeholder span::before {
+    content: ''; display: block; width: 4px; height: 4px;
+    margin: 0 auto var(--space-4); background: currentColor;
+}
+.drawing-grid-random { display: block; columns: 3; column-gap: var(--space-5); }
+.drawing-grid-random .drawing-item { margin-bottom: var(--space-6); }
+.drawing-empty { column-span: all; margin: 0; padding: var(--space-6) 0; max-width: 55ch; }
+.drawings-footer {
+    display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-3);
+}
+.drawing-viewer {
+    box-sizing: border-box; width: min(1200px, 96vw); max-width: 96vw; max-height: 96dvh;
+    padding: var(--space-5); border: 1px solid var(--color-border);
+    color: var(--color-foreground); background: var(--color-background);
+    overscroll-behavior: contain; scrollbar-color: var(--color-border) var(--color-background);
+}
+.drawing-viewer::backdrop { background: rgb(0 0 0 / 92%); }
+.drawing-viewer-toolbar {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: var(--space-4); margin-bottom: var(--space-4);
+}
+#viewer-caption { overflow-wrap: anywhere; }
+.viewer-close {
+    flex: none; padding: var(--space-2); border: 1px solid var(--color-border);
+    color: inherit; background: var(--color-surface); font: inherit; cursor: pointer;
+}
+.viewer-close:hover { background: var(--color-surface-raised); }
+.viewer-close span { color: var(--color-text-muted); }
+.drawing-viewer-image { display: block; width: 100%; height: min(74dvh, 1200px); object-fit: contain; }
+.viewer-original { display: inline-block; margin-top: var(--space-4); }
+html:has(.drawing-viewer[open]) { overflow: hidden; }
+@media (max-width: 800px) {
+    .drawing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .drawing-grid-random { columns: 2; }
+}
+@media (max-width: 480px) {
+    .drawings-box { margin: var(--space-4) auto; }
+    .drawing-grid { grid-template-columns: minmax(0, 1fr); }
+    .drawing-grid-random { columns: 1; }
+    .drawing-viewer { padding: var(--space-3); }
+    .viewer-close span { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .drawing-open { transition: none; } }

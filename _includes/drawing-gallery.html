@@ -1,0 +1,41 @@
+{% assign drawing_files = site.static_files | sort: 'path' %}
+{% assign drawing_count = 0 %}
+{% assign latest_week = 0 %}
+<div class="drawing-grid{% unless include.weekly %} drawing-grid-random{% endunless %}">
+{% for drawing in drawing_files %}
+    {% assign extension = drawing.extname | downcase %}
+    {% if drawing.path contains include.folder %}
+    {% if extension == '.png' or extension == '.jpg' or extension == '.jpeg' or extension == '.webp' or extension == '.gif' or extension == '.avif' %}
+        {% assign drawing_count = drawing_count | plus: 1 %}
+        {% assign title = drawing.basename | replace: '_', ' ' | replace: '-', ' ' %}
+        {% if include.weekly %}
+            {% assign week_text = drawing.basename | split: '_' | first %}
+            {% assign week = week_text | plus: 0 %}
+            {% if week > latest_week %}{% assign latest_week = week %}{% endif %}
+            {% assign prefix = week_text | append: '_' %}
+            {% assign title = drawing.basename | remove_first: prefix | replace: '_', ' ' | replace: '-', ' ' %}
+        {% endif %}
+        {% capture drawing_url %}{% assign segments = drawing.path | split: '/' %}{% for segment in segments %}{% unless forloop.first %}/{% endunless %}{{ segment | url_encode | replace: '+', '%20' }}{% endfor %}{% endcapture %}
+        <figure class="drawing-item">
+            <a class="drawing-image-link{% if include.weekly %} drawing-portrait{% endif %}" href="{{ drawing_url | escape }}" data-drawing aria-labelledby="drawing-{{ include.weekly }}-{{ drawing_count }}">
+                <img src="{{ drawing_url | escape }}" alt="{{ title | escape }}" loading="lazy" decoding="async"{% if include.weekly %} width="900" height="1200"{% endif %}>
+                <span class="drawing-open" aria-hidden="true">view drawing &nearr;</span>
+            </a>
+            <figcaption id="drawing-{{ include.weekly }}-{{ drawing_count }}">{% if include.weekly %}<span class="drawing-number">#{{ week_text | escape }}</span> &middot; {% endif %}{{ title | escape }}</figcaption>
+        </figure>
+    {% endif %}
+    {% endif %}
+{% endfor %}
+{% if include.weekly %}
+    {% if drawing_count == 0 %}{% assign placeholder_count = 3 %}{% else %}{% assign placeholder_count = 1 %}{% endif %}
+    {% for slot in (1..placeholder_count) %}
+        {% assign next_week = latest_week | plus: slot %}
+        <figure class="drawing-item drawing-upcoming">
+            <div class="drawing-portrait drawing-placeholder" aria-hidden="true"><span>to be drawn</span></div>
+            <figcaption><span class="drawing-number">#{% if next_week < 10 %}0{% endif %}{{ next_week }}</span> &middot; <span class="gray">a blank page for now</span></figcaption>
+        </figure>
+    {% endfor %}
+{% elsif drawing_count == 0 %}
+    <p class="drawing-empty gray">nothing here just yet.</p>
+{% endif %}
+</div>

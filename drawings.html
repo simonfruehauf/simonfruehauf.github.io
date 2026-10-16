@@ -1,0 +1,57 @@
+---
+layout: null
+permalink: /drawings.html
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawings: Simon Frühauf</title>
+    <meta name="description" content="Weekly drawing challenges and other drawings by Simon Frühauf.">
+    <meta name="author" content="Simon Frühauf">
+    <link rel="canonical" href="https://simonfruehauf.com/drawings">
+    <link rel="icon" href="/assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&amp;display=swap">
+    <link rel="stylesheet" href="/css/tokens.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/drawings.css">
+    <script src="/js/drawings.js" defer></script>
+</head>
+<body class="drawings-page">
+    <main class="box box-static drawings-box" id="main-content">
+        <nav aria-label="Breadcrumb"><a href="/">&lt; back to home</a></nav>
+        <header class="drawings-intro">
+            <h1>drawings</h1>
+            <nav class="drawing-sections" aria-label="Drawing sections">
+                <a href="#weekly">weekly drawings</a><span aria-hidden="true">~</span><a href="#random">random drawings</a>
+            </nav>
+        </header>
+        <section id="weekly" class="drawing-section" aria-labelledby="weekly-heading">
+            <div class="drawing-section-heading">
+                <h2 id="weekly-heading">weekly drawings</h2>
+            </div>
+            {% include drawing-gallery.html folder="/assets/drawings/challenge/" weekly=true %}
+        </section>
+        <section id="random" class="drawing-section" aria-labelledby="random-heading">
+            <div class="drawing-section-heading">
+                <h2 id="random-heading">random drawings</h2><p class="gray">outside the challenge</p>
+            </div>
+            {% include drawing-gallery.html folder="/assets/drawings/random/" weekly=false %}
+        </section>
+        <footer class="bottom drawings-footer">
+            <p class="gray">drawn by simon frühauf</p><a href="#main-content">back to top &uarr;</a>
+        </footer>
+    </main>
+    <dialog class="drawing-viewer" aria-label="Full-size drawing">
+        <div class="drawing-viewer-toolbar">
+            <p id="viewer-caption"></p>
+            <button type="button" class="viewer-close" autofocus>close <span aria-hidden="true">[esc]</span></button>
+        </div>
+        <img class="drawing-viewer-image" alt="">
+        <a class="viewer-original" target="_blank" rel="noopener noreferrer">open original</a>
+    </dialog>
+</body>
+</html>
