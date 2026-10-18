@@ -306,6 +306,16 @@ li {
     outline-offset: 3px;
 }
 
+.visitor-count {
+    margin-left: auto;
+    white-space: nowrap;
+}
+
+.visitor-count::before {
+    content: "~";
+    margin-right: 0.6ch;
+}
+
 .section-spaced {
     margin-top: var(--space-6);
 }
